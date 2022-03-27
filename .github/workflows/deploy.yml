@@ -11,10 +11,15 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
 
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
+
       - name: Install and Build 🔧
         run: |
-          mkdir -p dist
-          cp src/index.html dist/index.html
+          npm install
+          npm run build
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.2.5
