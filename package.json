@@ -2,22 +2,22 @@
   "name": "harryzcy.github.io",
   "version": "0.0.0",
   "description": "This is where my website stays",
-  "source": "src/index.html",
-  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "author": "Chongyi Zheng",
+  "license": "UNLICENSED",
   "scripts": {
-    "start": "parcel",
+    "start": "parcel './src/*.html'",
     "build": "parcel build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/harryzcy/harryzcy.github.io.git"
-  },
-  "keywords": [],
-  "author": "Chongyi Zheng",
-  "license": "UNLICENSED",
-  "bugs": {
-    "url": "https://github.com/harryzcy/harryzcy.github.io/issues"
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "source": [
+    "src/index.html",
+    "src/projects.html"
+  ],
+  "targets": {
+    "default": {
+      "distDir": "./dist"
+    }
   },
   "homepage": "https://github.com/harryzcy/harryzcy.github.io#readme",
   "devDependencies": {
