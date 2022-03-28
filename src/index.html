@@ -10,13 +10,22 @@
 
 <body class="font-sans pb-16">
   <header class="sticky top-0 w-full bg-teal-700/90 backdrop-blur-sm text-white font-mono">
-    <nav class="max-w-[800px] m-auto flex justify-end text-right">
-      <a class="flex-1 max-w-[100px] p-4" href="/">
-        <span class="p-2 rounded-full text-white font-bold">about</span>
-      </a>
-      <a class="flex-1 max-w-[100px] p-4" href="/projects">
-        <span class="p-2 rounded-full text-white hover:font-bold">projects</span>
-      </a>
+    <nav class="max-w-[800px] m-auto flex justify-between text-right">
+      <div class="flex-none py-4 pr-4 flex items-center">
+        <a href="/">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+          </svg>
+        </a>
+      </div>
+      <div class="flex-1 py-4">
+        <a class="max-w-[100px] py-4" href="/">
+          <span class="p-2 rounded-full text-white font-bold">about</span>
+        </a>
+        <a class="max-w-[100px] py-4" href="/projects">
+          <span class="p-2 rounded-full text-white hover:font-bold">projects</span>
+        </a>
+      </div>
     </nav>
   </header>
 
