@@ -10,6 +10,8 @@ module.exports = {
         'lang-go': '#00ADD8',
         'lang-rust': '#dea584',
         'lang-java': '#b07219',
+        'lang-python': '#3572A5',
+        'lang-c': '#555555',
       }
     },
   },
