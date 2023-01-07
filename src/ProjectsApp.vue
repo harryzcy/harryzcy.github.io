@@ -32,7 +32,7 @@
     <h1 class="text-3xl font-bold mt-5 mb-3 text-slate-900">Projects</h1>
   </section>
 
-  <section
+  <!-- <section
     id="projects-content-2022"
     class="max-w-[800px] px-4 m-auto text-slate-900 py-5"
   >
@@ -370,6 +370,47 @@
         Apple Silicon support.
       </p>
     </div>
+  </section> -->
+
+  <section
+    v-for="year in years"
+    class="max-w-[800px] px-4 m-auto text-slate-900 py-5"
+  >
+    <h2 class="text-2xl mb-4">{{ year }}</h2>
+    <div v-for="project in projects[year]" class="mb-4">
+      <div class="mb-2">
+        <a
+          v-if="project.url"
+          class="underline text-blue-600 hover:text-blue-800 visited:text-purple-600"
+          :href="project.url"
+        >
+          <span class="text-lg">{{ project.name }}</span>
+        </a>
+        <span v-else class="text-lg">{{ project.name }}</span>
+        <span v-if="project.full_name" class="text-lg ml-1 whitespace-nowrap"
+          >({{ project.full_name }})</span
+        >
+
+        <span
+          class="text-sm rounded-full ml-2 px-2"
+          :class="[
+            project.status === 'Ongoing'
+              ? 'text-sky-700 bg-sky-100'
+              : 'text-green-700 bg-teal-100',
+          ]"
+        >
+          {{ project.status }}
+        </span>
+        <span
+          class="text-sm rounded-full ml-2 px-2 bg-gray-100"
+          :class="[`text-lang-${project.language_class}`]"
+        >
+          {{ project.language }}
+        </span>
+      </div>
+
+      <p v-html="renderDescription(project.description)"></p>
+    </div>
   </section>
 
   <footer class="w-full bg-teal-900/20 font-mono text-slate-900">
@@ -380,9 +421,53 @@
 </template>
 
 <script lang="ts">
-export default {
-  data() {
-    return {}
-  },
+import { defineComponent } from 'vue'
+import projects from './projects.json'
+
+type Project = {
+  name: string
+  full_name?: string
+  year: number
+  status: 'Ongoing' | 'Completed'
+  language: string
+  language_class: string
+  url?: string
+  description: string
 }
+
+const typedProjects = projects as Project[]
+
+const getYears = (projects: Project[]) => {
+  return Array.from(new Set(projects.map((project) => project.year))).sort(
+    (a, b) => b - a
+  )
+}
+
+const getProjectsByYear = (projects: Project[]) => {
+  const years = getYears(projects)
+  const projectsByYear: Record<number, Project[]> = {}
+  years.forEach((year) => {
+    projectsByYear[year] = projects.filter((project) => project.year === year)
+  })
+  return projectsByYear
+}
+
+export default defineComponent({
+  data() {
+    return {
+      projects: getProjectsByYear(typedProjects),
+      years: getYears(typedProjects),
+      renderDescription(description: string) {
+        return description.replace(
+          /<a href="(.*?)">(.*?<\/a>)/g,
+          (_, url, text) => {
+            return `<a class="underline text-blue-600 hover:text-blue-800 visited:text-purple-600" href="${url}">${text}</a>`
+          }
+        ).replace(/\*\*(.*?)\*\*/g, (_, text) => {
+          return `<span class="font-bold">${text}</span>`
+        })
+      },
+    }
+  },
+})
 </script>
