@@ -134,7 +134,7 @@ export default defineComponent({
       renderDescription(description: string) {
         return description
           .replace(/\[(.*?)\]\((.*?)\)/g, (_, text, url) => {
-            return `<a class="underline text-blue-600 hover:text-blue-800 visited:text-blue-800 dark:text-sky-500 dark:hover:text-sky-400 dark:visited:text-sky-700" href="${url}">${text}</a>`
+            return `<a class="underline text-blue-600 hover:text-blue-800 visited:text-blue-800 dark:text-sky-500 dark:hover:text-sky-400 dark:visited:text-sky-600" href="${url}">${text}</a>`
           })
           .replace(/\*\*(.*?)\*\*/g, (_, text) => {
             return `<span class="font-bold">${text}</span>`
