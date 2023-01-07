@@ -29,7 +29,9 @@
   </header>
 
   <section class="max-w-[800px] px-4 m-auto mt-3 md:pt-5">
-    <h1 class="text-2xl font-bold mb-3 text-slate-900 dark:text-neutral-400">Projects</h1>
+    <h1 class="text-2xl font-bold mb-3 text-slate-900 dark:text-neutral-400">
+      Projects
+    </h1>
   </section>
 
   <section
@@ -47,8 +49,12 @@
           >
             <span class="text:md lg:text-lg">{{ project.name }}</span>
           </a>
-          <span v-else class="text:md lg:text-lg dark:text-gray-300">{{ project.name }}</span>
-          <span v-if="project.full_name" class="text:md lg:text-lg ml-1 dark:text-gray-300"
+          <span v-else class="text:md lg:text-lg dark:text-gray-300">{{
+            project.name
+          }}</span>
+          <span
+            v-if="project.full_name"
+            class="text:md lg:text-lg ml-1 dark:text-gray-300"
             >({{ project.full_name }})</span
           >
         </span>
@@ -66,7 +72,9 @@
           </span>
           <span
             class="text-sm rounded px-1 md:px-2 bg-gray-100 dark:bg-gray-800"
-            :class="[`text-lang-${project.lang_class}-light dark:text-lang-${project.lang_class}-dark`]"
+            :class="[
+              `text-lang-${project.lang_class}-light dark:text-lang-${project.lang_class}-dark`,
+            ]"
           >
             {{ project.lang }}
           </span>
@@ -77,7 +85,9 @@
     </div>
   </section>
 
-  <footer class="w-full bg-teal-900/20 dark:bg-neutral-800 font-mono text-slate-900 dark:text-teal-500 mt-6">
+  <footer
+    class="w-full bg-teal-900/20 dark:bg-neutral-800 font-mono text-slate-900 dark:text-teal-500 mt-6"
+  >
     <div class="w-full px-10 py-2 md:py-4 flex justify-end items-center">
       <span class="flex-initial text-sm">C Zheng</span>
     </div>
