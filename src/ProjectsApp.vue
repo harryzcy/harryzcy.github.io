@@ -63,9 +63,9 @@
         </span>
         <span
           class="text-sm rounded-full ml-2 px-2 bg-gray-100"
-          :class="[`text-lang-${project.language_class}`]"
+          :class="[`text-lang-${project.lang_class}`]"
         >
-          {{ project.language }}
+          {{ project.lang }}
         </span>
       </div>
 
@@ -89,8 +89,8 @@ type Project = {
   full_name?: string
   year: number
   status: 'Ongoing' | 'Completed'
-  language: string
-  language_class: string
+  lang: string
+  lang_class: string
   url?: string
   description: string
 }
