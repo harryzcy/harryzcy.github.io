@@ -9,9 +9,9 @@ module.exports = {
         'lang-rs': '#dea584',
         'lang-java': '#b07219',
         'lang-py': '#3572A5',
-        'lang-c': '#555555',
-      },
-    },
+        'lang-c': '#555555'
+      }
+    }
   },
   plugins: [],
   safelist: [
@@ -21,6 +21,6 @@ module.exports = {
     'text-lang-rs',
     'text-lang-java',
     'text-lang-py',
-    'text-lang-c',
-  ],
+    'text-lang-c'
+  ]
 }
