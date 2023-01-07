@@ -79,7 +79,7 @@
     "year": 2022,
     "status": "Completed",
     "language": "Python",
-    "language_class": "python",
+    "language_class": "py",
     "description": "The canvas-file-syncer is a command line program that helps to sync files between Canvas, a learning management system (LMS) used by many colleges, and local file system. It handles the automatic login process and downloads all files from courses while keeping the directory structure. It takes a configuration files as input and syncs data to the right location."
   },
   {
@@ -88,7 +88,7 @@
     "year": 2022,
     "status": "Completed",
     "language": "Python",
-    "language_class": "python",
+    "language_class": "py",
     "description": "It is a command line program that helps to sync files between Sakai and local file system. It handles the automatic login through Single Sign-On and downloads all files for all courses."
   },
   {
@@ -106,7 +106,7 @@
     "year": 2021,
     "status": "Completed",
     "language": "Rust",
-    "language_class": "rust",
+    "language_class": "rs",
     "description": "The Calculator is built for HackNC 2021 hackathon. It is a simple calculator made in Rust in collaboration with Eric Schneider. I made the \"backend\" (parser/evaluator) and the web interface using WASM. Eric made the GUI that runs as a native app. The simple CLI version is also supported. The web version can be viewed [here](https://eric-unc.tech/hacknc2021)."
   },
   {
@@ -116,7 +116,7 @@
     "year": 2021,
     "status": "Completed",
     "language": "Rust",
-    "language_class": "rust",
+    "language_class": "rs",
     "description": "Limp is a Lisp-like programming language made in Rust. Together with Eric Schneider, the project is made for PackHacks 2021. The language supports arithmetic/bitwise operations, conditional statements, and builtin function invocations."
   },
   {
