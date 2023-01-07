@@ -87,7 +87,7 @@
   </section>
 
   <footer
-    class="w-full bg-teal-900/20 dark:bg-neutral-900 font-mono text-slate-900 dark:text-teal-500 mt-6 border-t border-transparent dark:border-neutral-800"
+    class="w-full bg-teal-900/20 dark:bg-neutral-900 font-mono text-slate-900 dark:text-teal-500 mt-6 border-t border-transparent dark:border-neutral-700"
   >
     <div class="w-full px-10 py-2 md:py-4 flex justify-end items-center">
       <span class="flex-initial text-sm">C Zheng</span>
