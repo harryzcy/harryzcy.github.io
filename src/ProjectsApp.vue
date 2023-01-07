@@ -2,70 +2,74 @@
   <header
     class="sticky top-0 w-full bg-teal-700/90 backdrop-blur-sm text-white font-mono"
   >
-    <nav class="max-w-[800px] px-4 m-auto flex justify-between text-right">
-      <div class="flex-none py-4 pr-4 flex items-center">
+    <nav
+      class="max-w-[800px] m-auto flex justify-between items-center text-right"
+    >
+      <a href="/" class="px-4 py-2 md:py-4">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+        >
+          <path
+            d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"
+          />
+        </svg>
+      </a>
+      <div class="px-4 py-2 md:py-4 flex space-x-2">
         <a href="/">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-5 w-5"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-          >
-            <path
-              d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"
-            />
-          </svg>
-        </a>
-      </div>
-      <div class="flex-1 py-4">
-        <a class="max-w-[100px] py-4" href="/">
           <span class="p-2 rounded-full text-white hover:font-bold">about</span>
         </a>
-        <a class="max-w-[100px] py-4" href="/projects">
+        <a href="/projects">
           <span class="p-2 rounded-full text-white font-bold">projects</span>
         </a>
       </div>
     </nav>
   </header>
 
-  <section id="projects-title" class="max-w-[800px] px-4 m-auto pt-5">
-    <h1 class="text-3xl font-bold mt-5 mb-3 text-slate-900">Projects</h1>
+  <section class="max-w-[800px] px-4 m-auto mt-3 md:pt-5">
+    <h1 class="text-2xl font-bold mb-3 text-slate-900">Projects</h1>
   </section>
 
   <section
     v-for="year in years"
-    class="max-w-[800px] px-4 m-auto text-slate-900 py-5"
+    class="max-w-[800px] px-4 m-auto text-slate-900 mt-4 md:mt-5"
   >
-    <h2 class="text-2xl mb-4">{{ year }}</h2>
+    <h2 class="text-2xl mb-1 md:mb-2">{{ year }}</h2>
     <div v-for="project in projects[year]" class="mb-4">
-      <div class="mb-2">
-        <a
-          v-if="project.url"
-          class="underline text-blue-600 hover:text-blue-800 visited:text-purple-600"
-          :href="project.url"
-        >
-          <span class="text-lg">{{ project.name }}</span>
-        </a>
-        <span v-else class="text-lg">{{ project.name }}</span>
-        <span v-if="project.full_name" class="text-lg ml-1 whitespace-nowrap"
-          >({{ project.full_name }})</span
-        >
-
-        <span
-          class="text-sm rounded-full ml-2 px-2"
-          :class="[
-            project.status === 'Ongoing'
-              ? 'text-sky-700 bg-sky-100'
-              : 'text-green-700 bg-teal-100',
-          ]"
-        >
-          {{ project.status }}
+      <div class="mb-1 flex flex-wrap items-center align-baseline">
+        <span class="mb-0.5 mr-2">
+          <a
+            v-if="project.url"
+            class="underline text-blue-600 hover:text-blue-800 visited:text-purple-600"
+            :href="project.url"
+          >
+            <span class="text:md lg:text-lg">{{ project.name }}</span>
+          </a>
+          <span v-else class="text:md lg:text-lg">{{ project.name }}</span>
+          <span v-if="project.full_name" class="text:md lg:text-lg ml-1"
+            >({{ project.full_name }})</span
+          >
         </span>
-        <span
-          class="text-sm rounded-full ml-2 px-2 bg-gray-100"
-          :class="[`text-lang-${project.lang_class}`]"
-        >
-          {{ project.lang }}
+
+        <span class="mb-0.5 space-x-2">
+          <span
+            class="text-sm rounded px-1 md:px-2"
+            :class="[
+              project.status === 'Ongoing'
+                ? 'text-sky-700 bg-sky-100'
+                : 'text-green-700 bg-teal-100',
+            ]"
+          >
+            {{ project.status }}
+          </span>
+          <span
+            class="text-sm rounded px-1 md:px-2 bg-gray-100"
+            :class="[`text-lang-${project.lang_class}`]"
+          >
+            {{ project.lang }}
+          </span>
         </span>
       </div>
 
@@ -73,9 +77,9 @@
     </div>
   </section>
 
-  <footer class="w-full bg-teal-900/20 font-mono text-slate-900">
-    <div class="w-full px-10 py-4 flex justify-end items-center">
-      <span class="flex-initial">C Zheng</span>
+  <footer class="w-full bg-teal-900/20 font-mono text-slate-900 mt-6">
+    <div class="w-full px-10 py-2 md:py-4 flex justify-end items-center">
+      <span class="flex-initial text-sm">C Zheng</span>
     </div>
   </footer>
 </template>
