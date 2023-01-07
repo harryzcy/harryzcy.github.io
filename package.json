@@ -39,5 +39,8 @@
   },
   "dependencies": {
     "vue": "3.2.45"
+  },
+  "ts-standard": {
+    "project": "tsconfig.json"
   }
 }
