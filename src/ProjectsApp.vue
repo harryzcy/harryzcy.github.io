@@ -1,6 +1,6 @@
 <template>
   <header
-    class="font-mono sticky top-0 w-full bg-teal-700/90 dark:bg-neutral-900 backdrop-blur-sm text-white dark:text-teal-500 border-b border-transparent dark:border-neutral-700"
+    class="font-mono sticky top-0 w-full bg-teal-700/80 dark:bg-neutral-900/90 backdrop-blur-sm text-white dark:text-teal-500 border-b border-transparent dark:border-neutral-700"
   >
     <nav
       class="max-w-[800px] m-auto flex justify-between items-center text-right"
