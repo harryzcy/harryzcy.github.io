@@ -9,9 +9,18 @@ module.exports = {
         'lang-rust': '#dea584',
         'lang-java': '#b07219',
         'lang-python': '#3572A5',
-        'lang-c': '#555555'
-      }
-    }
+        'lang-c': '#555555',
+      },
+    },
   },
-  plugins: []
+  plugins: [],
+  safelist: [
+    'text-lang-js',
+    'text-lang-ts',
+    'text-lang-go',
+    'text-lang-rust',
+    'text-lang-java',
+    'text-lang-python',
+    'text-lang-c',
+  ],
 }
