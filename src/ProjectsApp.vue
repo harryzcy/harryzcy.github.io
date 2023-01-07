@@ -45,7 +45,7 @@
           <a
             v-if="project.url"
             class="underline decoration-4 underline-offset-0 decoration-teal-600/40 hover:decoration-teal-500/40 text-teal-900 hover:text-teal-600 dark:decoration-teal-300/40 hover:dark:decoration-teal-200/40 dark:text-teal-400 hover:dark:text-teal-300"
-            style="text-decoration-skip-ink: none; text-decoration-skip: none;"
+            style="text-decoration-skip-ink: none; text-decoration-skip: none"
             :href="project.url"
           >
             <span class="text:md lg:text-lg">{{ project.name }}</span>
