@@ -1,129 +1,147 @@
 <!-- htmlhint id-class-value:false -->
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chongyi Zheng</title>
+    <link href="base.css" rel="stylesheet" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chongyi Zheng</title>
-  <link href="base.css" rel="stylesheet">
-</head>
+  <body class="font-sans">
+    <header
+      class="sticky top-0 w-full bg-teal-700/90 backdrop-blur-sm text-white font-mono"
+    >
+      <nav class="max-w-[800px] px-4 m-auto flex justify-between text-right">
+        <div class="flex-none py-4 pr-4 flex items-center">
+          <a href="/">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"
+              />
+            </svg>
+          </a>
+        </div>
+        <div class="flex-1 py-4">
+          <a class="max-w-[100px] py-4" href="/">
+            <span class="p-2 rounded-full text-white font-bold">about</span>
+          </a>
+          <a class="max-w-[100px] py-4" href="/projects">
+            <span class="p-2 rounded-full text-white hover:font-bold"
+              >projects</span
+            >
+          </a>
+        </div>
+      </nav>
+    </header>
 
-<body class="font-sans">
-  <header class="sticky top-0 w-full bg-teal-700/90 backdrop-blur-sm text-white font-mono">
-    <nav class="max-w-[800px] px-4 m-auto flex justify-between text-right">
-      <div class="flex-none py-4 pr-4 flex items-center">
-        <a href="/">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-            <path
-              d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
-          </svg>
-        </a>
+    <section id="intro" class="max-w-[800px] px-4 m-auto py-5">
+      <h1 class="text-3xl font-bold mt-5 mb-3 text-slate-900">Chongyi Zheng</h1>
+      <h3 class="text-md font-light text-slate-700 mb-8">
+        Student at UNC Chapel Hill
+      </h3>
+      <p class="mb-2 font-bold">Hi, I'm Chongyi Zheng,</p>
+      <p class="mb-2">
+        an undergraduate junior student at the University of North Carolina at
+        Chapel Hill. I am double majoring in Mathematics and Computer Science,
+        expecting to graduate in May 2024.
+      </p>
+    </section>
+
+    <section id="highlights" class="max-w-[800px] px-4 m-auto py-5">
+      <h2 class="text-2xl mb-3">Highlighted Experience and Projects</h2>
+      <p class="mb-2">
+        Currently, I am working as a research assistant with Prof. Prasun Dewan
+        at the Department of Computer Science at UNC Chapel Hill. The group is
+        working on a project that generates programming hints for students when
+        they are working on a programming assignment, using data-driven
+        approaches. I am working on analyzing data from past programming
+        assignments by constructing an Abstract Syntax Tree timeline and
+        clustering students' code.
+      </p>
+      <p class="mb-2">
+        I am also working as a undergraduate teaching assistant for the course
+        Files and Databases (COMP 421), an upper-level elective course focused
+        on teaching SQL and relational database concepts.
+      </p>
+      <p class="mb-2">
+        In fall 2021, I was an undergraduate teaching assistant for Systems
+        Fundamentals (COMP 211), an intermediate course in the Department of
+        Computer Science. The course focused on C programming, low-level system
+        concepts, cache and memory management, and MIPS instructions. I assisted
+        a cohort of 15 students through daily office hours and graded students'
+        lab assignments.
+      </p>
+      <p class="mb-2">
+        In winter 2020-2021, I interned at Yunphant Blockchain, a company
+        providing Blockchain as a Service solutions. I worked on chaincode
+        editor, a tools that allows developers to write and test chaincode
+        programs (the programs that runs on blockchain). I also ported the
+        improved chaincode lifecycle to company's proprietary Yunphant Chain
+        management system.
+      </p>
+      <p class="mb-2">
+        For all my projects, please visit my
+        <a href="/projects">projects page</a>.
+      </p>
+    </section>
+
+    <section id="courseworks" class="max-w-[800px] px-4 m-auto py-5">
+      <h2 class="text-2xl mb-3">Technical Skills</h2>
+      <p class="mb-2">
+        I use a variety of languages and tools in many different projects. C is
+        the first language I learned since 2015. I use Python for many
+        small-scaled scripting works, and use Go for programs what will be
+        packaged as containers.
+      </p>
+      <p class="mb-2">Here is the list of languages and tools I use:</p>
+      <div class="flex mb-2 mt-4">
+        <span class="flex-none w-16 pr-2">
+          <span class="font-bold">Strong</span>:
+        </span>
+        <span class="flex-1">
+          <span class="inline-block w-[85px]">Languages:</span>
+          <span>Python, Golang</span>
+        </span>
       </div>
-      <div class="flex-1 py-4">
-        <a class="max-w-[100px] py-4" href="/">
-          <span class="p-2 rounded-full text-white font-bold">about</span>
-        </a>
-        <a class="max-w-[100px] py-4" href="/projects">
-          <span class="p-2 rounded-full text-white hover:font-bold">projects</span>
-        </a>
+      <div class="flex mb-2">
+        <span class="flex-none w-16 pr-2">
+          <span class="font-bold">Basic</span>:
+        </span>
+        <span class="flex-1">
+          <span class="inline-block w-[85px]">Languages:</span>
+          <span>C, SQL, Java, Node.js, JavaScript/TypeScript, HTML, CSS</span>
+          <span class="w-full block"></span>
+          <span class="inline-block w-[85px]">Tools:</span>
+          <span
+            >Docker, Git, React.js, Node.js, PostgreSQL, MySQL, SQLite, GitHub
+            Actions</span
+          >
+        </span>
       </div>
-    </nav>
-  </header>
+      <div class="flex mb-2">
+        <span class="flex-none w-16 pr-2">
+          <span class="font-bold">Some</span>:
+        </span>
+        <span class="flex-1">
+          <span class="inline-block w-[85px]">Languages:</span>
+          <span>Rust, Matlab, Bash, Lisp</span>
+          <span class="w-full block"></span>
+          <span class="inline-block w-[85px]">Tools:</span>
+          <span>Make, Kubernetes, Vue.js, Parcel, MongoDB, gRPC, Protobuf</span>
+        </span>
+      </div>
+    </section>
 
-  <section id="intro" class="max-w-[800px] px-4 m-auto py-5">
-    <h1 class="text-3xl font-bold mt-5 mb-3 text-slate-900">Chongyi Zheng</h1>
-    <h3 class="text-md font-light text-slate-700 mb-8">Student at UNC Chapel Hill</h3>
-    <p class="mb-2 font-bold">
-      Hi, I'm Chongyi Zheng,
-    </p>
-    <p class="mb-2">
-      an undergraduate junior student at the University of North Carolina at Chapel Hill.
-      I am double majoring in Mathematics and Computer Science, expecting to graduate in May 2024.
-    </p>
-  </section>
-
-  <section id="highlights" class="max-w-[800px] px-4 m-auto py-5">
-    <h2 class="text-2xl mb-3">Highlighted Experience and Projects</h2>
-    <p class="mb-2">
-      Currently, I am working as a research assistant with Prof. Prasun Dewan at the Department of Computer Science at
-      UNC Chapel Hill.
-      The group is working on a project that generates programming hints for students when they are working on a
-      programming assignment,
-      using data-driven approaches.
-      I am working on analyzing data from past programming assignments by constructing an Abstract Syntax Tree timeline and clustering students' code.
-    </p>
-    <p class="mb-2">
-      I am also working as a undergraduate teaching assistant for the course Files and Databases (COMP 421),
-      an upper-level elective course focused on teaching SQL and relational database concepts.
-    </p>
-    <p class="mb-2">
-      In fall 2021, I was an undergraduate teaching assistant for Systems Fundamentals (COMP 211), an intermediate course
-      in the Department of Computer Science.
-      The course focused on C programming, low-level system concepts, cache and memory management, and MIPS
-      instructions.
-      I assisted a cohort of 15 students through daily office hours and graded students' lab assignments.
-    </p>
-    <p class="mb-2">
-      In winter 2020-2021, I interned at Yunphant Blockchain, a company providing Blockchain as a Service solutions.
-      I worked on chaincode editor, a tools that allows developers to write and test chaincode programs (the programs
-      that runs on blockchain).
-      I also ported the improved chaincode lifecycle to company's proprietary Yunphant Chain management system.
-    </p>
-    <p class="mb-2">
-      For all my projects, please visit my <a href="/projects">projects page</a>.
-    </p>
-  </section>
-
-  <section id="courseworks" class="max-w-[800px] px-4 m-auto py-5">
-    <h2 class="text-2xl mb-3">Technical Skills</h2>
-    <p class="mb-2">
-      I use a variety of languages and tools in many different projects. C is the first language I learned since 2015.
-      I use Python for many small-scaled scripting works, and use Go for programs what will be packaged as containers.
-    </p>
-    <p class="mb-2">
-      Here is the list of languages and tools I use:
-    </p>
-    <div class="flex mb-2 mt-4">
-      <span class="flex-none w-16 pr-2">
-        <span class="font-bold">Strong</span>:
-      </span>
-      <span class="flex-1">
-        <span class="inline-block w-[85px]">Languages:</span>
-        <span>Python, Golang</span>
-      </span>
-    </div>
-    <div class="flex mb-2">
-      <span class="flex-none w-16 pr-2">
-        <span class="font-bold">Basic</span>:
-      </span>
-      <span class="flex-1">
-        <span class="inline-block w-[85px]">Languages:</span>
-        <span>C, SQL, Java, Node.js, JavaScript/TypeScript, HTML, CSS</span>
-        <span class="w-full block"></span>
-        <span class="inline-block w-[85px]">Tools:</span>
-        <span>Docker, Git, React.js, Node.js, PostgreSQL, MySQL, SQLite, GitHub Actions</span>
-      </span>
-    </div>
-    <div class="flex mb-2">
-      <span class="flex-none w-16 pr-2">
-        <span class="font-bold">Some</span>:
-      </span>
-      <span class="flex-1">
-        <span class="inline-block w-[85px]">Languages:</span>
-        <span>Rust, Matlab, Bash, Lisp</span>
-        <span class="w-full block"></span>
-        <span class="inline-block w-[85px]">Tools:</span>
-        <span>Make, Kubernetes, Vue.js, Parcel, MongoDB, gRPC, Protobuf</span>
-      </span>
-    </div>
-  </section>
-
-  <footer class="w-full bg-teal-900/20 font-mono text-slate-900">
-    <div class="w-full px-10 py-4 flex justify-end items-center">
-      <span class="flex-initial">C Zheng</span>
-    </div>
-  </footer>
-</body>
-
+    <footer class="w-full bg-teal-900/20 font-mono text-slate-900">
+      <div class="w-full px-10 py-4 flex justify-end items-center">
+        <span class="flex-initial">C Zheng</span>
+      </div>
+    </footer>
+  </body>
 </html>
