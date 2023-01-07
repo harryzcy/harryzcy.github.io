@@ -39,11 +39,5 @@
   },
   "dependencies": {
     "vue": "3.2.45"
-  },
-  "ts-standard": {
-    "ignore": [
-      "emv.d.ts",
-      "src/**/*.ts"
-    ]
   }
 }
