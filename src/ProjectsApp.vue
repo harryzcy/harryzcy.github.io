@@ -19,10 +19,10 @@
       </a>
       <div class="px-4 py-2 md:py-4 flex space-x-2">
         <a href="/">
-          <span class="p-2 rounded-full hover:font-bold">about</span>
+          <span class="p-2 rounded-full hover:font-extrabold">about</span>
         </a>
         <a href="/projects">
-          <span class="p-2 rounded-full font-bold">projects</span>
+          <span class="p-2 rounded-full font-extrabold">projects</span>
         </a>
       </div>
     </nav>
@@ -124,7 +124,7 @@ export default defineComponent({
       renderDescription(description: string) {
         return description
           .replace(/\[(.*?)\]\((.*?)\)/g, (_, text, url) => {
-            return `<a class="underline text-blue-600 hover:text-blue-800 visited:text-blue-800" href="${url}">${text}</a>`
+            return `<a class="underline text-blue-600 hover:text-blue-800 visited:text-blue-800 dark:text-sky-500 dark:hover:text-sky-400 dark:visited:text-sky-600" href="${url}">${text}</a>`
           })
           .replace(/\*\*(.*?)\*\*/g, (_, text) => {
             return `<span class="font-bold">${text}</span>`
