@@ -459,8 +459,8 @@ export default defineComponent({
       years: getYears(typedProjects),
       renderDescription(description: string) {
         return description.replace(
-          /<a href="(.*?)">(.*?<\/a>)/g,
-          (_, url, text) => {
+          /\[(.*?)\]\((.*?)\)/g,
+          (_, text, url) => {
             return `<a class="underline text-blue-600 hover:text-blue-800 visited:text-purple-600" href="${url}">${text}</a>`
           }
         ).replace(/\*\*(.*?)\*\*/g, (_, text) => {

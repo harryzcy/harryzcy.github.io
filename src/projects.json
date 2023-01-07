@@ -71,7 +71,7 @@
     "status": "Completed",
     "language": "TypeScript",
     "language_class": "ts",
-    "description": "It is a GitHub Action workflow program and allows GitHub Actions to push iOS notifications via <a href=\"https://github.com/Finb/bark-server\">Bark</a>, a self-hosted backend service that integrates with Apple Push Notification service. It will send a notification to the device when a workflow is completed successfully, failed, or canceled, based on custom configurations."
+    "description": "It is a GitHub Action workflow program and allows GitHub Actions to push iOS notifications via [Bark](https://github.com/Finb/bark-server), a self-hosted backend service that integrates with Apple Push Notification service. It will send a notification to the device when a workflow is completed successfully, failed, or canceled, based on custom configurations."
   },
   {
     "name": "canvas-file-syncer",
@@ -107,7 +107,7 @@
     "status": "Completed",
     "language": "Rust",
     "language_class": "rust",
-    "description": "The Calculator is built for HackNC 2021 hackathon. It is a simple calculator made in Rust in collaboration with Eric Schneider. I made the \"backend\" (parser/evaluator) and the web interface using WASM. Eric made the GUI that runs as a native app. The simple CLI version is also supported. The web version can be viewed <a href=\"https://eric-unc.tech/hacknc2021/\">here</a>."
+    "description": "The Calculator is built for HackNC 2021 hackathon. It is a simple calculator made in Rust in collaboration with Eric Schneider. I made the \"backend\" (parser/evaluator) and the web interface using WASM. Eric made the GUI that runs as a native app. The simple CLI version is also supported. The web version can be viewed [here](https://eric-unc.tech/hacknc2021)."
   },
   {
     "name": "Limp",
