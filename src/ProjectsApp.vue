@@ -34,21 +34,21 @@
 
   <section
     v-for="year in years"
-    class="max-w-[800px] px-4 m-auto text-slate-900 dark:text-neutral-400 mt-4 md:mt-5"
+    class="max-w-[800px] px-4 m-auto text-slate-900 dark:text-neutral-400 mt-4 md:mt-7"
   >
-    <h2 class="text-2xl mb-1 md:mb-2 dark:text-gray-300">{{ year }}</h2>
-    <div v-for="project in projects[year]" class="mb-4">
+    <h2 class="text-2xl mb-1 md:mb-2">{{ year }}</h2>
+    <div v-for="project in projects[year]" class="mb-4 md:mb-6">
       <div class="mb-1 flex flex-wrap items-center align-baseline">
         <span class="mb-0.5 mr-2">
           <a
             v-if="project.url"
-            class="underline text-blue-600 hover:text-blue-800 visited:text-blue-800 dark:text-blue-400 dark:hover:text-blue-500 dark:visited:text-blue-500"
+            class="underline text-blue-600 hover:text-blue-800 visited:text-blue-800 dark:text-sky-500 dark:hover:text-sky-400 dark:visited:text-sky-600"
             :href="project.url"
           >
             <span class="text:md lg:text-lg">{{ project.name }}</span>
           </a>
-          <span v-else class="text:md lg:text-lg">{{ project.name }}</span>
-          <span v-if="project.full_name" class="text:md lg:text-lg ml-1"
+          <span v-else class="text:md lg:text-lg dark:text-gray-300">{{ project.name }}</span>
+          <span v-if="project.full_name" class="text:md lg:text-lg ml-1 dark:text-gray-300"
             >({{ project.full_name }})</span
           >
         </span>
@@ -58,8 +58,8 @@
             class="text-sm rounded px-1 md:px-2"
             :class="[
               project.status === 'Ongoing'
-                ? 'text-sky-700 bg-sky-100 dark:text-sky-400 dark:bg-sky-900/60'
-                : 'text-green-700 bg-teal-100 dark:text-green-400 dark:bg-green-900/60',
+                ? 'text-sky-700 bg-sky-100 dark:text-sky-400 dark:bg-sky-900/40'
+                : 'text-green-700 bg-teal-100 dark:text-green-500 dark:bg-green-900/40',
             ]"
           >
             {{ project.status }}
