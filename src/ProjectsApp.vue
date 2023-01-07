@@ -72,7 +72,7 @@
             {{ project.status }}
           </span>
           <span
-            class="text-sm rounded px-1 md:px-2 bg-gray-100 dark:bg-gray-800"
+            class="text-sm rounded px-1 md:px-2 bg-slate-100 dark:bg-gray-800"
             :class="[
               `text-lang-${project.lang_class}-light dark:text-lang-${project.lang_class}-dark`,
             ]"
