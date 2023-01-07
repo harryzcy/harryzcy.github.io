@@ -22,7 +22,6 @@
   "homepage": "https://github.com/harryzcy/harryzcy.github.io#readme",
   "devDependencies": {
     "@parcel/transformer-vue": "2.8.2",
-    "@vue/tsconfig": "^0.1.3",
     "autoprefixer": "10.4.13",
     "parcel": "2.8.2",
     "postcss": "8.4.21",
