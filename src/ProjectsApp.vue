@@ -63,9 +63,9 @@
         </span>
         <span
           class="text-sm rounded-full ml-2 px-2 bg-gray-100"
-          :class="[`text-lang-${project.language_class}`]"
+          :class="[`text-lang-${project.lang_class}`]"
         >
-          {{ project.language }}
+          {{ project.lang }}
         </span>
       </div>
 
@@ -89,8 +89,8 @@ type Project = {
   full_name?: string
   year: number
   status: 'Ongoing' | 'Completed'
-  language: string
-  language_class: string
+  lang: string
+  lang_class: string
   url?: string
   description: string
 }
@@ -118,14 +118,13 @@ export default defineComponent({
       projects: getProjectsByYear(typedProjects),
       years: getYears(typedProjects),
       renderDescription(description: string) {
-        return description.replace(
-          /\[(.*?)\]\((.*?)\)/g,
-          (_, text, url) => {
+        return description
+          .replace(/\[(.*?)\]\((.*?)\)/g, (_, text, url) => {
             return `<a class="underline text-blue-600 hover:text-blue-800 visited:text-purple-600" href="${url}">${text}</a>`
-          }
-        ).replace(/\*\*(.*?)\*\*/g, (_, text) => {
-          return `<span class="font-bold">${text}</span>`
-        })
+          })
+          .replace(/\*\*(.*?)\*\*/g, (_, text) => {
+            return `<span class="font-bold">${text}</span>`
+          })
       },
     }
   },
