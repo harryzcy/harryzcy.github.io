@@ -66,7 +66,7 @@
             :class="[
               project.status === 'Ongoing'
                 ? 'text-sky-700 bg-sky-100 dark:text-sky-400 dark:bg-sky-900/40'
-                : 'text-green-700 bg-teal-100 dark:text-green-500 dark:bg-green-900/40',
+                : 'text-green-700 bg-teal-100 dark:text-teal-500 dark:bg-teal-900/40',
             ]"
           >
             {{ project.status }}
