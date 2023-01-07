@@ -1,6 +1,6 @@
 <template>
   <header
-    class="sticky top-0 w-full bg-teal-700/90 dark:bg-neutral-800 backdrop-blur-sm text-white dark:text-teal-500 font-mono"
+    class="font-mono sticky top-0 w-full bg-teal-700/90 dark:bg-neutral-900 backdrop-blur-sm text-white dark:text-teal-500 border-b border-transparent dark:border-neutral-700"
   >
     <nav
       class="max-w-[800px] m-auto flex justify-between items-center text-right"
@@ -86,7 +86,7 @@
   </section>
 
   <footer
-    class="w-full bg-teal-900/20 dark:bg-neutral-800 font-mono text-slate-900 dark:text-teal-500 mt-6"
+    class="w-full bg-teal-900/20 dark:bg-neutral-900 font-mono text-slate-900 dark:text-teal-500 mt-6 border-t border-transparent dark:border-neutral-800"
   >
     <div class="w-full px-10 py-2 md:py-4 flex justify-end items-center">
       <span class="flex-initial text-sm">C Zheng</span>
@@ -134,7 +134,7 @@ export default defineComponent({
       renderDescription(description: string) {
         return description
           .replace(/\[(.*?)\]\((.*?)\)/g, (_, text, url) => {
-            return `<a class="underline text-blue-600 hover:text-blue-800 visited:text-blue-800 dark:text-sky-500 dark:hover:text-sky-400 dark:visited:text-sky-600" href="${url}">${text}</a>`
+            return `<a class="underline text-blue-600 hover:text-blue-800 visited:text-blue-800 dark:text-sky-500 dark:hover:text-sky-400 dark:visited:text-sky-700" href="${url}">${text}</a>`
           })
           .replace(/\*\*(.*?)\*\*/g, (_, text) => {
             return `<span class="font-bold">${text}</span>`
