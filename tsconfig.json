@@ -5,6 +5,7 @@
     "experimentalDecorators": true,
     "isolatedModules": true,
     "target": "ES2016",
+    "rootDir": ".",
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
