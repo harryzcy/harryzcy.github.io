@@ -44,7 +44,8 @@
         <span class="mb-0.5 mr-2">
           <a
             v-if="project.url"
-            class="underline text-blue-600 hover:text-blue-800 visited:text-blue-800 dark:text-sky-500 dark:hover:text-sky-400 dark:visited:text-sky-600"
+            class="underline decoration-4 underline-offset-0 decoration-teal-600/40 hover:decoration-teal-500/40 text-teal-900 hover:text-teal-600 dark:decoration-teal-300/40 hover:dark:decoration-teal-200/40 dark:text-teal-400 hover:dark:text-teal-300"
+            style="text-decoration-skip-ink: none; text-decoration-skip: none;"
             :href="project.url"
           >
             <span class="text:md lg:text-lg">{{ project.name }}</span>
@@ -134,7 +135,10 @@ export default defineComponent({
       renderDescription(description: string) {
         return description
           .replace(/\[(.*?)\]\((.*?)\)/g, (_, text, url) => {
-            return `<a class="underline text-blue-600 hover:text-blue-800 visited:text-blue-800 dark:text-sky-500 dark:hover:text-sky-400 dark:visited:text-sky-600" href="${url}">${text}</a>`
+            return `<a 
+              class="underline decoration-4 underline-offset-0 decoration-teal-600/40 hover:decoration-teal-500/40 text-teal-900 hover:text-teal-600 dark:decoration-teal-300/40 hover:dark:decoration-teal-200/40 dark:text-teal-400 hover:dark:text-teal-300"
+              style="text-decoration-skip-ink: none; text-decoration-skip: none;"
+              href="${url}">${text}</a>`
           })
           .replace(/\*\*(.*?)\*\*/g, (_, text) => {
             return `<span class="font-bold">${text}</span>`
