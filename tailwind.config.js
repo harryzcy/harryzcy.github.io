@@ -37,7 +37,7 @@ module.exports = {
   plugins: [],
   safelist: [
     {
-      pattern: /text-lang-(js|ts|go|rs|java|py|c)-light/,
+      pattern: /text-lang-(js|ts|go|rs|java|py|c)-light/
     },
     'dark:text-lang-js-dark',
     'dark:text-lang-ts-dark',
