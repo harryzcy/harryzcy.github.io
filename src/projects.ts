@@ -1,5 +1,5 @@
 import { createApp } from "vue";
-import ProjectApp from "./Projects.vue";
+import ProjectApp from "./ProjectsApp.vue";
 
 declare global {
   var __VUE_OPTIONS_API__: boolean;
