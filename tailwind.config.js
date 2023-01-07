@@ -1,7 +1,5 @@
 module.exports = {
-  content: [
-    "./src/**/*.{html,vue,js,ts,jsx,tsx}",
-  ],
+  content: ['./src/**/*.{html,vue,js,ts,jsx,tsx}'],
   theme: {
     extend: {
       colors: {
@@ -12,8 +10,8 @@ module.exports = {
         'lang-java': '#b07219',
         'lang-python': '#3572A5',
         'lang-c': '#555555',
-      }
+      },
     },
   },
-  plugins: [],
+  plugins: []
 }
