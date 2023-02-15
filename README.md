@@ -1,3 +1,3 @@
 # harryzcy.github.io
 
-This is where [my website](https://zcy.dev) stays
+This is where [my site](https://zcy.dev) stays
