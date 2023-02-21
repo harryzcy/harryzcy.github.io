@@ -25,7 +25,7 @@
   "devDependencies": {
     "@parcel/transformer-vue": "2.8.3",
     "@rushstack/eslint-patch": "^1.2.0",
-    "@vue/eslint-config-prettier": "7.0.0",
+    "@vue/eslint-config-prettier": "7.1.0",
     "@vue/eslint-config-typescript": "11.0.2",
     "autoprefixer": "10.4.13",
     "eslint": "8.34.0",
