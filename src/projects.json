@@ -127,5 +127,14 @@
     "lang": "Go",
     "lang_class": "go",
     "description": "ascheck is a command line tool that bulk-checks your apps for their Apple Silicon support."
+  },
+  {
+    "name": "Mailbox Browser",
+    "url": "https://github.com/harryzcy/mailbox-browser",
+    "year": 2023,
+    "status": "Ongoing",
+    "lang": "TypeScript",
+    "lang_class": "ts",
+    "description": "Mailbox Browser is a web application serving as a frontend for [Mailbox](https://github.com/harryzcy/mailbox)."
   }
 ]
