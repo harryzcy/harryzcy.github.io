@@ -36,7 +36,7 @@
     "prettier": "2.8.8",
     "tailwindcss": "3.3.2",
     "typescript": "5.0.4",
-    "vue-tsc": "1.6.1"
+    "vue-tsc": "1.6.2"
   },
   "dependencies": {
     "vue": "3.2.47"
