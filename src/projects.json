@@ -136,5 +136,14 @@
     "lang": "TypeScript",
     "lang_class": "ts",
     "description": "Mailbox Browser is a web application serving as a frontend for [Mailbox](https://github.com/harryzcy/mailbox)."
+  },
+  {
+    "name": "Artifact Store",
+    "url": "https://github.com/harryzcy/artifact-store",
+    "year": 2023,
+    "status": "Ongoing",
+    "lang": "Rust",
+    "lang_class": "rs",
+    "description": "Artifact Store is a service that stores build artifacts from CI/CD pipelines. It is intended as a arbitrary file storage service that stores the output for every commit, so that when starting the deployment in my Kubernetes cluster, I can pull the latest build that's strictly versioned."
   }
 ]
