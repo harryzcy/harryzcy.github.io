@@ -12,7 +12,7 @@
     "name": "GBot",
     "full_name": "Bot for GitHub",
     "year": 2022,
-    "status": "Ongoing",
+    "status": "Completed",
     "lang": "TypeScript",
     "lang_class": "ts",
     "description": "GBot is a Node.js application that runs GitHub-triggered automation using GitHub webhooks. It is registered as a GitHub app authenticated using OAuth. It listens to various events and performs actions accordingly. Currently, it syncs GitHub repositories with my local machine whenever there's a change to the repository."
@@ -41,7 +41,7 @@
     "name": "GmG",
     "url": "https://github.com/harryzcy/gmg",
     "year": 2022,
-    "status": "Ongoing",
+    "status": "Completed",
     "lang": "Go",
     "lang_class": "go",
     "description": "GmG is a CLI tool that helps to set up mirrors between GitHub and Gitea. I use Gitea to host my private repositories, but from time to time, I need to sync many private repositories to GitHub. This tool helps to ease the workflow."
@@ -132,7 +132,7 @@
     "name": "Mailbox Browser",
     "url": "https://github.com/harryzcy/mailbox-browser",
     "year": 2023,
-    "status": "Ongoing",
+    "status": "Completed",
     "lang": "TypeScript",
     "lang_class": "ts",
     "description": "Mailbox Browser is a web application serving as a frontend for [Mailbox](https://github.com/harryzcy/mailbox)."
@@ -145,5 +145,14 @@
     "lang": "Rust",
     "lang_class": "rs",
     "description": "Artifact Store is a service that stores build artifacts from CI/CD pipelines. It is intended as a arbitrary file storage service that stores the output for every commit, so that when starting the deployment in my Kubernetes cluster, I can pull the latest build that's strictly versioned."
+  },
+  {
+    "name": "snuuze",
+    "url": "https://github.com/harryzcy/snuuze",
+    "year": 2023,
+    "status": "Ongoing",
+    "lang": "Go",
+    "lang_class": "go",
+    "description": "Snuuze is a lightweight dependency update tool that scans the entire repository and submit pull requests for outdated dependencies."
   }
 ]
