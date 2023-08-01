@@ -33,7 +33,9 @@
   <section
     class="flex items-center max-w-[800px] px-4 m-auto mt-3 md:pt-5 text-slate-900 dark:text-neutral-400"
   >
-    <h1 class="flex-none text-2xl font-bold mb-3">Projects</h1>
+    <h1 class="flex-none text-2xl font-bold mb-3 dark:text-neutral-300">
+      Projects
+    </h1>
 
     <div class="grow mb-3">
       <div class="flex justify-end gap-4">
