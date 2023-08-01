@@ -35,11 +35,15 @@
 
     <div class="grow mb-3">
       <div class="flex justify-end gap-4">
-        <div class="rounded border-md">
+        <div
+          class="rounded-md border px-4 py-1 cursor-pointer dark:border-neutral-200/5 dark:bg-neutral-200/10 hover:dark:border-neutral-200/30 hover:dark:text-neutral-300 hover:dark:bg-neutral-200/20"
+        >
           <span>Sort</span>
         </div>
 
-        <div class="rounded border-md">
+        <div
+          class="rounded-md border px-4 py-1 cursor-pointer dark:border-neutral-200/5 dark:bg-neutral-200/10 hover:dark:border-neutral-200/30 hover:dark:text-neutral-300 hover:dark:bg-neutral-200/20"
+        >
           <span>Language</span>
         </div>
       </div>
