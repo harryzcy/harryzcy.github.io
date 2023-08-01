@@ -39,17 +39,23 @@
 
     <div class="grow mb-3">
       <div class="flex justify-end gap-4">
-        <div
-          class="rounded-md border px-4 py-1 cursor-pointer dark:border-neutral-200/5 dark:bg-neutral-200/10 hover:dark:border-neutral-200/30 hover:dark:text-neutral-300 hover:dark:bg-neutral-200/20"
+        <span
+          class="flex items-center rounded-md border px-4 py-1 cursor-pointer dark:border-neutral-200/5 dark:bg-neutral-200/10 hover:dark:border-neutral-200/30 hover:dark:text-neutral-300 hover:dark:bg-neutral-200/20"
         >
           <span>Sort</span>
-        </div>
+          <span class="ml-2 -mr-1 mt-0.5">
+            <ChevronDownIcon class="w-4 h-4" />
+          </span>
+        </span>
 
-        <div
-          class="rounded-md border px-4 py-1 cursor-pointer dark:border-neutral-200/5 dark:bg-neutral-200/10 hover:dark:border-neutral-200/30 hover:dark:text-neutral-300 hover:dark:bg-neutral-200/20"
+        <span
+          class="flex items-center rounded-md border px-4 py-1 cursor-pointer dark:border-neutral-200/5 dark:bg-neutral-200/10 hover:dark:border-neutral-200/30 hover:dark:text-neutral-300 hover:dark:bg-neutral-200/20"
         >
           <span>Language</span>
-        </div>
+          <span class="ml-2 -mr-1 mt-0.5">
+            <ChevronDownIcon class="w-4 h-4" />
+          </span>
+        </span>
       </div>
     </div>
   </section>
@@ -118,6 +124,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { ChevronDownIcon } from '@heroicons/vue/24/solid'
 import projects from './projects.json'
 
 type Project = {
@@ -151,6 +158,9 @@ const getProjectsByYear = (projects: Project[]) => {
 }
 
 export default defineComponent({
+  components: {
+    ChevronDownIcon
+  },
   data() {
     return {
       projects: getProjectsByYear(typedProjects),
