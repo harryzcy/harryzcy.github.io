@@ -70,14 +70,15 @@
           >
             <span class="text:md lg:text-lg">{{ project.name }}</span>
           </a>
-          <span v-else class="text:md lg:text-lg dark:text-gray-300">{{
-            project.name
-          }}</span>
+          <span v-else class="text:md lg:text-lg dark:text-gray-300">
+            {{ project.name }}
+          </span>
           <span
             v-if="project.full_name"
             class="text:md lg:text-lg ml-1 dark:text-gray-300"
-            >({{ project.full_name }})</span
           >
+            ({{ project.full_name }})
+          </span>
         </span>
 
         <span class="mb-0.5 space-x-2 select-none">
