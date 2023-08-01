@@ -122,10 +122,9 @@
   </footer>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script setup lang="ts">
 import { ChevronDownIcon } from '@heroicons/vue/24/solid'
-import projects from './projects.json'
+import projectJson from './projects.json'
 
 type Project = {
   name: string
@@ -137,8 +136,6 @@ type Project = {
   url?: string
   description: string
 }
-
-const typedProjects = projects as Project[]
 
 const getYears = (projects: Project[]) => {
   return Array.from(
@@ -157,27 +154,20 @@ const getProjectsByYear = (projects: Project[]) => {
   return projectsByYear
 }
 
-export default defineComponent({
-  components: {
-    ChevronDownIcon
-  },
-  data() {
-    return {
-      projects: getProjectsByYear(typedProjects),
-      years: getYears(typedProjects),
-      renderDescription(description: string) {
-        return description
-          .replace(/\[(.*?)\]\((.*?)\)/g, (_, text, url) => {
-            return `<a 
+const renderDescription = (description: string) => {
+  return description
+    .replace(/\[(.*?)\]\((.*?)\)/g, (_, text, url) => {
+      return `<a
               class="underline decoration-4 underline-offset-0 decoration-teal-600/40 hover:decoration-teal-500/40 text-teal-900 hover:text-teal-600 dark:decoration-teal-300/40 hover:dark:decoration-teal-200/40 dark:text-teal-400 hover:dark:text-teal-300"
               style="text-decoration-skip-ink: none; text-decoration-skip: none;"
               href="${url}">${text}</a>`
-          })
-          .replace(/\*\*(.*?)\*\*/g, (_, text) => {
-            return `<span class="font-bold">${text}</span>`
-          })
-      }
-    }
-  }
-})
+    })
+    .replace(/\*\*(.*?)\*\*/g, (_, text) => {
+      return `<span class="font-bold">${text}</span>`
+    })
+}
+
+const typedProjects = projectJson as Project[]
+const years = getYears(typedProjects)
+const projects = getProjectsByYear(typedProjects)
 </script>
