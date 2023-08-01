@@ -39,23 +39,65 @@
 
     <div class="grow mb-3">
       <div class="flex justify-end gap-4">
-        <span
-          class="flex items-center rounded-md border px-3 py-1 cursor-pointer dark:border-neutral-200/5 dark:bg-neutral-200/10 hover:dark:border-neutral-200/30 hover:dark:text-neutral-300 hover:dark:bg-neutral-200/20"
-        >
-          <span class="text-sm">Sort</span>
-          <span class="ml-2 -mr-1 mt-0.5">
-            <ChevronDownIcon class="w-4 h-4" />
-          </span>
-        </span>
+        <div>
+          <Menu as="div" class="relative inline-block text-left">
+            <MenuButton
+              class="inline-flex items-center rounded-md border px-3 py-1 cursor-pointer dark:border-neutral-200/5 dark:bg-neutral-200/10 hover:dark:border-neutral-200/30 hover:dark:text-neutral-300 hover:dark:bg-neutral-200/20"
+            >
+              <span class="text-sm">Sort</span>
+              <span class="ml-2 -mr-1 mt-0.5">
+                <ChevronDownIcon class="w-4 h-4" />
+              </span>
+            </MenuButton>
+            <transition
+              enter-active-class="transition duration-50 ease-out"
+              enter-from-class="transform scale-95 opacity-0"
+              enter-to-class="transform scale-100 opacity-100"
+              leave-active-class="transition duration-25 ease-in"
+              leave-from-class="transform scale-100 opacity-100"
+              leave-to-class="transform scale-95 opacity-0"
+            >
+              <MenuItems
+                class="absolute right-0 mt-2 min-w-full origin-top-right rounded-md text-sm dark:bg-neutral-200/10 focus:outline-none"
+              >
+                <div class="px-3 py-1">
+                  <MenuItem v-slot="{ active }">
+                    <span>Name</span>
+                  </MenuItem>
+                </div>
+              </MenuItems>
+            </transition>
+          </Menu>
+        </div>
 
-        <span
-          class="flex items-center rounded-md border px-3 py-1 cursor-pointer dark:border-neutral-200/5 dark:bg-neutral-200/10 hover:dark:border-neutral-200/30 hover:dark:text-neutral-300 hover:dark:bg-neutral-200/20"
-        >
-          <span class="text-sm">Language</span>
-          <span class="ml-2 -mr-1 mt-0.5">
-            <ChevronDownIcon class="w-4 h-4" />
-          </span>
-        </span>
+        <Menu as="div" class="relative inline-block text-left">
+          <MenuButton
+            class="inline-flex items-center rounded-md border px-3 py-1 cursor-pointer dark:border-neutral-200/5 dark:bg-neutral-200/10 hover:dark:border-neutral-200/30 hover:dark:text-neutral-300 hover:dark:bg-neutral-200/20"
+          >
+            <span class="text-sm">Language</span>
+            <span class="ml-2 -mr-1 mt-0.5">
+              <ChevronDownIcon class="w-4 h-4" />
+            </span>
+          </MenuButton>
+          <transition
+            enter-active-class="transition duration-50 ease-out"
+            enter-from-class="transform scale-95 opacity-0"
+            enter-to-class="transform scale-100 opacity-100"
+            leave-active-class="transition duration-25 ease-in"
+            leave-from-class="transform scale-100 opacity-100"
+            leave-to-class="transform scale-95 opacity-0"
+          >
+            <MenuItems
+              class="absolute right-0 mt-2 min-w-full origin-top-right rounded-md text-sm dark:bg-neutral-200/10 focus:outline-none"
+            >
+              <div class="px-3 py-1">
+                <MenuItem v-slot="{ active }">
+                  <span>Name</span>
+                </MenuItem>
+              </div>
+            </MenuItems>
+          </transition>
+        </Menu>
       </div>
     </div>
   </section>
@@ -124,6 +166,7 @@
 
 <script setup lang="ts">
 import { ChevronDownIcon } from '@heroicons/vue/24/solid'
+import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
 import projectJson from './projects.json'
 
 type Project = {
