@@ -11,6 +11,10 @@ jobs:
     name: Super Linter
     uses: harryzcy/github-actions/.github/workflows/linter.yml@main
 
+  prettier:
+    name: Prettier
+    uses: harryzcy/github-actions/.github/workflows/prettier.yml@main
+
   spelling:
     name: Spelling
     uses: harryzcy/github-actions/.github/workflows/spelling.yml@main
