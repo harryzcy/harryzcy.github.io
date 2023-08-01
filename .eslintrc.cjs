@@ -1,5 +1,5 @@
 /* eslint-env node */
-require('@rushstack/eslint-patch/modern-module-resolution');
+require('@rushstack/eslint-patch/modern-module-resolution')
 
 module.exports = {
   root: true,
@@ -7,16 +7,16 @@ module.exports = {
     'plugin:vue/vue3-essential',
     'eslint:recommended',
     '@vue/eslint-config-typescript',
-    '@vue/eslint-config-prettier'
+    '@vue/eslint-config-prettier',
   ],
   plugins: ['prettier'],
   rules: {
     'prettier/prettier': 'error',
-    'singleQuote': true,
-    'semi': false
+    singleQuote: true,
+    semi: false,
   },
   parserOptions: {
     ecmaVersion: 'latest',
-    tsconfigRootDir: __dirname
-  }
+    tsconfigRootDir: __dirname,
+  },
 }
