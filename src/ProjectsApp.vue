@@ -102,7 +102,7 @@ import projects from './projects.json'
 type Project = {
   name: string
   full_name?: string
-  year: number
+  start_year: number
   status: 'Ongoing' | 'Completed'
   lang: string
   lang_class: string
@@ -113,16 +113,18 @@ type Project = {
 const typedProjects = projects as Project[]
 
 const getYears = (projects: Project[]) => {
-  return Array.from(new Set(projects.map((project) => project.year))).sort(
-    (a, b) => b - a
-  )
+  return Array.from(
+    new Set(projects.map((project) => project.start_year))
+  ).sort((a, b) => b - a)
 }
 
 const getProjectsByYear = (projects: Project[]) => {
   const years = getYears(projects)
   const projectsByYear: Record<number, Project[]> = {}
   years.forEach((year) => {
-    projectsByYear[year] = projects.filter((project) => project.year === year)
+    projectsByYear[year] = projects.filter(
+      (project) => project.start_year === year
+    )
   })
   return projectsByYear
 }
