@@ -40,18 +40,18 @@
     <div class="grow mb-3">
       <div class="flex justify-end gap-4">
         <span
-          class="flex items-center rounded-md border px-4 py-1 cursor-pointer dark:border-neutral-200/5 dark:bg-neutral-200/10 hover:dark:border-neutral-200/30 hover:dark:text-neutral-300 hover:dark:bg-neutral-200/20"
+          class="flex items-center rounded-md border px-3 py-1 cursor-pointer dark:border-neutral-200/5 dark:bg-neutral-200/10 hover:dark:border-neutral-200/30 hover:dark:text-neutral-300 hover:dark:bg-neutral-200/20"
         >
-          <span>Sort</span>
+          <span class="text-sm">Sort</span>
           <span class="ml-2 -mr-1 mt-0.5">
             <ChevronDownIcon class="w-4 h-4" />
           </span>
         </span>
 
         <span
-          class="flex items-center rounded-md border px-4 py-1 cursor-pointer dark:border-neutral-200/5 dark:bg-neutral-200/10 hover:dark:border-neutral-200/30 hover:dark:text-neutral-300 hover:dark:bg-neutral-200/20"
+          class="flex items-center rounded-md border px-3 py-1 cursor-pointer dark:border-neutral-200/5 dark:bg-neutral-200/10 hover:dark:border-neutral-200/30 hover:dark:text-neutral-300 hover:dark:bg-neutral-200/20"
         >
-          <span>Language</span>
+          <span class="text-sm">Language</span>
           <span class="ml-2 -mr-1 mt-0.5">
             <ChevronDownIcon class="w-4 h-4" />
           </span>
