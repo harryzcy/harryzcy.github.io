@@ -28,10 +28,22 @@
     </nav>
   </header>
 
-  <section class="max-w-[800px] px-4 m-auto mt-3 md:pt-5">
-    <h1 class="text-2xl font-bold mb-3 text-slate-900 dark:text-neutral-400">
-      Projects
-    </h1>
+  <section
+    class="flex items-center max-w-[800px] px-4 m-auto mt-3 md:pt-5 text-slate-900 dark:text-neutral-400"
+  >
+    <h1 class="flex-none text-2xl font-bold mb-3">Projects</h1>
+
+    <div class="grow mb-3">
+      <div class="flex justify-end gap-4">
+        <div class="rounded border-md">
+          <span>Sort</span>
+        </div>
+
+        <div class="rounded border-md">
+          <span>Language</span>
+        </div>
+      </div>
+    </div>
   </section>
 
   <section
