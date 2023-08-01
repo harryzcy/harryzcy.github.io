@@ -66,7 +66,7 @@
             :class="[
               project.status === 'Ongoing'
                 ? 'text-sky-700 bg-sky-100 dark:text-sky-400 dark:bg-sky-900/40'
-                : 'text-green-700 bg-teal-100 dark:text-teal-500 dark:bg-teal-900/40',
+                : 'text-green-700 bg-teal-100 dark:text-teal-500 dark:bg-teal-900/40'
             ]"
           >
             {{ project.status }}
@@ -74,7 +74,7 @@
           <span
             class="text-sm rounded px-1 md:px-2 bg-slate-100 dark:bg-gray-800"
             :class="[
-              `text-lang-${project.lang_class}-light dark:text-lang-${project.lang_class}-dark`,
+              `text-lang-${project.lang_class}-light dark:text-lang-${project.lang_class}-dark`
             ]"
           >
             {{ project.lang }}
@@ -114,7 +114,7 @@ const typedProjects = projects as Project[]
 
 const getYears = (projects: Project[]) => {
   return Array.from(new Set(projects.map((project) => project.year))).sort(
-    (a, b) => b - a,
+    (a, b) => b - a
   )
 }
 
@@ -143,8 +143,8 @@ export default defineComponent({
           .replace(/\*\*(.*?)\*\*/g, (_, text) => {
             return `<span class="font-bold">${text}</span>`
           })
-      },
+      }
     }
-  },
+  }
 })
 </script>
