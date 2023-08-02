@@ -64,7 +64,15 @@
                   class="px-3 py-1 hover:bg-neutral-200/40 hover:dark:text-neutral-300 hover:dark:bg-neutral-200/20 first:rounded-t-md last:rounded-b-md"
                 >
                   <MenuItem v-slot="{ active }">
-                    <span>Name</span>
+                    <span class="flex items-center mx-2">
+                      <span class="-ml-3 mr-1">
+                        <CheckIcon
+                          class="w-3 h-3"
+                          :class="{ invisible: !active }"
+                        />
+                      </span>
+                      <span>Name</span>
+                    </span>
                   </MenuItem>
                 </div>
               </MenuItems>
@@ -94,10 +102,18 @@
             >
               <div
                 v-for="language in languages"
-                class="px-3 py-1 hover:bg-neutral-200/40 hover:dark:text-neutral-300 hover:dark:bg-neutral-200/20 first:rounded-t-md last:rounded-b-md"
+                class="hover:bg-neutral-200/40 hover:dark:text-neutral-300 hover:dark:bg-neutral-200/20 first:rounded-t-md last:rounded-b-md"
               >
                 <MenuItem v-slot="{ active }">
-                  <span>{{ language }}</span>
+                  <span class="flex items-center px-5 py-1">
+                    <span class="-ml-3 mr-1">
+                      <CheckIcon
+                        class="w-3 h-3"
+                        :class="{ invisible: !active }"
+                      />
+                    </span>
+                    <span>{{ language.lang }}</span>
+                  </span>
                 </MenuItem>
               </div>
             </MenuItems>
@@ -170,7 +186,7 @@
 </template>
 
 <script setup lang="ts">
-import { ChevronDownIcon } from '@heroicons/vue/24/solid'
+import { CheckIcon, ChevronDownIcon } from '@heroicons/vue/24/solid'
 import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
 import projectJson from './projects.json'
 
@@ -191,8 +207,25 @@ const getYears = (projects: Project[]) => {
   ).sort((a, b) => b - a)
 }
 
-const getLanguages = (projects: Project[]) => {
-  return Array.from(new Set(projects.map((project) => project.lang))).sort()
+type Language = {
+  lang: string
+  lang_class: string
+}
+
+const getLanguages = (projects: Project[]): Language[] => {
+  let languageSet = new Set()
+  let result = [] as Language[]
+  projects.forEach((project) => {
+    if (!languageSet.has(project.lang)) {
+      result.push({
+        lang: project.lang,
+        lang_class: project.lang_class
+      })
+    }
+    languageSet.add(project.lang)
+  })
+
+  return result.sort((a, b) => a.lang.localeCompare(b.lang))
 }
 
 const getProjectsByYear = (projects: Project[]) => {
