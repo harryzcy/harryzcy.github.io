@@ -104,15 +104,24 @@
                 v-for="language in languages"
                 class="hover:bg-neutral-200/40 hover:dark:text-neutral-300 hover:dark:bg-neutral-200/20 first:rounded-t-md last:rounded-b-md"
               >
-                <MenuItem v-slot="{ active }">
+                <MenuItem
+                  v-slot="{ active }"
+                  @click="
+                    () => {
+                      selectedLanguages.push(language)
+                    }
+                  "
+                >
                   <span class="flex items-center px-5 py-1">
                     <span class="-ml-3 mr-1">
                       <CheckIcon
                         class="w-3 h-3"
-                        :class="{ invisible: !active }"
+                        :class="{
+                          invisible: !selectedLanguages.includes(language)
+                        }"
                       />
                     </span>
-                    <span>{{ language.lang }}</span>
+                    <span>{{ language }}</span>
                   </span>
                 </MenuItem>
               </div>
@@ -186,6 +195,7 @@
 </template>
 
 <script setup lang="ts">
+import { ref, watchEffect } from 'vue'
 import { CheckIcon, ChevronDownIcon } from '@heroicons/vue/24/solid'
 import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
 import projectJson from './projects.json'
@@ -201,31 +211,16 @@ type Project = {
   description: string
 }
 
+const selectedLanguages = ref<string[]>([])
+
 const getYears = (projects: Project[]) => {
   return Array.from(
     new Set(projects.map((project) => project.start_year))
   ).sort((a, b) => b - a)
 }
 
-type Language = {
-  lang: string
-  lang_class: string
-}
-
-const getLanguages = (projects: Project[]): Language[] => {
-  let languageSet = new Set()
-  let result = [] as Language[]
-  projects.forEach((project) => {
-    if (!languageSet.has(project.lang)) {
-      result.push({
-        lang: project.lang,
-        lang_class: project.lang_class
-      })
-    }
-    languageSet.add(project.lang)
-  })
-
-  return result.sort((a, b) => a.lang.localeCompare(b.lang))
+const getLanguages = (projects: Project[]) => {
+  return Array.from(new Set(projects.map((project) => project.lang))).sort()
 }
 
 const getProjectsByYear = (projects: Project[]) => {
@@ -252,7 +247,33 @@ const renderDescription = (description: string) => {
 }
 
 const typedProjects = projectJson as Project[]
-const years = getYears(typedProjects)
 const languages = getLanguages(typedProjects)
-const projects = getProjectsByYear(typedProjects)
+
+const projects = ref(getProjectsByYear(typedProjects))
+watchEffect(() => {
+  if (selectedLanguages.value.length === 0) {
+    projects.value = getProjectsByYear(typedProjects)
+    return
+  }
+
+  projects.value = getProjectsByYear(
+    typedProjects.filter((project) =>
+      selectedLanguages.value.includes(project.lang)
+    )
+  )
+})
+
+const years = ref(getYears(typedProjects))
+watchEffect(() => {
+  if (selectedLanguages.value.length === 0) {
+    years.value = getYears(typedProjects)
+    return
+  }
+
+  years.value = getYears(
+    typedProjects.filter((project) =>
+      selectedLanguages.value.includes(project.lang)
+    )
+  )
+})
 </script>
