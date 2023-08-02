@@ -105,10 +105,16 @@
                 class="dark:bg-neutral-200/10 hover:bg-neutral-200/40 hover:dark:text-neutral-300 hover:dark:bg-neutral-200/20 first:rounded-t-md last:rounded-b-md"
               >
                 <MenuItem
-                  v-slot="{ active }"
                   @click="
                     () => {
-                      selectedLanguages.push(language)
+                      if (selectedLanguages.includes(language)) {
+                        selectedLanguages.splice(
+                          selectedLanguages.indexOf(language),
+                          1
+                        )
+                      } else {
+                        selectedLanguages.push(language)
+                      }
                     }
                   "
                 >
