@@ -58,7 +58,7 @@
               leave-to-class="transform scale-95 opacity-0"
             >
               <MenuItems
-                class="absolute right-0 mt-2 min-w-full origin-top-right rounded-md border text-sm cursor-pointer dark:border-neutral-200/5 dark:bg-neutral-200/10 focus:outline-none"
+                class="absolute right-0 mt-2 min-w-full origin-top-right rounded-md border text-sm cursor-pointer dark:bg-neutral-900 dark:border-neutral-200/5 dark:bg-neutral-200/10 focus:outline-none"
               >
                 <div
                   class="px-3 py-1 hover:bg-neutral-200/40 hover:dark:text-neutral-300 hover:dark:bg-neutral-200/20 first:rounded-t-md last:rounded-b-md"
@@ -98,11 +98,11 @@
             leave-to-class="transform scale-95 opacity-0"
           >
             <MenuItems
-              class="absolute right-0 mt-2 min-w-full origin-top-right rounded-md border text-sm cursor-pointer dark:border-neutral-200/5 dark:bg-neutral-200/10 focus:outline-none"
+              class="absolute right-0 mt-2 min-w-full origin-top-right rounded-md border text-sm cursor-pointer dark:bg-neutral-900 dark:border-neutral-200/5 focus:outline-none"
             >
               <div
                 v-for="language in languages"
-                class="hover:bg-neutral-200/40 hover:dark:text-neutral-300 hover:dark:bg-neutral-200/20 first:rounded-t-md last:rounded-b-md"
+                class="dark:bg-neutral-200/10 hover:bg-neutral-200/40 hover:dark:text-neutral-300 hover:dark:bg-neutral-200/20 first:rounded-t-md last:rounded-b-md"
               >
                 <MenuItem
                   v-slot="{ active }"
