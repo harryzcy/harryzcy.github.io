@@ -39,46 +39,54 @@
 
     <div class="grow mb-3">
       <div class="flex justify-end gap-4">
-        <div>
-          <Menu as="div" class="relative inline-block text-left">
-            <MenuButton
-              class="inline-flex items-center rounded-md border px-3 py-1 cursor-pointer dark:border-neutral-200/5 dark:bg-neutral-200/10 hover:bg-neutral-200/40 hover:dark:border-neutral-200/30 hover:dark:text-neutral-300 hover:dark:bg-neutral-200/20"
+        <Menu as="div" class="relative inline-block text-left">
+          <MenuButton
+            class="inline-flex items-center rounded-md border px-3 py-1 cursor-pointer dark:border-neutral-200/5 dark:bg-neutral-200/10 hover:bg-neutral-200/40 hover:dark:border-neutral-200/30 hover:dark:text-neutral-300 hover:dark:bg-neutral-200/20"
+          >
+            <span class="text-sm">Sort</span>
+            <span class="ml-2 -mr-1 mt-0.5">
+              <ChevronDownIcon class="w-4 h-4" />
+            </span>
+          </MenuButton>
+          <transition
+            enter-active-class="transition duration-50 ease-out"
+            enter-from-class="transform scale-95 opacity-0"
+            enter-to-class="transform scale-100 opacity-100"
+            leave-active-class="transition duration-25 ease-in"
+            leave-from-class="transform scale-100 opacity-100"
+            leave-to-class="transform scale-95 opacity-0"
+          >
+            <MenuItems
+              class="absolute right-0 mt-2 w-[8.5rem] origin-top-right rounded-md border text-sm cursor-pointer dark:bg-neutral-900 dark:border-neutral-200/5 focus:outline-none"
             >
-              <span class="text-sm">Sort</span>
-              <span class="ml-2 -mr-1 mt-0.5">
-                <ChevronDownIcon class="w-4 h-4" />
-              </span>
-            </MenuButton>
-            <transition
-              enter-active-class="transition duration-50 ease-out"
-              enter-from-class="transform scale-95 opacity-0"
-              enter-to-class="transform scale-100 opacity-100"
-              leave-active-class="transition duration-25 ease-in"
-              leave-from-class="transform scale-100 opacity-100"
-              leave-to-class="transform scale-95 opacity-0"
-            >
-              <MenuItems
-                class="absolute right-0 mt-2 min-w-full origin-top-right rounded-md border text-sm cursor-pointer dark:bg-neutral-900 dark:border-neutral-200/5 dark:bg-neutral-200/10 focus:outline-none"
+              <div
+                v-for="option in sortOptions"
+                class="dark:bg-neutral-200/10 hover:bg-neutral-200/40 hover:dark:text-neutral-300 hover:dark:bg-neutral-200/20 first:rounded-t-md last:rounded-b-md"
               >
-                <div
-                  class="px-3 py-1 hover:bg-neutral-200/40 hover:dark:text-neutral-300 hover:dark:bg-neutral-200/20 first:rounded-t-md last:rounded-b-md"
-                >
-                  <MenuItem v-slot="{ active }">
-                    <span class="flex items-center mx-2">
-                      <span class="-ml-3 mr-1">
-                        <CheckIcon
-                          class="w-3 h-3"
-                          :class="{ invisible: !active }"
-                        />
-                      </span>
-                      <span>Name</span>
+                <MenuItem>
+                  <span
+                    class="inline-flex items-center px-5 py-1"
+                    @click="
+                      () => {
+                        activeSortOption = option.value
+                      }
+                    "
+                  >
+                    <span class="-ml-3 mr-1">
+                      <CheckIcon
+                        class="w-3 h-3"
+                        :class="{
+                          invisible: option.value !== activeSortOption
+                        }"
+                      />
                     </span>
-                  </MenuItem>
-                </div>
-              </MenuItems>
-            </transition>
-          </Menu>
-        </div>
+                    <span>{{ option.label }}</span>
+                  </span>
+                </MenuItem>
+              </div>
+            </MenuItems>
+          </transition>
+        </Menu>
 
         <Menu as="div" class="relative inline-block text-left">
           <MenuButton
@@ -104,21 +112,23 @@
                 v-for="language in allLanguages"
                 class="dark:bg-neutral-200/10 hover:bg-neutral-200/40 hover:dark:text-neutral-300 hover:dark:bg-neutral-200/20 first:rounded-t-md last:rounded-b-md"
               >
-                <MenuItem
-                  @click="
-                    () => {
-                      if (selectedLanguages.includes(language)) {
-                        selectedLanguages.splice(
-                          selectedLanguages.indexOf(language),
-                          1
-                        )
-                      } else {
-                        selectedLanguages.push(language)
+                <MenuItem>
+                  <span
+                    class="flex items-center px-5 py-1"
+                    @click="
+                      (event) => {
+                        event.preventDefault()
+                        if (selectedLanguages.includes(language)) {
+                          selectedLanguages.splice(
+                            selectedLanguages.indexOf(language),
+                            1
+                          )
+                        } else {
+                          selectedLanguages.push(language)
+                        }
                       }
-                    }
-                  "
-                >
-                  <span class="flex items-center px-5 py-1">
+                    "
+                  >
                     <span class="-ml-3 mr-1">
                       <CheckIcon
                         class="w-3 h-3"
@@ -217,8 +227,6 @@ type Project = {
   description: string
 }
 
-const selectedLanguages = ref<string[]>([])
-
 const getYears = (projects: Project[]) => {
   return Array.from(
     new Set(projects.map((project) => project.start_year))
@@ -253,7 +261,16 @@ const renderDescription = (description: string) => {
 }
 
 const allProjects = projectJson as Project[]
+
 const allLanguages = getLanguages(allProjects)
+const selectedLanguages = ref<string[]>([])
+
+const sortOptions = [
+  { label: 'Project Name', value: 'project_name' },
+  { label: 'Status', value: 'status' },
+  { label: 'Start Year', value: 'start_year' }
+]
+const activeSortOption = ref(sortOptions[0].value)
 
 // projects with the filters and sorts applied
 const activeProjects = computed(() => {
