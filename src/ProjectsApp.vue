@@ -57,7 +57,7 @@
             leave-to-class="transform scale-95 opacity-0"
           >
             <MenuItems
-              class="absolute right-0 mt-2 w-[8.5rem] origin-top-right rounded-md border text-sm cursor-pointer dark:bg-neutral-900 dark:border-neutral-200/5 focus:outline-none"
+              class="absolute right-0 mt-2 w-28 origin-top-right rounded-md border text-sm cursor-pointer dark:bg-neutral-900 dark:border-neutral-200/5 focus:outline-none"
             >
               <div
                 v-for="option in sortOptions"
@@ -267,7 +267,7 @@ const selectedLanguages = ref<string[]>([])
 
 const sortOptions = [
   { label: 'Start Year', value: 'start_year' },
-  { label: 'Project Name', value: 'project_name' }
+  { label: 'Name', value: 'project_name' }
 ]
 const activeSortOption = ref(sortOptions[0].value)
 
