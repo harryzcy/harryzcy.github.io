@@ -101,7 +101,7 @@
               class="absolute right-0 mt-2 min-w-full origin-top-right rounded-md border text-sm cursor-pointer dark:bg-neutral-900 dark:border-neutral-200/5 focus:outline-none"
             >
               <div
-                v-for="language in languages"
+                v-for="language in allLanguages"
                 class="dark:bg-neutral-200/10 hover:bg-neutral-200/40 hover:dark:text-neutral-300 hover:dark:bg-neutral-200/20 first:rounded-t-md last:rounded-b-md"
               >
                 <MenuItem
@@ -201,7 +201,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watchEffect } from 'vue'
+import { computed, ref } from 'vue'
 import { CheckIcon, ChevronDownIcon } from '@heroicons/vue/24/solid'
 import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
 import projectJson from './projects.json'
@@ -252,34 +252,21 @@ const renderDescription = (description: string) => {
     })
 }
 
-const typedProjects = projectJson as Project[]
-const languages = getLanguages(typedProjects)
+const allProjects = projectJson as Project[]
+const allLanguages = getLanguages(allProjects)
 
-const projects = ref(getProjectsByYear(typedProjects))
-watchEffect(() => {
+// projects with the filters and sorts applied
+const activeProjects = computed(() => {
   if (selectedLanguages.value.length === 0) {
-    projects.value = getProjectsByYear(typedProjects)
-    return
+    return allProjects as Project[]
   }
-
-  projects.value = getProjectsByYear(
-    typedProjects.filter((project) =>
-      selectedLanguages.value.includes(project.lang)
-    )
+  return allProjects.filter((project) =>
+    selectedLanguages.value.includes(project.lang)
   )
 })
 
-const years = ref(getYears(typedProjects))
-watchEffect(() => {
-  if (selectedLanguages.value.length === 0) {
-    years.value = getYears(typedProjects)
-    return
-  }
+// projects grouped by year with the filters and sorts applied
+const projects = computed(() => getProjectsByYear(activeProjects.value))
 
-  years.value = getYears(
-    typedProjects.filter((project) =>
-      selectedLanguages.value.includes(project.lang)
-    )
-  )
-})
+const years = computed(() => getYears(activeProjects.value))
 </script>
