@@ -267,8 +267,8 @@ const selectedLanguages = ref<string[]>([])
 
 const sortOptions = [
   { label: 'Start Year', value: 'start_year' },
-  { label: 'Project Name', value: 'project_name' },
-  { label: 'Status', value: 'status' }
+  { label: 'Project Name', value: 'project_name' }
+  // { label: 'Status', value: 'status' }
 ]
 const activeSortOption = ref(sortOptions[0].value)
 
