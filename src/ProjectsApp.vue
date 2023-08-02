@@ -268,7 +268,6 @@ const selectedLanguages = ref<string[]>([])
 const sortOptions = [
   { label: 'Start Year', value: 'start_year' },
   { label: 'Project Name', value: 'project_name' }
-  // { label: 'Status', value: 'status' }
 ]
 const activeSortOption = ref(sortOptions[0].value)
 
@@ -294,8 +293,6 @@ const projects = computed(() => {
   let projects = activeProjects.value
   if (activeSortOption.value === 'project_name') {
     projects = projects.sort((a, b) => a.name.localeCompare(b.name))
-  } else {
-    projects = projects.sort((a, b) => a.status.localeCompare(b.status))
   }
 
   return { 0: projects }
