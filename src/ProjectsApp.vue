@@ -42,7 +42,7 @@
         <div>
           <Menu as="div" class="relative inline-block text-left">
             <MenuButton
-              class="inline-flex items-center rounded-md border px-3 py-1 cursor-pointer dark:border-neutral-200/5 dark:bg-neutral-200/10 hover:dark:border-neutral-200/30 hover:dark:text-neutral-300 hover:dark:bg-neutral-200/20"
+              class="inline-flex items-center rounded-md border px-3 py-1 cursor-pointer dark:border-neutral-200/5 dark:bg-neutral-200/10 hover:bg-neutral-200/40 hover:dark:border-neutral-200/30 hover:dark:text-neutral-300 hover:dark:bg-neutral-200/20"
             >
               <span class="text-sm">Sort</span>
               <span class="ml-2 -mr-1 mt-0.5">
@@ -58,9 +58,9 @@
               leave-to-class="transform scale-95 opacity-0"
             >
               <MenuItems
-                class="absolute right-0 mt-2 min-w-full origin-top-right rounded-md text-sm dark:bg-neutral-200/10 focus:outline-none"
+                class="absolute right-0 mt-2 min-w-full origin-top-right rounded-md border text-sm cursor-pointer dark:border-neutral-200/5 dark:bg-neutral-200/10 focus:outline-none"
               >
-                <div class="px-3 py-1">
+                <div class="px-3 py-1 hover:bg-neutral-200/40">
                   <MenuItem v-slot="{ active }">
                     <span>Name</span>
                   </MenuItem>
@@ -72,7 +72,7 @@
 
         <Menu as="div" class="relative inline-block text-left">
           <MenuButton
-            class="inline-flex items-center rounded-md border px-3 py-1 cursor-pointer dark:border-neutral-200/5 dark:bg-neutral-200/10 hover:dark:border-neutral-200/30 hover:dark:text-neutral-300 hover:dark:bg-neutral-200/20"
+            class="inline-flex items-center rounded-md border px-3 py-1 cursor-pointer dark:border-neutral-200/5 dark:bg-neutral-200/10 hover:bg-neutral-200/40 hover:dark:border-neutral-200/30 hover:dark:text-neutral-300 hover:dark:bg-neutral-200/20"
           >
             <span class="text-sm">Language</span>
             <span class="ml-2 -mr-1 mt-0.5">
@@ -88,9 +88,9 @@
             leave-to-class="transform scale-95 opacity-0"
           >
             <MenuItems
-              class="absolute right-0 mt-2 min-w-full origin-top-right rounded-md text-sm dark:bg-neutral-200/10 focus:outline-none"
+              class="absolute right-0 mt-2 min-w-full origin-top-right rounded-md border text-sm cursor-pointer dark:border-neutral-200/5 dark:bg-neutral-200/10 focus:outline-none"
             >
-              <div class="px-3 py-1">
+              <div class="px-3 py-1 hover:bg-neutral-200/40">
                 <MenuItem v-slot="{ active }">
                   <span>Name</span>
                 </MenuItem>
