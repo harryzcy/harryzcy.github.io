@@ -60,7 +60,9 @@
               <MenuItems
                 class="absolute right-0 mt-2 min-w-full origin-top-right rounded-md border text-sm cursor-pointer dark:border-neutral-200/5 dark:bg-neutral-200/10 focus:outline-none"
               >
-                <div class="px-3 py-1 hover:bg-neutral-200/40">
+                <div
+                  class="px-3 py-1 hover:bg-neutral-200/40 hover:dark:text-neutral-300 hover:dark:bg-neutral-200/20 first:rounded-t-md last:rounded-b-md"
+                >
                   <MenuItem v-slot="{ active }">
                     <span>Name</span>
                   </MenuItem>
@@ -90,9 +92,12 @@
             <MenuItems
               class="absolute right-0 mt-2 min-w-full origin-top-right rounded-md border text-sm cursor-pointer dark:border-neutral-200/5 dark:bg-neutral-200/10 focus:outline-none"
             >
-              <div class="px-3 py-1 hover:bg-neutral-200/40">
+              <div
+                v-for="language in languages"
+                class="px-3 py-1 hover:bg-neutral-200/40 hover:dark:text-neutral-300 hover:dark:bg-neutral-200/20 first:rounded-t-md last:rounded-b-md"
+              >
                 <MenuItem v-slot="{ active }">
-                  <span>Name</span>
+                  <span>{{ language }}</span>
                 </MenuItem>
               </div>
             </MenuItems>
@@ -186,6 +191,10 @@ const getYears = (projects: Project[]) => {
   ).sort((a, b) => b - a)
 }
 
+const getLanguages = (projects: Project[]) => {
+  return Array.from(new Set(projects.map((project) => project.lang))).sort()
+}
+
 const getProjectsByYear = (projects: Project[]) => {
   const years = getYears(projects)
   const projectsByYear: Record<number, Project[]> = {}
@@ -211,5 +220,6 @@ const renderDescription = (description: string) => {
 
 const typedProjects = projectJson as Project[]
 const years = getYears(typedProjects)
+const languages = getLanguages(typedProjects)
 const projects = getProjectsByYear(typedProjects)
 </script>
