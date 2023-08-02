@@ -1,6 +1,6 @@
 <template>
   <header
-    class="font-mono sticky top-0 w-full bg-teal-700/80 dark:bg-neutral-900/90 backdrop-blur-sm text-white dark:text-teal-500 border-b border-transparent dark:border-neutral-700"
+    class="font-mono sticky top-0 w-full z-50 bg-teal-700/80 dark:bg-neutral-900/90 backdrop-blur-sm text-white dark:text-teal-500 border-b border-transparent dark:border-neutral-700"
   >
     <nav
       class="max-w-[800px] m-auto flex justify-between items-center text-right"
@@ -30,17 +30,129 @@
     </nav>
   </header>
 
-  <section class="max-w-[800px] px-4 m-auto mt-3 md:pt-5">
-    <h1 class="text-2xl font-bold mb-3 text-slate-900 dark:text-neutral-400">
+  <section
+    class="flex items-center max-w-[800px] px-4 m-auto mt-3 md:pt-5 text-slate-900 dark:text-neutral-400"
+  >
+    <h1 class="flex-none text-2xl font-bold mb-3 dark:text-neutral-300">
       Projects
     </h1>
+
+    <div class="grow mb-3">
+      <div class="flex justify-end gap-4">
+        <Menu as="div" class="relative inline-block text-left">
+          <MenuButton
+            class="inline-flex items-center rounded-md border px-3 py-1 cursor-pointer dark:border-neutral-200/5 dark:bg-neutral-200/10 hover:bg-neutral-200/40 hover:dark:border-neutral-200/30 hover:dark:text-neutral-300 hover:dark:bg-neutral-200/20"
+          >
+            <span class="text-sm">Sort</span>
+            <span class="ml-2 -mr-1 mt-0.5">
+              <ChevronDownIcon class="w-4 h-4" />
+            </span>
+          </MenuButton>
+          <transition
+            enter-active-class="transition duration-50 ease-out"
+            enter-from-class="transform scale-95 opacity-0"
+            enter-to-class="transform scale-100 opacity-100"
+            leave-active-class="transition duration-25 ease-in"
+            leave-from-class="transform scale-100 opacity-100"
+            leave-to-class="transform scale-95 opacity-0"
+          >
+            <MenuItems
+              class="absolute right-0 mt-2 w-28 origin-top-right rounded-md border text-sm cursor-pointer dark:bg-neutral-900 dark:border-neutral-200/5 focus:outline-none"
+            >
+              <div
+                v-for="option in sortOptions"
+                class="dark:bg-neutral-200/10 hover:bg-neutral-200/40 hover:dark:text-neutral-300 hover:dark:bg-neutral-200/20 first:rounded-t-md last:rounded-b-md"
+              >
+                <MenuItem>
+                  <span
+                    class="inline-flex items-center px-5 py-1"
+                    @click="
+                      () => {
+                        activeSortOption = option.value
+                      }
+                    "
+                  >
+                    <span class="-ml-3 mr-1">
+                      <CheckIcon
+                        class="w-3 h-3"
+                        :class="{
+                          invisible: option.value !== activeSortOption
+                        }"
+                      />
+                    </span>
+                    <span>{{ option.label }}</span>
+                  </span>
+                </MenuItem>
+              </div>
+            </MenuItems>
+          </transition>
+        </Menu>
+
+        <Menu as="div" class="relative inline-block text-left">
+          <MenuButton
+            class="inline-flex items-center rounded-md border px-3 py-1 cursor-pointer dark:border-neutral-200/5 dark:bg-neutral-200/10 hover:bg-neutral-200/40 hover:dark:border-neutral-200/30 hover:dark:text-neutral-300 hover:dark:bg-neutral-200/20"
+          >
+            <span class="text-sm">Language</span>
+            <span class="ml-2 -mr-1 mt-0.5">
+              <ChevronDownIcon class="w-4 h-4" />
+            </span>
+          </MenuButton>
+          <transition
+            enter-active-class="transition duration-50 ease-out"
+            enter-from-class="transform scale-95 opacity-0"
+            enter-to-class="transform scale-100 opacity-100"
+            leave-active-class="transition duration-25 ease-in"
+            leave-from-class="transform scale-100 opacity-100"
+            leave-to-class="transform scale-95 opacity-0"
+          >
+            <MenuItems
+              class="absolute right-0 mt-2 min-w-full origin-top-right rounded-md border text-sm cursor-pointer dark:bg-neutral-900 dark:border-neutral-200/5 focus:outline-none"
+            >
+              <div
+                v-for="language in allLanguages"
+                class="dark:bg-neutral-200/10 hover:bg-neutral-200/40 hover:dark:text-neutral-300 hover:dark:bg-neutral-200/20 first:rounded-t-md last:rounded-b-md"
+              >
+                <MenuItem>
+                  <span
+                    class="flex items-center px-5 py-1"
+                    @click="
+                      (event) => {
+                        event.preventDefault()
+                        if (selectedLanguages.includes(language)) {
+                          selectedLanguages.splice(
+                            selectedLanguages.indexOf(language),
+                            1
+                          )
+                        } else {
+                          selectedLanguages.push(language)
+                        }
+                      }
+                    "
+                  >
+                    <span class="-ml-3 mr-1">
+                      <CheckIcon
+                        class="w-3 h-3"
+                        :class="{
+                          invisible: !selectedLanguages.includes(language)
+                        }"
+                      />
+                    </span>
+                    <span>{{ language }}</span>
+                  </span>
+                </MenuItem>
+              </div>
+            </MenuItems>
+          </transition>
+        </Menu>
+      </div>
+    </div>
   </section>
 
   <section
     v-for="year in years"
     class="max-w-[800px] px-4 m-auto text-slate-900 dark:text-neutral-400 mt-4 md:mt-7"
   >
-    <h2 class="text-2xl mb-1 md:mb-2">{{ year }}</h2>
+    <h2 v-if="year !== 0" class="text-2xl mb-1 md:mb-2">{{ year }}</h2>
     <div v-for="project in projects[year]" class="mb-4 md:mb-6">
       <div class="mb-1 flex flex-wrap items-center align-baseline">
         <span class="mb-0.5 mr-2">
@@ -52,14 +164,15 @@
           >
             <span class="text:md lg:text-lg">{{ project.name }}</span>
           </a>
-          <span v-else class="text:md lg:text-lg dark:text-gray-300">{{
-            project.name
-          }}</span>
+          <span v-else class="text:md lg:text-lg dark:text-gray-300">
+            {{ project.name }}
+          </span>
           <span
             v-if="project.full_name"
             class="text:md lg:text-lg ml-1 dark:text-gray-300"
-            >({{ project.full_name }})</span
           >
+            ({{ project.full_name }})
+          </span>
         </span>
 
         <span class="mb-0.5 space-x-2 select-none">
@@ -97,14 +210,16 @@
   </footer>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
-import projects from './projects.json'
+<script setup lang="ts">
+import { computed, ref } from 'vue'
+import { CheckIcon, ChevronDownIcon } from '@heroicons/vue/24/solid'
+import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
+import projectJson from './projects.json'
 
 type Project = {
   name: string
   full_name?: string
-  year: number
+  start_year: number
   status: 'Ongoing' | 'Completed'
   lang: string
   lang_class: string
@@ -112,41 +227,83 @@ type Project = {
   description: string
 }
 
-const typedProjects = projects as Project[]
-
 const getYears = (projects: Project[]) => {
-  return Array.from(new Set(projects.map((project) => project.year))).sort(
-    (a, b) => b - a
-  )
+  return Array.from(
+    new Set(projects.map((project) => project.start_year))
+  ).sort((a, b) => b - a)
+}
+
+const getLanguages = (projects: Project[]) => {
+  return Array.from(new Set(projects.map((project) => project.lang))).sort()
 }
 
 const getProjectsByYear = (projects: Project[]) => {
   const years = getYears(projects)
   const projectsByYear: Record<number, Project[]> = {}
   years.forEach((year) => {
-    projectsByYear[year] = projects.filter((project) => project.year === year)
+    projectsByYear[year] = projects.filter(
+      (project) => project.start_year === year
+    )
   })
   return projectsByYear
 }
 
-export default defineComponent({
-  data() {
-    return {
-      projects: getProjectsByYear(typedProjects),
-      years: getYears(typedProjects),
-      renderDescription(description: string) {
-        return description
-          .replace(/\[(.*?)\]\((.*?)\)/g, (_, text, url) => {
-            return `<a 
-              class="underline decoration-4 underline-offset-0 decoration-teal-600/40 hover:decoration-teal-500/40 text-teal-900 hover:text-teal-600 dark:decoration-teal-300/40 hover:dark:decoration-teal-200/40 dark:text-teal-400 hover:dark:text-teal-300"
+const renderDescription = (description: string) => {
+  return description
+    .replace(/\[(.*?)\]\((.*?)\)/g, (_, text, url) => {
+      return `<a class="underline decoration-4 underline-offset-0 decoration-teal-600/40 hover:decoration-teal-500/40 text-teal-900 hover:text-teal-600 dark:decoration-teal-300/40 hover:dark:decoration-teal-200/40 dark:text-teal-400 hover:dark:text-teal-300"
               style="text-decoration-skip-ink: none; text-decoration-skip: none;"
               href="${url}">${text}</a>`
-          })
-          .replace(/\*\*(.*?)\*\*/g, (_, text) => {
-            return `<span class="font-bold">${text}</span>`
-          })
-      }
-    }
+    })
+    .replace(/\*\*(.*?)\*\*/g, (_, text) => {
+      return `<span class="font-bold">${text}</span>`
+    })
+}
+
+const allProjects = projectJson as Project[]
+
+const allLanguages = getLanguages(allProjects)
+const selectedLanguages = ref<string[]>([])
+
+const sortOptions = [
+  { label: 'Start Year', value: 'start_year' },
+  { label: 'Name', value: 'project_name' }
+]
+const activeSortOption = ref(sortOptions[0].value)
+
+// projects with the filters and sorts applied
+const activeProjects = computed(() => {
+  if (selectedLanguages.value.length === 0) {
+    return allProjects as Project[]
   }
+  return allProjects.filter((project) =>
+    selectedLanguages.value.includes(project.lang)
+  )
+})
+
+// projects are mapped from year number to the list of projects in that year.
+// e.g. { 2023: [project1, project2], 2022: [project3] }
+// if the sort option is not start_year, projects only contain one key, 0,
+// and the value is the list of all projects
+const projects = computed(() => {
+  if (activeSortOption.value === 'start_year') {
+    return getProjectsByYear(activeProjects.value)
+  }
+
+  let projects = activeProjects.value
+  if (activeSortOption.value === 'project_name') {
+    projects = projects.sort((a, b) => a.name.localeCompare(b.name))
+  }
+
+  return { 0: projects }
+})
+
+// years are the years of the project if the sort option is start_year,
+// otherwise, years only contain one element, 0
+const years = computed(() => {
+  if (activeSortOption.value === 'start_year') {
+    return getYears(activeProjects.value)
+  }
+  return [0]
 })
 </script>
