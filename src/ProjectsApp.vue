@@ -1,6 +1,6 @@
 <template>
   <header
-    class="font-mono sticky top-0 w-full bg-teal-700/80 dark:bg-neutral-900/90 backdrop-blur-sm text-white dark:text-teal-500 border-b border-transparent dark:border-neutral-700"
+    class="font-mono sticky top-0 w-full z-50 bg-teal-700/80 dark:bg-neutral-900/90 backdrop-blur-sm text-white dark:text-teal-500 border-b border-transparent dark:border-neutral-700"
   >
     <nav
       class="max-w-[800px] m-auto flex justify-between items-center text-right"
@@ -152,7 +152,7 @@
     v-for="year in years"
     class="max-w-[800px] px-4 m-auto text-slate-900 dark:text-neutral-400 mt-4 md:mt-7"
   >
-    <h2 class="text-2xl mb-1 md:mb-2">{{ year }}</h2>
+    <h2 v-if="year !== 0" class="text-2xl mb-1 md:mb-2">{{ year }}</h2>
     <div v-for="project in projects[year]" class="mb-4 md:mb-6">
       <div class="mb-1 flex flex-wrap items-center align-baseline">
         <span class="mb-0.5 mr-2">
@@ -266,9 +266,9 @@ const allLanguages = getLanguages(allProjects)
 const selectedLanguages = ref<string[]>([])
 
 const sortOptions = [
+  { label: 'Start Year', value: 'start_year' },
   { label: 'Project Name', value: 'project_name' },
-  { label: 'Status', value: 'status' },
-  { label: 'Start Year', value: 'start_year' }
+  { label: 'Status', value: 'status' }
 ]
 const activeSortOption = ref(sortOptions[0].value)
 
@@ -282,8 +282,31 @@ const activeProjects = computed(() => {
   )
 })
 
-// projects grouped by year with the filters and sorts applied
-const projects = computed(() => getProjectsByYear(activeProjects.value))
+// projects are mapped from year number to the list of projects in that year.
+// e.g. { 2023: [project1, project2], 2022: [project3] }
+// if the sort option is not start_year, projects only contain one key, 0,
+// and the value is the list of all projects
+const projects = computed(() => {
+  if (activeSortOption.value === 'start_year') {
+    return getProjectsByYear(activeProjects.value)
+  }
 
-const years = computed(() => getYears(activeProjects.value))
+  let projects = activeProjects.value
+  if (activeSortOption.value === 'project_name') {
+    projects = projects.sort((a, b) => a.name.localeCompare(b.name))
+  } else {
+    projects = projects.sort((a, b) => a.status.localeCompare(b.status))
+  }
+
+  return { 0: projects }
+})
+
+// years are the years of the project if the sort option is start_year,
+// otherwise, years only contain one element, 0
+const years = computed(() => {
+  if (activeSortOption.value === 'start_year') {
+    return getYears(activeProjects.value)
+  }
+  return [0]
+})
 </script>
