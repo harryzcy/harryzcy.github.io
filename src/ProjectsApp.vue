@@ -88,62 +88,35 @@
           </transition>
         </Menu>
 
-        <Menu as="div" class="relative inline-block text-left">
-          <MenuButton
-            class="inline-flex items-center rounded-md border px-3 py-1 cursor-pointer dark:border-neutral-200/5 dark:bg-neutral-200/10 hover:bg-neutral-200/40 hover:dark:border-neutral-200/30 hover:dark:text-neutral-300 hover:dark:bg-neutral-200/20"
-          >
-            <span class="text-sm">Language</span>
-            <span class="ml-2 -mr-1 mt-0.5">
-              <ChevronDownIcon class="w-4 h-4" />
-            </span>
-          </MenuButton>
-          <transition
-            enter-active-class="transition duration-50 ease-out"
-            enter-from-class="transform scale-95 opacity-0"
-            enter-to-class="transform scale-100 opacity-100"
-            leave-active-class="transition duration-25 ease-in"
-            leave-from-class="transform scale-100 opacity-100"
-            leave-to-class="transform scale-95 opacity-0"
-          >
-            <MenuItems
-              class="absolute right-0 mt-2 min-w-full origin-top-right rounded-md border text-sm cursor-pointer bg-white dark:bg-neutral-900 dark:border-neutral-200/5 focus:outline-none"
-            >
-              <div
-                v-for="language in allLanguages"
-                class="dark:bg-neutral-200/10 hover:bg-neutral-200/40 hover:dark:text-neutral-300 hover:dark:bg-neutral-200/20 first:rounded-t-md last:rounded-b-md"
-              >
-                <MenuItem>
-                  <span
-                    class="flex items-center px-5 py-1"
-                    @click="
-                      (event) => {
-                        event.preventDefault()
-                        if (selectedLanguages.includes(language)) {
-                          selectedLanguages.splice(
-                            selectedLanguages.indexOf(language),
-                            1
-                          )
-                        } else {
-                          selectedLanguages.push(language)
-                        }
-                      }
-                    "
-                  >
-                    <span class="-ml-3 mr-1">
-                      <CheckIcon
-                        class="w-3 h-3"
-                        :class="{
-                          invisible: !selectedLanguages.includes(language)
-                        }"
-                      />
-                    </span>
-                    <span>{{ language }}</span>
-                  </span>
-                </MenuItem>
-              </div>
-            </MenuItems>
-          </transition>
-        </Menu>
+        <FilterMenu
+          menu-text="Status"
+          :selected="selectedStatuses"
+          :options="allStatuses"
+          @toggle="
+            (status) => {
+              if (selectedStatuses.includes(status)) {
+                selectedStatuses.splice(selectedStatuses.indexOf(status), 1)
+              } else {
+                selectedStatuses.push(status)
+              }
+            }
+          "
+        />
+
+        <FilterMenu
+          menu-text="Language"
+          :selected="selectedLanguages"
+          :options="allLanguages"
+          @toggle="
+            (language) => {
+              if (selectedLanguages.includes(language)) {
+                selectedLanguages.splice(selectedLanguages.indexOf(language), 1)
+              } else {
+                selectedLanguages.push(language)
+              }
+            }
+          "
+        />
       </div>
     </div>
   </section>
@@ -214,6 +187,7 @@
 import { computed, ref } from 'vue'
 import { CheckIcon, ChevronDownIcon } from '@heroicons/vue/24/solid'
 import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
+import FilterMenu from './components/FilterMenu.vue'
 import projectJson from './projects.json'
 
 type Project = {
@@ -231,6 +205,10 @@ const getYears = (projects: Project[]) => {
   return Array.from(
     new Set(projects.map((project) => project.start_year))
   ).sort((a, b) => b - a)
+}
+
+const getStatus = (projects: Project[]) => {
+  return Array.from(new Set(projects.map((project) => project.status))).sort()
 }
 
 const getLanguages = (projects: Project[]) => {
@@ -262,6 +240,9 @@ const renderDescription = (description: string) => {
 
 const allProjects = projectJson as Project[]
 
+const allStatuses = getStatus(allProjects)
+const selectedStatuses = ref<string[]>([])
+
 const allLanguages = getLanguages(allProjects)
 const selectedLanguages = ref<string[]>([])
 
@@ -273,12 +254,18 @@ const activeSortOption = ref(sortOptions[0].value)
 
 // projects with the filters and sorts applied
 const activeProjects = computed(() => {
-  if (selectedLanguages.value.length === 0) {
-    return allProjects as Project[]
+  let projects = allProjects
+  if (selectedStatuses.value.length > 0) {
+    projects = projects.filter((project) =>
+      selectedStatuses.value.includes(project.status)
+    )
   }
-  return allProjects.filter((project) =>
-    selectedLanguages.value.includes(project.lang)
-  )
+  if (selectedLanguages.value.length > 0) {
+    projects = projects.filter((project) =>
+      selectedLanguages.value.includes(project.lang)
+    )
+  }
+  return projects
 })
 
 // projects are mapped from year number to the list of projects in that year.
