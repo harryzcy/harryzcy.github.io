@@ -6,6 +6,7 @@
   "scripts": {
     "start": "parcel './src/*.html'",
     "build": "parcel build",
+    "analyze": "parcel build --reporter @parcel/reporter-bundle-analyzer",
     "check": "vue-tsc --noEmit",
     "lint": "eslint --ext .js,.ts,.vue src",
     "prettier": "prettier --write src",
@@ -23,6 +24,7 @@
   },
   "homepage": "https://github.com/harryzcy/harryzcy.github.io#readme",
   "devDependencies": {
+    "@parcel/reporter-bundle-analyzer": "2.9.3",
     "@parcel/transformer-vue": "2.9.3",
     "@rushstack/eslint-patch": "1.3.2",
     "@vue/eslint-config-prettier": "8.0.0",
