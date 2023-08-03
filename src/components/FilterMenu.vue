@@ -30,11 +30,6 @@
                 (event) => {
                   event.preventDefault()
                   emit('toggle', option)
-                  // if (selected.includes(option)) {
-                  //   selected.splice(selected.indexOf(option), 1)
-                  // } else {
-                  //   selected.push(option)
-                  // }
                 }
               "
             >
