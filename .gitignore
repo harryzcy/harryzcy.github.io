@@ -66,6 +66,8 @@ dist/
 .cache/
 .parcel-cache/
 
+# parcel-bundle-reports
+parcel-bundle-reports/
 
 ### VisualStudioCode ###
 .vscode/*
