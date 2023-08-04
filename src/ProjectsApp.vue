@@ -101,6 +101,11 @@
               }
             }
           "
+          @select-all="
+            () => {
+              selectedStatuses.splice(0, selectedStatuses.length)
+            }
+          "
         />
 
         <FilterMenu
@@ -114,6 +119,11 @@
               } else {
                 selectedLanguages.push(language)
               }
+            }
+          "
+          @select-all="
+            () => {
+              selectedLanguages.splice(0, selectedLanguages.length)
             }
           "
         />
