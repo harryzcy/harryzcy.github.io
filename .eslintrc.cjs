@@ -10,6 +10,7 @@ module.exports = {
     '@vue/eslint-config-prettier'
   ],
   plugins: ['prettier'],
+  ignorePatterns: ['dist', 'node_modules', 'tailwind.config.ts'],
   rules: {
     'prettier/prettier': 'error',
     singleQuote: true,
