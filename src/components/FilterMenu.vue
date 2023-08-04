@@ -25,7 +25,7 @@
         >
           <MenuItem>
             <span
-              class="flex items-center px-5 py-1"
+              class="flex items-center px-5 py-1 w-full"
               @click="
                 (event) => {
                   event.preventDefault()

@@ -65,7 +65,7 @@
               >
                 <MenuItem>
                   <span
-                    class="inline-flex items-center px-5 py-1"
+                    class="inline-flex items-center px-5 py-1 w-full"
                     @click="
                       () => {
                         activeSortOption = option.value
