@@ -20,7 +20,7 @@
         class="absolute right-0 mt-2 min-w-full origin-top-right rounded-md border text-sm cursor-pointer bg-white dark:bg-neutral-900 dark:border-neutral-200/5 focus:outline-none"
       >
         <div
-          v-for="option in options"
+          v-for="option in [allOptionText, ...options]"
           class="dark:bg-neutral-200/10 hover:bg-neutral-200/40 hover:dark:text-neutral-300 hover:dark:bg-neutral-200/20 first:rounded-t-md last:rounded-b-md"
         >
           <MenuItem>
@@ -29,6 +29,10 @@
               @click="
                 (event) => {
                   event.preventDefault()
+                  if (option === allOptionText) {
+                    emit('selectAll')
+                    return
+                  }
                   emit('toggle', option)
                 }
               "
@@ -37,7 +41,9 @@
                 <CheckIcon
                   class="w-3 h-3"
                   :class="{
-                    invisible: !selected.includes(option)
+                    invisible:
+                      (option === allOptionText && selected.length > 0) ||
+                      (option !== allOptionText && !selected.includes(option))
                   }"
                 />
               </span>
@@ -69,7 +75,10 @@ defineProps({
   }
 })
 
+const allOptionText = 'All'
+
 const emit = defineEmits<{
   toggle: [option: string]
+  selectAll: []
 }>()
 </script>
