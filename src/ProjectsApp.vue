@@ -39,7 +39,7 @@
 
     <div class="grow mb-3">
       <div class="flex justify-end gap-4">
-        <Menu as="div" class="relative inline-block text-left">
+        <Menu as="div" class="relative inline-block text-left select-none">
           <MenuButton
             class="inline-flex items-center rounded-md border px-3 py-1 cursor-pointer dark:border-neutral-200/5 dark:bg-neutral-200/10 hover:bg-neutral-200/40 hover:dark:border-neutral-200/30 hover:dark:text-neutral-300 hover:dark:bg-neutral-200/20"
           >
