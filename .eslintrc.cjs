@@ -13,7 +13,9 @@ module.exports = {
   rules: {
     'prettier/prettier': 'error',
     singleQuote: true,
-    semi: false
+    semi: false,
+    trailingComma: 'none',
+    printWidth: 80
   },
   parserOptions: {
     ecmaVersion: 'latest',
