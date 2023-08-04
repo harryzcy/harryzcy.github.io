@@ -1,4 +1,6 @@
-module.exports = {
+import type { Config } from 'tailwindcss'
+
+export default {
   content: ['./src/**/*.{html,vue,js,ts,jsx,tsx}'],
   theme: {
     extend: {
@@ -47,4 +49,4 @@ module.exports = {
     'dark:text-lang-py-dark',
     'dark:text-lang-c-dark'
   ]
-}
+} as Config
