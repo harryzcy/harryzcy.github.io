@@ -111,13 +111,13 @@
   },
   {
     "name": "Limp",
-    "full_name": "Lisp-like lang",
+    "full_name": "Lisp-like language",
     "url": "https://github.com/eric-unc/limp",
     "start_year": 2021,
     "status": "Completed",
     "lang": "Rust",
     "lang_class": "rs",
-    "description": "Limp is a Lisp-like programming lang made in Rust. Together with Eric Schneider, the project is made for PackHacks 2021. The lang supports arithmetic/bitwise operations, conditional statements, and builtin function invocations."
+    "description": "Limp is a Lisp-like programming language made in Rust. Together with Eric Schneider, the project is made for PackHacks 2021. The language supports arithmetic/bitwise operations, conditional statements, and builtin function invocations."
   },
   {
     "name": "ascheck",
