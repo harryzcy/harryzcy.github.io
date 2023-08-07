@@ -141,7 +141,7 @@
     "name": "Artifact Store",
     "url": "https://github.com/harryzcy/artifact-store",
     "start_year": 2023,
-    "status": "Ongoing",
+    "status": "Completed",
     "lang": "Rust",
     "lang_class": "rs",
     "description": "Artifact Store is a service that stores build artifacts from CI/CD pipelines. It is intended as a arbitrary file storage service that stores the output for every commit, so that when starting the deployment in my Kubernetes cluster, I can pull the latest build that's strictly versioned."
