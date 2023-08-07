@@ -152,7 +152,7 @@
           </span>
           <span
             v-if="project.full_name"
-            class="text:md lg:text-lg ml-1 dark:text-gray-300"
+            class="text:md lg:text-lg dark:text-gray-300"
           >
             ({{ project.full_name }})
           </span>
