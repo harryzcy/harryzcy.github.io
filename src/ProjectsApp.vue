@@ -236,10 +236,9 @@ const getProjectsByYear = (projects: Project[]) => {
   const years = getYears(projects)
   const projectsByYear: Record<number, Project[]> = {}
   years.forEach((year) => {
-    projectsByYear[year] = projects.filter(
-      (project) => project.start_year === year
+    projectsByYear[year] = sortByCreatedAt(
+      projects.filter((project) => project.start_year === year)
     )
-    projectsByYear[year] = sortByCreatedAt(projectsByYear[year])
   })
   return projectsByYear
 }
