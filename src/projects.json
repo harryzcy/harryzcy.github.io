@@ -107,7 +107,7 @@
     "status": "Completed",
     "lang": "Rust",
     "lang_class": "rs",
-    "description": "The Calculator is built for HackNC 2021 hackathon. It is a simple calculator made in Rust in collaboration with Eric Schneider. I made the \"backend\" (parser/evaluator) and the web interface using WASM. Eric made the GUI that runs as a native app. The simple CLI version is also supported. The web version can be viewed [here](https://eric-unc.tech/hacknc2021)."
+    "description": "The Calculator is built for HackNC 2021 hackathon. It is a simple calculator made in Rust in collaboration with [Eric Schneider](https://eric-unc.tech/). I made the \"backend\" (parser/evaluator) and the web interface using WASM. Eric made the GUI that runs as a native app. The simple CLI version is also supported. The web version can be viewed [here](https://eric-unc.tech/hacknc2021)."
   },
   {
     "name": "Limp",
@@ -117,7 +117,7 @@
     "status": "Completed",
     "lang": "Rust",
     "lang_class": "rs",
-    "description": "Limp is a Lisp-like programming language made in Rust. Together with Eric Schneider, the project is made for PackHacks 2021. The language supports arithmetic/bitwise operations, conditional statements, and builtin function invocations."
+    "description": "Limp is a Lisp-like programming language made in Rust. Together with [Eric Schneider](https://eric-unc.tech/), the project is made for PackHacks 2021. The language supports arithmetic/bitwise operations, conditional statements, and builtin function invocations."
   },
   {
     "name": "ascheck",
