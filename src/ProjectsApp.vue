@@ -204,11 +204,18 @@ type Project = {
   name: string
   full_name?: string
   start_year: number
+  created_at: string
   status: 'Ongoing' | 'Completed'
   lang: string
   lang_class: string
   url?: string
   description: string
+}
+
+const sortByCreatedAt = (projects: Project[]) => {
+  return projects.sort((a, b) => {
+    return a.created_at > b.created_at ? -1 : 1
+  })
 }
 
 const getYears = (projects: Project[]) => {
@@ -229,8 +236,8 @@ const getProjectsByYear = (projects: Project[]) => {
   const years = getYears(projects)
   const projectsByYear: Record<number, Project[]> = {}
   years.forEach((year) => {
-    projectsByYear[year] = projects.filter(
-      (project) => project.start_year === year
+    projectsByYear[year] = sortByCreatedAt(
+      projects.filter((project) => project.start_year === year)
     )
   })
   return projectsByYear
