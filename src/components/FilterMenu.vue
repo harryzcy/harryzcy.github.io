@@ -21,6 +21,7 @@
       >
         <div
           v-for="option in [allOptionText, ...options]"
+          :key="option"
           class="dark:bg-neutral-200/10 hover:bg-neutral-200/40 hover:dark:text-neutral-300 hover:dark:bg-neutral-200/20 first:rounded-t-md last:rounded-b-md"
         >
           <MenuItem>
