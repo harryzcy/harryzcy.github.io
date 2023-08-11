@@ -207,20 +207,7 @@ import { computed, ref } from 'vue'
 import { CheckIcon, ChevronDownIcon } from '@heroicons/vue/24/solid'
 import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
 import FilterMenu from './components/FilterMenu.vue'
-import projectJson from './projects.yaml'
-
-type Project = {
-  name: string
-  full_name?: string
-  start_year: number
-  created_at: string
-  status: 'Ongoing' | 'Completed'
-  lang: string
-  lang_class: string
-  url?: string
-  release_num?: number
-  description: string
-}
+import allProjects from './projects.yaml'
 
 const sortByCreatedAt = (projects: Project[]) => {
   return projects.sort((a, b) => {
@@ -264,8 +251,6 @@ const renderDescription = (description: string) => {
       return `<span class="font-bold">${text}</span>`
     })
 }
-
-const allProjects = projectJson as Project[]
 
 const allStatuses = getStatus(allProjects)
 const selectedStatuses = ref<string[]>([])
