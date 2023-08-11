@@ -180,9 +180,8 @@
           <span
             v-if="project.release_num"
             class="text-sm rounded px-1 md:px-2 bg-slate-100 dark:bg-gray-800"
+            >{{ project.release_num }} releases</span
           >
-            {{ project.release_num }} releases
-          </span>
         </span>
       </div>
 
