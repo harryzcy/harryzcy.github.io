@@ -201,7 +201,7 @@ import { computed, ref } from 'vue'
 import { CheckIcon, ChevronDownIcon } from '@heroicons/vue/24/solid'
 import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
 import FilterMenu from './components/FilterMenu.vue'
-import projectJson from './projects.json'
+import projectJson from './projects.yaml'
 
 type Project = {
   name: string
