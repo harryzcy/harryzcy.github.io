@@ -5,6 +5,7 @@
   status: Completed
   lang: Rust
   lang_class: rs
+  release_num: 2
   description: >-
     Artifact Store is a service that stores build artifacts from CI/CD pipelines.
     It is intended as a arbitrary file storage service that stores the output for every commit,
@@ -29,6 +30,7 @@
   status: Completed
   lang: TypeScript
   lang_class: ts
+  release_num: 12
   description: >-
     Mailbox Browser is a web application serving as a frontend for [Mailbox](https://github.com/harryzcy/mailbox).
 
@@ -64,8 +66,9 @@
   status: Ongoing
   lang: TypeScript
   lang_class: ts
+  release_num: 10
   description: >-
-    Nodap is a workflow runner for databases in Notion app.
+    Nodop is a workflow runner for databases in Notion app.
     It takes workflow configuration files similar to GitHub Actions and performs them on database pages.
     The application features a builtin parser that evaluates functional expressions in the workflow configuration.
     The Notion API is used to access the database.
@@ -101,6 +104,7 @@
   status: Completed
   lang: Go
   lang_class: go
+  release_num: 13
   description: >-
     Mailbox is a serverless application runs on AWS services and handles email sending and receiving requests using custom email addresses.
     I built a set of APIs on top of AWS services to invoke email-related operations.
@@ -125,6 +129,7 @@
   status: Completed
   lang: TypeScript
   lang_class: ts
+  release_num: 3
   description: >-
     It is a GitHub Action workflow program and allows GitHub Actions to push iOS notifications via
     [Bark](https://github.com/Finb/bark-server),
@@ -206,5 +211,6 @@
   status: Completed
   lang: Go
   lang_class: go
+  release_num: 3
   description: >-
     ascheck is a command line tool that bulk-checks your apps for their Apple Silicon support.
