@@ -194,9 +194,24 @@
   </section>
 
   <footer
-    class="w-full bg-teal-900/20 dark:bg-neutral-900 font-mono text-slate-900 dark:text-teal-500 mt-10 border-t border-transparent dark:border-neutral-700"
+    class="w-full relative bg-teal-900/20 dark:bg-neutral-900 font-mono text-slate-900 dark:text-teal-500 mt-10 border-t border-transparent dark:border-neutral-700"
   >
-    <div class="w-full px-10 py-2 md:py-4 flex justify-end items-center">
+    <div
+      class="max-w-[800px] m-auto py-2 md:py-4 flex justify-start items-center text-right opacity-50"
+    >
+      <div class="flex px-4">
+        <a href="https://github.com/harryzcy" class="h-6 w-6">
+          <picture class="h-6 w-6">
+            <source
+              srcset="icons/github-mark-white.svg"
+              media="(prefers-color-scheme: dark)"
+            />
+            <img src="icons/github-mark.svg" alt="github" />
+          </picture>
+        </a>
+      </div>
+    </div>
+    <div class="absolute right-0 top-0 px-10 py-2 md:py-4">
       <span class="flex-initial text-sm">C Zheng</span>
     </div>
   </footer>
