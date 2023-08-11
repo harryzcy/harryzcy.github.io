@@ -61,6 +61,7 @@
             >
               <div
                 v-for="option in sortOptions"
+                :key="option.label"
                 class="dark:bg-neutral-200/10 hover:bg-neutral-200/40 hover:dark:text-neutral-300 hover:dark:bg-neutral-200/20 first:rounded-t-md last:rounded-b-md"
               >
                 <MenuItem>
@@ -133,10 +134,15 @@
 
   <section
     v-for="year in years"
+    :key="year"
     class="max-w-[800px] px-4 m-auto text-slate-900 dark:text-neutral-400 mt-4 md:mt-7"
   >
     <h2 v-if="year !== 0" class="text-2xl mb-1 md:mb-2">{{ year }}</h2>
-    <div v-for="project in projects[year]" class="mb-4 md:mb-6">
+    <div
+      v-for="project in projects[year]"
+      :key="project.name"
+      class="mb-4 md:mb-6"
+    >
       <div class="mb-1 flex flex-wrap items-center align-baseline">
         <span class="mb-0.5 mr-2">
           <a
@@ -201,20 +207,7 @@ import { computed, ref } from 'vue'
 import { CheckIcon, ChevronDownIcon } from '@heroicons/vue/24/solid'
 import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
 import FilterMenu from './components/FilterMenu.vue'
-import projectJson from './projects.json'
-
-type Project = {
-  name: string
-  full_name?: string
-  start_year: number
-  created_at: string
-  status: 'Ongoing' | 'Completed'
-  lang: string
-  lang_class: string
-  url?: string
-  release_num?: number
-  description: string
-}
+import allProjects from './projects.yaml'
 
 const sortByCreatedAt = (projects: Project[]) => {
   return projects.sort((a, b) => {
@@ -258,8 +251,6 @@ const renderDescription = (description: string) => {
       return `<span class="font-bold">${text}</span>`
     })
 }
-
-const allProjects = projectJson as Project[]
 
 const allStatuses = getStatus(allProjects)
 const selectedStatuses = ref<string[]>([])

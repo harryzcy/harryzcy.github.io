@@ -12,10 +12,10 @@ module.exports = {
   plugins: ['prettier'],
   rules: {
     'prettier/prettier': 'error',
-    singleQuote: true,
-    semi: false,
-    trailingComma: 'none',
-    printWidth: 80
+    singleQuote: 'off',
+    semi: 'off',
+    trailingComma: 'off',
+    printWidth: 'off'
   },
   parserOptions: {
     ecmaVersion: 'latest',
