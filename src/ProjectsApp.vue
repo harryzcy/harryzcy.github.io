@@ -177,6 +177,12 @@
           >
             {{ project.lang }}
           </span>
+          <span
+            v-if="project.release_num"
+            class="text-sm rounded px-1 md:px-2 bg-slate-100 dark:bg-gray-800"
+          >
+            {{ project.release_num }} releases
+          </span>
         </span>
       </div>
 
@@ -209,6 +215,7 @@ type Project = {
   lang: string
   lang_class: string
   url?: string
+  release_num?: number
   description: string
 }
 
