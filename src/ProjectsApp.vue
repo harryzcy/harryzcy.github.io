@@ -164,19 +164,29 @@
 
         <span class="mb-0.5 space-x-2 select-none">
           <span
-            class="text-sm rounded px-1 md:px-2"
+            class="cursor-pointer text-sm rounded px-1 md:px-2"
             :class="[
               project.status === 'Ongoing'
                 ? 'text-sky-700 bg-sky-100 dark:text-sky-400 dark:bg-sky-900/40'
                 : 'text-green-700 bg-teal-100 dark:text-teal-500 dark:bg-teal-900/40'
             ]"
+            @click="
+              () => {
+                selectedStatuses = [project.status]
+              }
+            "
             >{{ project.status }}
           </span>
           <span
-            class="text-sm rounded px-1 md:px-2 bg-slate-100 dark:bg-gray-800"
+            class="cursor-pointer text-sm rounded px-1 md:px-2 bg-slate-100 dark:bg-gray-800"
             :class="[
               `text-lang-${project.lang_class}-light dark:text-lang-${project.lang_class}-dark`
             ]"
+            @click="
+              () => {
+                selectedLanguages = [project.lang]
+              }
+            "
             >{{ project.lang }}</span
           >
           <span
