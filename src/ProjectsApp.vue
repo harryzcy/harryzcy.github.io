@@ -31,14 +31,12 @@
   </header>
 
   <section
-    class="flex items-center max-w-[800px] px-4 m-auto mt-3 md:pt-5 text-slate-900 dark:text-neutral-400"
+    class="flex flex-col md:flex-row max-w-[800px] px-4 m-auto mt-3 md:pt-5 text-slate-900 dark:text-neutral-400"
   >
-    <h1 class="flex-none text-2xl font-bold mb-3 dark:text-neutral-300">
-      Projects
-    </h1>
+    <h1 class="grow text-2xl font-bold mb-3 dark:text-neutral-300">Projects</h1>
 
-    <div class="grow mb-3">
-      <div class="flex justify-end gap-4">
+    <div class="mb-3">
+      <div class="flex gap-4">
         <Menu as="div" class="relative inline-block text-left select-none">
           <MenuButton
             class="inline-flex items-center rounded-md border px-3 py-1 cursor-pointer dark:border-neutral-200/5 dark:bg-neutral-200/10 hover:bg-neutral-200/40 hover:dark:border-neutral-200/30 hover:dark:text-neutral-300 hover:dark:bg-neutral-200/20"
