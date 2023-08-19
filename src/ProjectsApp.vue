@@ -55,7 +55,7 @@
             leave-to-class="transform scale-95 opacity-0"
           >
             <MenuItems
-              class="absolute right-0 mt-2 w-28 origin-top-right rounded-md border text-sm cursor-pointer bg-white dark:bg-neutral-900 dark:border-neutral-200/5 focus:outline-none"
+              class="absolute left-0 mt-2 w-28 rounded-md border text-sm cursor-pointer bg-white dark:bg-neutral-900 dark:border-neutral-200/5 focus:outline-none"
             >
               <div
                 v-for="option in sortOptions"
