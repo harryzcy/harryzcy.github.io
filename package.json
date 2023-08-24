@@ -37,7 +37,7 @@
     "parcel": "2.9.3",
     "postcss": "8.4.28",
     "prettier": "3.0.2",
-    "typescript": "5.1.6",
+    "typescript": "5.2.2",
     "vue-tsc": "1.8.8"
   },
   "dependencies": {
