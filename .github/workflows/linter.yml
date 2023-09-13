@@ -63,7 +63,7 @@ jobs:
                 console.log(`Actual: ${createdAt}`)
                 hasError = true
               }
-            })
+            }
             if (hasError) {
               throw new Error('Project date check failed')
             } else {
