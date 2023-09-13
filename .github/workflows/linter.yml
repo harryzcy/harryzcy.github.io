@@ -49,7 +49,7 @@ jobs:
               }
               const repoName = project.url.replace('https://github.com/')
               const [owner, repo] = repoName.split('/')
-              const { data } = await github.repos.get({
+              const { data } = await github.rest.repos.get({
                 owner,
                 repo,
                 headers: {
