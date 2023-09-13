@@ -18,3 +18,30 @@ jobs:
   spelling:
     name: Spelling
     uses: harryzcy/github-actions/.github/workflows/spelling.yml@main
+
+  project-date:
+    name: Project Date Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install yaml
+
+      - name: Check project date
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const YAML = require('yaml')
+            const fs = require('fs')
+
+            const projects = YAML.parse(fs.readFileSync('src/projects.yaml', 'utf8'))
+            projects.forEach(project => {
+              console.log(project.name)
+            })
