@@ -66,4 +66,6 @@ jobs:
             })
             if (hasError) {
               throw new Error('Project date check failed')
+            } else {
+              console.log('Project date check passed')
             }
