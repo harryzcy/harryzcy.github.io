@@ -47,7 +47,7 @@ jobs:
               if (project.url === undefined || !project.url.startsWith('https://github.com/')) {
                 return
               }
-              const repoName = project.url.replace('https://github.com/')
+              const repoName = project.url.replace('https://github.com/', '')
               console.log(`Checking project ${project.name} with repo ${repoName}`)
               const [owner, repo] = repoName.split('/')
               const { data } = await github.rest.repos.get({
