@@ -71,6 +71,7 @@ parcel-bundle-reports/
 
 ### VisualStudioCode ###
 .vscode/*
+!.vscode/css_custom_data.json
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
