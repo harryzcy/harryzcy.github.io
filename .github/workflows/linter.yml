@@ -46,7 +46,7 @@ jobs:
             for (const project of projects) {
               if (project.url === undefined || !project.url.startsWith('https://github.com/')) {
               console.log(`Skipping project ${project.name} with invalid url ${project.url}`)
-                return
+                continue
               }
               const repoName = project.url.replace('https://github.com/', '')
               console.log(`Checking project ${project.name} with repo ${repoName}`)
