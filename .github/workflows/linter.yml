@@ -45,11 +45,11 @@ jobs:
             let hasError = false
             for (const project of projects) {
               if (project.url === undefined || !project.url.startsWith('https://github.com/')) {
-                console.log(`Skipping project ${project.name} with invalid url ${project.url}`)
+                console.log(`${project.name}: ${project.url ? 'invalid url ' + project.url : 'missing url'} (skipped)`)
                 continue
               }
               const repoName = project.url.replace('https://github.com/', '')
-              console.log(`Checking project ${project.name} with repo ${repoName}`)
+              console.log(`${project.name}: ${repoName} ✅`)
               const [owner, repo] = repoName.split('/')
               const { data } = await github.rest.repos.get({
                 owner,
@@ -69,5 +69,5 @@ jobs:
             if (hasError) {
               throw new Error('Project date check failed')
             } else {
-              console.log('Project date check passed')
+              console.log('\nProject date check passed ✅')
             }
