@@ -43,7 +43,7 @@ jobs:
 
             const projects = YAML.parse(fs.readFileSync('src/projects.yaml', 'utf8'))
             let hasError = false
-            projects.forEach(project => {
+            for (const project of projects) {
               if (project.url === undefined || !project.url.startsWith('https://github.com/')) {
                 return
               }
