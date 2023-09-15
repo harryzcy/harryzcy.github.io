@@ -35,12 +35,12 @@
     Mailbox Browser is a web application serving as a frontend for [Mailbox](https://github.com/harryzcy/mailbox).
 
 - name: notion-cli
+  url: https://github.com/harryzcy/notion-cli
   start_year: 2022
   created_at: "2022-05-31"
   status: Ongoing
   lang: Go
   lang_class: go
-  url: https://github.com/harryzcy/notion-cli
   description: >-
     notion-cli is a command line interface for Notion app.
     It supports viewing and editing pages and database in Notion.
@@ -112,7 +112,7 @@
     It is initiated to integrate automated workflows in my personal life based on certain emails receiving events.
 
 - name: miniJava compiler
-  strt_year: 2022
+  start_year: 2022
   created_at: "2022-02-10"
   status: Completed
   lang: Java
