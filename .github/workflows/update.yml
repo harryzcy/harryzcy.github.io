@@ -76,10 +76,16 @@ jobs:
             const updatedData = lines.join('\n')
             fs.writeFileSync('src/projects.yaml', updatedData)
 
+      - uses: tibdex/github-app-token@v1
+        id: generate-token
+        with:
+          app_id: ${{ secrets.APP_ID }}
+          private_key: ${{ secrets.APP_PRIVATE_KEY }}
+
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ steps.generate-token.outputs.token }}
           commit-message: "[chore] Update release number"
           title: "Update release number"
           labels: "chore"
