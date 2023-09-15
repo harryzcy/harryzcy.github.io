@@ -28,11 +28,11 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            const yaml = require('js-yaml')
+            const YAML = require('yaml')
             const fs = require('fs')
 
             const data = fs.readFileSync('src/projects.yaml', 'utf8')
-            const projects = yaml.load(data)
+            const projects = YAML.parse(data)
 
             const toUpdate = []
             for (const project of projects) {
