@@ -226,11 +226,11 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
-import { CheckIcon, ChevronDownIcon } from '@heroicons/vue/24/solid'
-import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
 import FilterMenu from './components/FilterMenu.vue'
 import allProjects from './projects.yaml'
+import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
+import { CheckIcon, ChevronDownIcon } from '@heroicons/vue/24/solid'
+import { computed, ref } from 'vue'
 
 const sortByCreatedAt = (projects: Project[]) => {
   return projects.sort((a, b) => {
