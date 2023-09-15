@@ -58,8 +58,8 @@
 </template>
 
 <script setup lang="ts">
+import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
 import { CheckIcon, ChevronDownIcon } from '@heroicons/vue/24/solid'
-import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
 
 defineProps({
   menuText: {
