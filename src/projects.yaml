@@ -1,7 +1,7 @@
 - name: Artifact Store
   url: https://github.com/harryzcy/artifact-store
   start_year: 2023
-  created_at: 2023-07-23
+  created_at: "2023-07-23"
   status: Completed
   lang: Rust
   lang_class: rs
