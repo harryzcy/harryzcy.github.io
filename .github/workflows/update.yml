@@ -1,0 +1,86 @@
+name: Nightly Update Check
+
+on:
+  schedule:
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+
+jobs:
+  release-number:
+    name: Project Release Number
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install js-yaml
+
+      - name: Check project date
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const yaml = require('js-yaml')
+            const fs = require('fs')
+
+            const data = fs.readFileSync('src/projects.yaml', 'utf8')
+            const projects = yaml.load(data)
+
+            const toUpdate = []
+            for (const project of projects) {
+              if (project.url === undefined || !project.url.startsWith('https://github.com/')) {
+                console.log(`${project.name}: ${project.url ? 'invalid url ' + project.url : 'missing url'} (skipped)`)
+                continue
+              }
+              const repoName = project.url.replace('https://github.com/', '')
+              console.log(`${project.name}: ${repoName} ✅`)
+              const [owner, repo] = repoName.split('/')
+              const releases = await github.paginate('GET /repos/{owner}/{repo}/releases', {
+                owner,
+                repo
+              })
+              if (releases.length > 0  && releases.length !== project.release_num) {
+                console.log(`${project.name}: release number changed from ${project.release_num} to ${releases.length}`)
+                toUpdate.push([project.name, releases.length])
+              }
+            }
+
+            const lines = data.split('\n')
+
+            function findReleaseNumberLineIndex(projectName) {
+              const nameIndex = lines.findIndex((line) => line.includes(projectName))
+              const descriptionIndex = lines.findIndex((line, index) => {
+                return index > nameIndex && line.includes('description')
+              })
+              const index = descriptionIndex - 1
+              return [index, lines[index].startsWith('  release_num:')]
+            }
+
+            for (const update of toUpdate) {
+              const [projectName, releaseNum] = update
+              const [lineIndex, exist] = findReleaseNumberLineIndex(projectName)
+              if (exist) {
+                lines[lineIndex] = `  release_num: ${releaseNum}`
+              } else {
+                lines.splice(lineIndex + 1, 0, `  release_num: ${releaseNum}`)
+              }
+            }
+
+            const updatedData = lines.join('\n')
+            fs.writeFileSync('src/projects.yaml', updatedData)
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: ""
+          title: "Update release number"
+          labels: "chore"
