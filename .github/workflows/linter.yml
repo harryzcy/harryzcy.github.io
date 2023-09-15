@@ -19,6 +19,71 @@ jobs:
     name: Spelling
     uses: harryzcy/github-actions/.github/workflows/spelling.yml@main
 
+  project-yaml:
+    name: Project YAML Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Check project date
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const fs = require('fs')
+            const data = fs.readFileSync('src/projects.yaml', 'utf8')
+            const lines = data.split('\n')
+            const perProjectLines = []
+            const indentation = 2
+            for (const line of lines) {
+              if (line.startsWith('- name:')) {
+                perProjectLines.push([])
+              }
+              let fieldValue = line.slice(indentation)
+              perProjectLines[perProjectLines.length - 1].push(fieldValue)
+            }
+
+            const expectedOrder = [
+              'name',
+              'full_name',
+              'url',
+              'start_year',
+              'created_at',
+              'status',
+              'lang',
+              'lang_class',
+              'release_num',
+              'description'
+            ]
+
+            let hasError = false
+            for (const lines of perProjectLines) {
+              const fields = []
+              for (const line of lines) {
+                const [field] = line.split(':')
+                if (field === 'description') {
+                  break
+                }
+                fields.push(field.trim())
+              }
+              const equal = fields.every((field, index) => field === expectedOrder[index])
+              if (!equal) {
+                console.log(`Project ${lines[0]} has incorrect field order`)
+                console.log(`Expected: ${expectedOrder.join(', ')}`)
+                console.log(`Actual: ${fields.join(', ')}`)
+                hasError = true
+              }
+            }
+
+            if (hasError) {
+              throw new Error('Project YAML check failed')
+            }
+
   project-date:
     name: Project Date Check
     runs-on: ubuntu-latest
