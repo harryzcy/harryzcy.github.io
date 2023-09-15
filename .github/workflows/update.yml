@@ -41,7 +41,6 @@ jobs:
                 continue
               }
               const repoName = project.url.replace('https://github.com/', '')
-              console.log(`${project.name}: ${repoName} ✅`)
               const [owner, repo] = repoName.split('/')
               const releases = await github.paginate('GET /repos/{owner}/{repo}/releases', {
                 owner,
