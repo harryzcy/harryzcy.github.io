@@ -22,7 +22,7 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
-        run: npm install -g yaml
+        run: npm install yaml
 
       - name: Check project date
         uses: actions/github-script@v6
@@ -83,3 +83,4 @@ jobs:
           commit-message: "[chore] Update release number"
           title: "Update release number"
           labels: "chore"
+          add-paths: "src/projects.yaml"
