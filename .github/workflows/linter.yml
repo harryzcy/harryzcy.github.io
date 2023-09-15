@@ -71,10 +71,11 @@ jobs:
                 }
                 fields.push(field.trim())
               }
-              const equal = fields.every((field, index) => field === expectedOrder[index])
+              const orderFiltered = expectedOrder.filter((field) => fields.includes(field))
+              const equal = fields.every((field, index) => field === orderFiltered[index])
               if (!equal) {
                 console.log(`Project ${lines[0]} has incorrect field order`)
-                console.log(`Expected: ${expectedOrder.join(', ')}`)
+                console.log(`Expected: ${orderFiltered.join(', ')}`)
                 console.log(`Actual: ${fields.join(', ')}`)
                 hasError = true
               }
