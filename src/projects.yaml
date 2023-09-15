@@ -5,7 +5,7 @@
   status: Completed
   lang: Rust
   lang_class: rs
-  release_num: 2
+  release_num: 4
   description: >-
     Artifact Store is a service that stores build artifacts from CI/CD pipelines.
     It is intended as a arbitrary file storage service that stores the output for every commit,
@@ -129,7 +129,7 @@
   status: Completed
   lang: TypeScript
   lang_class: ts
-  release_num: 3
+  release_num: 4
   description: >-
     It is a GitHub Action workflow program and allows GitHub Actions to push iOS notifications via
     [Bark](https://github.com/Finb/bark-server),
