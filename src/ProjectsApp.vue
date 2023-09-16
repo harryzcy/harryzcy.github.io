@@ -67,7 +67,7 @@
                 >
                   <div
                     v-for="option in sortOptions"
-                    :key="option.label"
+                    :key="option"
                     class="dark:bg-neutral-200/10 hover:bg-neutral-200/40 hover:dark:text-neutral-300 hover:dark:bg-neutral-200/20 first:rounded-t-md last:rounded-b-md"
                   >
                     <MenuItem>
@@ -75,7 +75,7 @@
                         class="flex items-center px-5 py-1 w-full"
                         @click="
                           () => {
-                            activeSortOption = option.value
+                            activeSortOption = option
                           }
                         "
                       >
@@ -83,11 +83,11 @@
                           <CheckIcon
                             class="w-3 h-3"
                             :class="{
-                              invisible: option.value !== activeSortOption
+                              invisible: option !== activeSortOption
                             }"
                           />
                         </span>
-                        <span>{{ option.label }}</span>
+                        <span>{{ option }}</span>
                       </span>
                     </MenuItem>
                   </div>
@@ -262,6 +262,14 @@
 
         <div class="block mt-2">
           <FilterList
+            menu-text="Sort"
+            :options="allStatuses"
+            v-model="selectedStatuses"
+          />
+        </div>
+
+        <div class="block mt-2">
+          <FilterList
             menu-text="Status"
             :options="allStatuses"
             v-model="selectedStatuses"
@@ -363,11 +371,8 @@ const selectedStatuses = ref<string[]>([])
 const allLanguages = getLanguages(allProjects)
 const selectedLanguages = ref<string[]>([])
 
-const sortOptions = [
-  { label: 'Start Year', value: 'start_year' },
-  { label: 'Name', value: 'project_name' }
-]
-const activeSortOption = ref(sortOptions[0].value)
+const sortOptions = ['Start Year', 'Name']
+const activeSortOption = ref(sortOptions[0])
 
 // projects with the filters and sorts applied
 const activeProjects = computed(() => {
@@ -390,12 +395,12 @@ const activeProjects = computed(() => {
 // if the sort option is not start_year, projects only contain one key, 0,
 // and the value is the list of all projects
 const projects = computed(() => {
-  if (activeSortOption.value === 'start_year') {
+  if (activeSortOption.value === 'Start Year') {
     return getProjectsByYear(activeProjects.value)
   }
 
   let projects = activeProjects.value
-  if (activeSortOption.value === 'project_name') {
+  if (activeSortOption.value === 'Name') {
     projects = projects.sort((a, b) => a.name.localeCompare(b.name))
   }
 
@@ -405,7 +410,7 @@ const projects = computed(() => {
 // years are the years of the project if the sort option is start_year,
 // otherwise, years only contain one element, 0
 const years = computed(() => {
-  if (activeSortOption.value === 'start_year') {
+  if (activeSortOption.value === 'Start Year') {
     return getYears(activeProjects.value)
   }
   return [0]

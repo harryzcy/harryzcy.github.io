@@ -5,7 +5,7 @@
       as="div"
       :model-value="modelValue"
       @update:modelValue="(value) => emit('update:modelValue', value)"
-      multiple
+      :multiple="multiple"
       class="w-56 ml-20 rounded-md border text-sm cursor-pointer bg-white dark:bg-neutral-900 dark:border-neutral-200/5 focus:outline-none"
     >
       <ListboxButton
@@ -79,22 +79,18 @@ import {
 } from '@headlessui/vue'
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/vue/24/solid'
 
-defineProps({
-  menuText: {
-    type: String,
-    required: true
-  },
-  options: {
-    type: Array<string>,
-    required: true
-  },
-  modelValue: {
-    type: Array<string>,
-    required: true
-  }
+interface Props {
+  menuText: string
+  options: string[]
+  modelValue: string[]
+  multiple: boolean
+}
+
+withDefaults(defineProps<Props>(), {
+  multiple: false
 })
 
 const emit = defineEmits<{
-  'update:modelValue': [value: string[]]
+  'update:modelValue': [value: string | string[]]
 }>()
 </script>
