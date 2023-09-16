@@ -30,176 +30,265 @@
     </nav>
   </header>
 
-  <section
-    class="flex flex-col md:flex-row max-w-[800px] px-4 m-auto mt-3 md:pt-5 text-slate-900 dark:text-neutral-400"
-  >
-    <h1 class="grow text-2xl font-bold mb-3 dark:text-neutral-300">Projects</h1>
+  <div class="flex justify-center gap-2 text-slate-900 dark:text-neutral-400">
+    <div>
+      <section
+        class="flex flex-col md:flex-row max-w-[800px] px-4 m-auto mt-3 md:pt-5"
+      >
+        <h1 class="grow text-2xl font-bold mb-3 dark:text-neutral-300">
+          Projects
+        </h1>
 
-    <div class="mb-3">
-      <div class="flex gap-4">
-        <Menu as="div" class="relative inline-block text-left select-none">
-          <MenuButton
-            class="inline-flex items-center rounded-md border px-3 py-1 cursor-pointer dark:border-neutral-200/5 dark:bg-neutral-200/10 hover:bg-neutral-200/40 hover:dark:border-neutral-200/30 hover:dark:text-neutral-300 hover:dark:bg-neutral-200/20"
-          >
-            <span class="text-sm">Sort</span>
-            <span class="ml-2 -mr-1 mt-0.5">
-              <ChevronDownIcon class="w-4 h-4" />
-            </span>
-          </MenuButton>
-          <transition
-            enter-active-class="transition duration-50 ease-out"
-            enter-from-class="transform scale-95 opacity-0"
-            enter-to-class="transform scale-100 opacity-100"
-            leave-active-class="transition duration-25 ease-in"
-            leave-from-class="transform scale-100 opacity-100"
-            leave-to-class="transform scale-95 opacity-0"
-          >
-            <MenuItems
-              class="absolute left-0 mt-2 w-28 rounded-md border text-sm cursor-pointer bg-white dark:bg-neutral-900 dark:border-neutral-200/5 focus:outline-none"
+        <div class="mb-3">
+          <div class="flex gap-4">
+            <Menu
+              v-if="!showSearchPanel"
+              as="div"
+              class="relative inline-block text-left select-none"
             >
-              <div
-                v-for="option in sortOptions"
-                :key="option.label"
-                class="dark:bg-neutral-200/10 hover:bg-neutral-200/40 hover:dark:text-neutral-300 hover:dark:bg-neutral-200/20 first:rounded-t-md last:rounded-b-md"
+              <MenuButton
+                class="inline-flex items-center rounded-md border px-3 py-1 cursor-pointer dark:border-neutral-200/5 dark:bg-neutral-200/10 hover:bg-neutral-200/40 hover:dark:border-neutral-200/30 hover:dark:text-neutral-300 hover:dark:bg-neutral-200/20"
               >
-                <MenuItem>
-                  <span
-                    class="flex items-center px-5 py-1 w-full"
-                    @click="
-                      () => {
-                        activeSortOption = option.value
-                      }
-                    "
+                <span class="text-sm">Sort</span>
+                <span class="ml-2 -mr-1 mt-0.5">
+                  <ChevronDownIcon class="w-4 h-4" />
+                </span>
+              </MenuButton>
+              <transition
+                enter-active-class="transition duration-50 ease-out"
+                enter-from-class="transform scale-95 opacity-0"
+                enter-to-class="transform scale-100 opacity-100"
+                leave-active-class="transition duration-25 ease-in"
+                leave-from-class="transform scale-100 opacity-100"
+                leave-to-class="transform scale-95 opacity-0"
+              >
+                <MenuItems
+                  class="absolute left-0 mt-2 w-28 rounded-md border text-sm cursor-pointer bg-white dark:bg-neutral-900 dark:border-neutral-200/5 focus:outline-none"
+                >
+                  <div
+                    v-for="option in sortOptions"
+                    :key="option"
+                    class="dark:bg-neutral-200/10 hover:bg-neutral-200/40 hover:dark:text-neutral-300 hover:dark:bg-neutral-200/20 first:rounded-t-md last:rounded-b-md"
                   >
-                    <span class="-ml-3 mr-1">
-                      <CheckIcon
-                        class="w-3 h-3"
-                        :class="{
-                          invisible: option.value !== activeSortOption
-                        }"
-                      />
-                    </span>
-                    <span>{{ option.label }}</span>
-                  </span>
-                </MenuItem>
-              </div>
-            </MenuItems>
-          </transition>
-        </Menu>
+                    <MenuItem>
+                      <span
+                        class="flex items-center px-5 py-1 w-full"
+                        @click="
+                          () => {
+                            activeSortOption = option
+                          }
+                        "
+                      >
+                        <span class="-ml-3 mr-1">
+                          <CheckIcon
+                            class="w-3 h-3"
+                            :class="{
+                              invisible: option !== activeSortOption
+                            }"
+                          />
+                        </span>
+                        <span>{{ option }}</span>
+                      </span>
+                    </MenuItem>
+                  </div>
+                </MenuItems>
+              </transition>
+            </Menu>
 
-        <FilterMenu
-          menu-text="Status"
-          :selected="selectedStatuses"
-          :options="allStatuses"
-          @toggle="
-            (status) => {
-              if (selectedStatuses.includes(status)) {
-                selectedStatuses.splice(selectedStatuses.indexOf(status), 1)
-              } else {
-                selectedStatuses.push(status)
-              }
-            }
-          "
-          @select-all="
-            () => {
-              selectedStatuses.splice(0, selectedStatuses.length)
-            }
-          "
-        />
+            <FilterMenu
+              v-if="!showSearchPanel"
+              menu-text="Status"
+              :selected="selectedStatuses"
+              :options="allStatuses"
+              @toggle="
+                (status) => {
+                  if (selectedStatuses.includes(status)) {
+                    selectedStatuses.splice(selectedStatuses.indexOf(status), 1)
+                  } else {
+                    selectedStatuses.push(status)
+                  }
+                }
+              "
+              @select-all="
+                () => {
+                  selectedStatuses.splice(0, selectedStatuses.length)
+                }
+              "
+            />
 
-        <FilterMenu
-          menu-text="Language"
-          :selected="selectedLanguages"
-          :options="allLanguages"
-          @toggle="
-            (language) => {
-              if (selectedLanguages.includes(language)) {
-                selectedLanguages.splice(selectedLanguages.indexOf(language), 1)
-              } else {
-                selectedLanguages.push(language)
-              }
-            }
-          "
-          @select-all="
-            () => {
-              selectedLanguages.splice(0, selectedLanguages.length)
-            }
-          "
-        />
-      </div>
+            <FilterMenu
+              v-if="!showSearchPanel"
+              menu-text="Language"
+              :selected="selectedLanguages"
+              :options="allLanguages"
+              @toggle="
+                (language) => {
+                  if (selectedLanguages.includes(language)) {
+                    selectedLanguages.splice(
+                      selectedLanguages.indexOf(language),
+                      1
+                    )
+                  } else {
+                    selectedLanguages.push(language)
+                  }
+                }
+              "
+              @select-all="
+                () => {
+                  selectedLanguages.splice(0, selectedLanguages.length)
+                }
+              "
+            />
+
+            <div
+              class="relative inline-block text-left select-none hidden md:block"
+            >
+              <span
+                class="inline-flex items-center h-full rounded-md border px-2 py-1 cursor-pointer dark:border-neutral-200/5 dark:bg-neutral-200/10 hover:bg-neutral-200/40 hover:dark:border-neutral-200/30 hover:dark:text-neutral-300 hover:dark:bg-neutral-200/20"
+                @click="showSearchPanel = !showSearchPanel"
+              >
+                <span class="relative h-4 w-4">
+                  <transition
+                    enter-active-class="transition duration-50 ease-out"
+                    enter-from-class="opacity-0"
+                    enter-to-class="opacity-100"
+                    leave-active-class="transition duration-50 ease-out"
+                    leave-from-class="opacity-100"
+                    leave-to-class="opacity-0"
+                  >
+                    <CubeTransparentIcon
+                      v-if="showSearchPanel"
+                      class="absolute top-0 w-4 h-4"
+                    />
+                  </transition>
+                  <transition
+                    enter-active-class="transition duration-50 ease-out"
+                    enter-from-class="opacity-0"
+                    enter-to-class="opacity-100"
+                    leave-active-class="transition duration-50 ease-out"
+                    leave-from-class="opacity-100"
+                    leave-to-class="opacity-0"
+                  >
+                    <CubeIcon
+                      v-if="!showSearchPanel"
+                      class="absolute top-0 w-4 h-4"
+                    />
+                  </transition>
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        v-for="year in years"
+        :key="year"
+        class="max-w-[800px] px-4 m-auto mt-4 md:mt-7"
+      >
+        <h2 v-if="year !== 0" class="text-2xl mb-2 md:mb-4">{{ year }}</h2>
+        <div
+          v-for="project in projects[year]"
+          :key="project.name"
+          class="-mx-0.5 px-1.5 md:-ml-4 md:pl-4 mb-4 md:md-6 py-1 md:py-3 border rounded-lg dark:border-gray-700"
+        >
+          <div class="mb-1 flex flex-wrap items-center align-baseline">
+            <span class="mb-0.5 mr-2">
+              <a
+                v-if="project.url"
+                class="underline decoration-4 underline-offset-0 decoration-teal-600/40 hover:decoration-teal-500/40 text-teal-900 hover:text-teal-600 dark:decoration-teal-300/40 hover:dark:decoration-teal-200/40 dark:text-teal-400 hover:dark:text-teal-300"
+                style="
+                  text-decoration-skip-ink: none;
+                  text-decoration-skip: none;
+                "
+                :href="project.url"
+              >
+                <span class="text:md lg:text-lg">{{ project.name }}</span>
+              </a>
+              <span v-else class="text:md lg:text-lg dark:text-gray-300">
+                {{ project.name }}
+              </span>
+              <span
+                v-if="project.full_name"
+                class="text:md lg:text-lg dark:text-gray-300"
+              >
+                ({{ project.full_name }})
+              </span>
+            </span>
+
+            <span class="mb-0.5 space-x-2 select-none">
+              <span
+                class="cursor-pointer text-sm rounded px-1 md:px-2"
+                :class="[
+                  project.status === 'Ongoing'
+                    ? 'text-sky-700 bg-sky-100 dark:text-sky-400 dark:bg-sky-900/40'
+                    : 'text-green-700 bg-teal-100 dark:text-teal-500 dark:bg-teal-900/40'
+                ]"
+                @click="
+                  () => {
+                    selectedStatuses = [project.status]
+                  }
+                "
+                >{{ project.status }}
+              </span>
+              <span
+                class="cursor-pointer text-sm rounded px-1 md:px-2 bg-slate-100 dark:bg-gray-800"
+                :class="[
+                  `text-lang-${project.lang_class}-light dark:text-lang-${project.lang_class}-dark`
+                ]"
+                @click="
+                  () => {
+                    selectedLanguages = [project.lang]
+                  }
+                "
+                >{{ project.lang }}</span
+              >
+              <span
+                v-if="project.release_num"
+                class="text-sm rounded px-1 md:px-2 bg-slate-100 dark:bg-gray-800"
+                >{{ project.release_num }} releases</span
+              >
+            </span>
+          </div>
+
+          <p v-html="renderDescription(project.description)"></p>
+        </div>
+      </section>
     </div>
-  </section>
 
-  <section
-    v-for="year in years"
-    :key="year"
-    class="max-w-[800px] px-4 m-auto text-slate-900 dark:text-neutral-400 mt-4 md:mt-7"
-  >
-    <h2 v-if="year !== 0" class="text-2xl mb-2 md:mb-4">{{ year }}</h2>
     <div
-      v-for="project in projects[year]"
-      :key="project.name"
-      class="-mx-0.5 md:-mx-4 px-1.5 md:px-4 mb-4 md:md-6 py-1 md:py-3 border rounded-lg dark:border-gray-700"
+      v-if="showSearchPanel"
+      :class="[activeSortOption === sorts.startYear ? 'pt-36' : 'pt-24']"
     >
-      <div class="mb-1 flex flex-wrap items-center align-baseline">
-        <span class="mb-0.5 mr-2">
-          <a
-            v-if="project.url"
-            class="underline decoration-4 underline-offset-0 decoration-teal-600/40 hover:decoration-teal-500/40 text-teal-900 hover:text-teal-600 dark:decoration-teal-300/40 hover:dark:decoration-teal-200/40 dark:text-teal-400 hover:dark:text-teal-300"
-            style="text-decoration-skip-ink: none; text-decoration-skip: none"
-            :href="project.url"
-          >
-            <span class="text:md lg:text-lg">{{ project.name }}</span>
-          </a>
-          <span v-else class="text:md lg:text-lg dark:text-gray-300">
-            {{ project.name }}
-          </span>
-          <span
-            v-if="project.full_name"
-            class="text:md lg:text-lg dark:text-gray-300"
-          >
-            ({{ project.full_name }})
-          </span>
-        </span>
+      <div class="border rounded-lg dark:border-gray-700 mt-2 p-2">
+        <p>Advanced Query</p>
 
-        <span class="mb-0.5 space-x-2 select-none">
-          <span
-            class="cursor-pointer text-sm rounded px-1 md:px-2"
-            :class="[
-              project.status === 'Ongoing'
-                ? 'text-sky-700 bg-sky-100 dark:text-sky-400 dark:bg-sky-900/40'
-                : 'text-green-700 bg-teal-100 dark:text-teal-500 dark:bg-teal-900/40'
-            ]"
-            @click="
-              () => {
-                selectedStatuses = [project.status]
-              }
-            "
-            >{{ project.status }}
-          </span>
-          <span
-            class="cursor-pointer text-sm rounded px-1 md:px-2 bg-slate-100 dark:bg-gray-800"
-            :class="[
-              `text-lang-${project.lang_class}-light dark:text-lang-${project.lang_class}-dark`
-            ]"
-            @click="
-              () => {
-                selectedLanguages = [project.lang]
-              }
-            "
-            >{{ project.lang }}</span
-          >
-          <span
-            v-if="project.release_num"
-            class="text-sm rounded px-1 md:px-2 bg-slate-100 dark:bg-gray-800"
-            >{{ project.release_num }} releases</span
-          >
-        </span>
+        <div class="block mt-2">
+          <FilterList
+            menu-text="Sort"
+            :options="sortOptions"
+            v-model="activeSortOption"
+          />
+        </div>
+
+        <div class="block mt-2">
+          <FilterList
+            menu-text="Status"
+            :options="allStatuses"
+            v-model="selectedStatuses"
+          />
+        </div>
+
+        <div class="block mt-2">
+          <FilterList
+            menu-text="Languages"
+            :options="allLanguages"
+            v-model="selectedLanguages"
+          />
+        </div>
       </div>
-
-      <p v-html="renderDescription(project.description)"></p>
     </div>
-  </section>
+  </div>
 
   <footer
     class="w-full relative bg-teal-900/20 dark:bg-neutral-900 font-mono text-slate-900 dark:text-teal-500 mt-10 border-t border-transparent dark:border-neutral-700"
@@ -226,11 +315,15 @@
 </template>
 
 <script setup lang="ts">
+import FilterList from './components/FilterList.vue'
 import FilterMenu from './components/FilterMenu.vue'
 import allProjects from './projects.yaml'
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
+import { CubeIcon, CubeTransparentIcon } from '@heroicons/vue/24/outline'
 import { CheckIcon, ChevronDownIcon } from '@heroicons/vue/24/solid'
 import { computed, ref } from 'vue'
+
+const showSearchPanel = ref(false)
 
 const sortByCreatedAt = (projects: Project[]) => {
   return projects.sort((a, b) => {
@@ -281,11 +374,13 @@ const selectedStatuses = ref<string[]>([])
 const allLanguages = getLanguages(allProjects)
 const selectedLanguages = ref<string[]>([])
 
-const sortOptions = [
-  { label: 'Start Year', value: 'start_year' },
-  { label: 'Name', value: 'project_name' }
-]
-const activeSortOption = ref(sortOptions[0].value)
+const sorts = {
+  startYear: 'Start Year',
+  project_name: 'Name'
+}
+
+const sortOptions = [sorts.startYear, sorts.project_name]
+const activeSortOption = ref(sortOptions[0])
 
 // projects with the filters and sorts applied
 const activeProjects = computed(() => {
@@ -308,12 +403,12 @@ const activeProjects = computed(() => {
 // if the sort option is not start_year, projects only contain one key, 0,
 // and the value is the list of all projects
 const projects = computed(() => {
-  if (activeSortOption.value === 'start_year') {
+  if (activeSortOption.value === sorts.startYear) {
     return getProjectsByYear(activeProjects.value)
   }
 
   let projects = activeProjects.value
-  if (activeSortOption.value === 'project_name') {
+  if (activeSortOption.value === sorts.project_name) {
     projects = projects.sort((a, b) => a.name.localeCompare(b.name))
   }
 
@@ -323,7 +418,7 @@ const projects = computed(() => {
 // years are the years of the project if the sort option is start_year,
 // otherwise, years only contain one element, 0
 const years = computed(() => {
-  if (activeSortOption.value === 'start_year') {
+  if (activeSortOption.value === sorts.startYear) {
     return getYears(activeProjects.value)
   }
   return [0]
