@@ -267,6 +267,14 @@
             v-model="selectedStatuses"
           />
         </div>
+
+        <div class="block mt-2">
+          <FilterList
+            menu-text="Languages"
+            :options="allLanguages"
+            v-model="selectedLanguages"
+          />
+        </div>
       </div>
     </div>
   </div>
