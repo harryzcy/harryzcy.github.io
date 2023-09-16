@@ -135,11 +135,11 @@
     :key="year"
     class="max-w-[800px] px-4 m-auto text-slate-900 dark:text-neutral-400 mt-4 md:mt-7"
   >
-    <h2 v-if="year !== 0" class="text-2xl mb-1 md:mb-2">{{ year }}</h2>
+    <h2 v-if="year !== 0" class="text-2xl mb-2 md:mb-4">{{ year }}</h2>
     <div
       v-for="project in projects[year]"
       :key="project.name"
-      class="mb-4 md:mb-6"
+      class="-mx-4 px-4 mb-4 md:md-6 py-2 border rounded-lg dark:border-gray-700"
     >
       <div class="mb-1 flex flex-wrap items-center align-baseline">
         <span class="mb-0.5 mr-2">
