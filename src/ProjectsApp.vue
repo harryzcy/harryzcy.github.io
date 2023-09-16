@@ -126,6 +126,42 @@
             }
           "
         />
+
+        <div class="relative inline-block text-left select-none">
+          <span
+            class="inline-flex items-center h-full rounded-md border px-2 py-1 cursor-pointer dark:border-neutral-200/5 dark:bg-neutral-200/10 hover:bg-neutral-200/40 hover:dark:border-neutral-200/30 hover:dark:text-neutral-300 hover:dark:bg-neutral-200/20"
+            @click="showSearchPanel = !showSearchPanel"
+          >
+            <span class="relative h-4 w-4">
+              <transition
+                enter-active-class="transition duration-50 ease-out"
+                enter-from-class="opacity-0"
+                enter-to-class="opacity-100"
+                leave-active-class="transition duration-50 ease-out"
+                leave-from-class="opacity-100"
+                leave-to-class="opacity-0"
+              >
+                <CubeTransparentIcon
+                  v-if="showSearchPanel"
+                  class="absolute top-0 w-4 h-4"
+                />
+              </transition>
+              <transition
+                enter-active-class="transition duration-50 ease-out"
+                enter-from-class="opacity-0"
+                enter-to-class="opacity-100"
+                leave-active-class="transition duration-50 ease-out"
+                leave-from-class="opacity-100"
+                leave-to-class="opacity-0"
+              >
+                <CubeIcon
+                  v-if="!showSearchPanel"
+                  class="absolute top-0 w-4 h-4"
+                />
+              </transition>
+            </span>
+          </span>
+        </div>
       </div>
     </div>
   </section>
@@ -229,8 +265,11 @@
 import FilterMenu from './components/FilterMenu.vue'
 import allProjects from './projects.yaml'
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
+import { CubeIcon, CubeTransparentIcon } from '@heroicons/vue/24/outline'
 import { CheckIcon, ChevronDownIcon } from '@heroicons/vue/24/solid'
 import { computed, ref } from 'vue'
+
+const showSearchPanel = ref(false)
 
 const sortByCreatedAt = (projects: Project[]) => {
   return projects.sort((a, b) => {
