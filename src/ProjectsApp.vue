@@ -19,7 +19,7 @@
           />
         </svg>
       </a>
-      <div class="px-4 py-2 md:py-4 flex space-x-2">
+      <div class="px-4 py-2 md:py-4 -mr-0.5 md:-mr-4 flex space-x-2">
         <a href="/" aria-label="Read the about page">
           <span class="p-2 rounded-full hover:font-extrabold">about</span>
         </a>
@@ -36,7 +36,7 @@
     <h1 class="grow text-2xl font-bold mb-3 dark:text-neutral-300">Projects</h1>
 
     <div class="mb-3">
-      <div class="flex gap-4">
+      <div class="flex gap-4 -mr-0.5 md:-mr-4">
         <Menu as="div" class="relative inline-block text-left select-none">
           <MenuButton
             class="inline-flex items-center rounded-md border px-3 py-1 cursor-pointer dark:border-neutral-200/5 dark:bg-neutral-200/10 hover:bg-neutral-200/40 hover:dark:border-neutral-200/30 hover:dark:text-neutral-300 hover:dark:bg-neutral-200/20"
@@ -175,7 +175,7 @@
     <div
       v-for="project in projects[year]"
       :key="project.name"
-      class="-ml-0.5 md:-ml-4 pl-1.5 md:pl-4 mb-4 md:md-6 py-1 md:py-3 border rounded-lg dark:border-gray-700"
+      class="-mx-0.5 md:-mx-4 px-1.5 md:px-4 mb-4 md:md-6 py-1 md:py-3 border rounded-lg dark:border-gray-700"
     >
       <div class="mb-1 flex flex-wrap items-center align-baseline">
         <span class="mb-0.5 mr-2">
