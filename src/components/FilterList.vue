@@ -9,7 +9,7 @@
       class="w-56 ml-20 rounded-md border text-sm cursor-pointer bg-white dark:bg-neutral-900 dark:border-neutral-200/5 focus:outline-none"
     >
       <ListboxButton
-        class="relative w-full cursor-pointer rounded-lg bg-white bg-neutral-200/5 py-2 px-3 pr-8 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300"
+        class="relative w-full cursor-pointer rounded-lg bg-white dark:bg-neutral-200/5 py-2 px-3 pr-8 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300"
       >
         <span class="block text-sm">
           <span
