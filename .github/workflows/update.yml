@@ -2,7 +2,7 @@ name: Nightly Update Check
 
 on:
   schedule:
-    - cron: '0 3 * * *'
+    - cron: "0 3 * * *"
   workflow_dispatch:
 
 jobs:
@@ -86,7 +86,7 @@ jobs:
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ steps.generate-token.outputs.token }}
-          commit-message: '[chore] Update release number'
-          title: 'Update release number'
-          labels: 'chore'
-          add-paths: 'src/projects.yaml'
+          commit-message: "[chore] Update release number"
+          title: "Update release number"
+          labels: "chore"
+          add-paths: "src/projects.yaml"
