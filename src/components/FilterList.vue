@@ -49,7 +49,7 @@
                   active
                     ? 'bg-neutral-200/40 dark:bg-neutral-200/20 dark:text-neutral-300'
                     : 'bg-neutral-200/10',
-                  'relative select-none py-2 pl-10 pr-4 first:rounded-t-md last:rounded-b-md'
+                  'relative select-none py-2 px-7 first:rounded-t-md last:rounded-b-md'
                 ]"
               >
                 <span :class="[selected ? 'font-medium' : 'font-normal']">{{
@@ -57,9 +57,9 @@
                 }}</span>
                 <span
                   v-if="selected"
-                  class="absolute inset-y-0 left-0 flex items-center pl-3 text-amber-600"
+                  class="absolute inset-y-0 left-0 flex items-center pl-2"
                 >
-                  <CheckIcon class="h-5 w-5" aria-hidden="true" />
+                  <CheckIcon class="h-3 w-3" aria-hidden="true" />
                 </span>
               </li>
             </ListboxOption>
