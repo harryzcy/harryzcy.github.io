@@ -41,7 +41,11 @@
 
         <div class="mb-3">
           <div class="flex gap-4">
-            <Menu as="div" class="relative inline-block text-left select-none">
+            <Menu
+              v-if="!showSearchPanel"
+              as="div"
+              class="relative inline-block text-left select-none"
+            >
               <MenuButton
                 class="inline-flex items-center rounded-md border px-3 py-1 cursor-pointer dark:border-neutral-200/5 dark:bg-neutral-200/10 hover:bg-neutral-200/40 hover:dark:border-neutral-200/30 hover:dark:text-neutral-300 hover:dark:bg-neutral-200/20"
               >
@@ -92,6 +96,7 @@
             </Menu>
 
             <FilterMenu
+              v-if="!showSearchPanel"
               menu-text="Status"
               :selected="selectedStatuses"
               :options="allStatuses"
@@ -112,6 +117,7 @@
             />
 
             <FilterMenu
+              v-if="!showSearchPanel"
               menu-text="Language"
               :selected="selectedLanguages"
               :options="allLanguages"
@@ -250,7 +256,7 @@
       </section>
     </div>
 
-    <div class="pt-36">
+    <div v-if="showSearchPanel" class="pt-36">
       <div class="border rounded-lg dark:border-gray-700 mt-2 p-2">
         <p>Advanced Query</p>
 
