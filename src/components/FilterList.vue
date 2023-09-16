@@ -35,7 +35,7 @@
           leave-to-class="opacity-0"
         >
           <ListboxOptions
-            class="absolute left-0 mt-2 min-w-full rounded-md border text-sm cursor-pointer bg-white dark:bg-neutral-900 dark:border-neutral-200/5 focus:outline-none"
+            class="absolute z-20 left-0 mt-2 min-w-full rounded-md border text-sm cursor-pointer bg-white dark:bg-neutral-900 dark:border-neutral-200/5 focus:outline-none"
           >
             <ListboxOption
               v-slot="{ active, selected }"
