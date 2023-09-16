@@ -263,8 +263,8 @@
         <div class="block mt-2">
           <FilterList
             menu-text="Sort"
-            :options="allStatuses"
-            v-model="selectedStatuses"
+            :options="sortOptions"
+            v-model="activeSortOption"
           />
         </div>
 

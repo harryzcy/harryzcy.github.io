@@ -13,12 +13,12 @@
       >
         <span class="block text-sm">
           <span
-            v-if="modelValue.length === 0"
+            v-if="Array.isArray(modelValue) && modelValue.length === 0"
             class="dark:text-neutral-400 italic"
             >No filter</span
           >
           <span v-else class="flex flex-wrap gap-2">
-            {{ modelValue.join(', ') }}
+            {{ Array.isArray(modelValue) ? modelValue.join(', ') : modelValue }}
           </span>
         </span>
         <span
@@ -82,8 +82,8 @@ import { CheckIcon, ChevronUpDownIcon } from '@heroicons/vue/24/solid'
 interface Props {
   menuText: string
   options: string[]
-  modelValue: string[]
-  multiple: boolean
+  modelValue: string | string[]
+  multiple?: boolean
 }
 
 withDefaults(defineProps<Props>(), {
