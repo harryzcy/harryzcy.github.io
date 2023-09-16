@@ -256,7 +256,10 @@
       </section>
     </div>
 
-    <div v-if="showSearchPanel" class="pt-36">
+    <div
+      v-if="showSearchPanel"
+      :class="[activeSortOption === sorts.startYear ? 'pt-36' : 'pt-24']"
+    >
       <div class="border rounded-lg dark:border-gray-700 mt-2 p-2">
         <p>Advanced Query</p>
 
@@ -371,7 +374,12 @@ const selectedStatuses = ref<string[]>([])
 const allLanguages = getLanguages(allProjects)
 const selectedLanguages = ref<string[]>([])
 
-const sortOptions = ['Start Year', 'Name']
+const sorts = {
+  startYear: 'Start Year',
+  project_name: 'Name'
+}
+
+const sortOptions = [sorts.startYear, sorts.project_name]
 const activeSortOption = ref(sortOptions[0])
 
 // projects with the filters and sorts applied
@@ -395,12 +403,12 @@ const activeProjects = computed(() => {
 // if the sort option is not start_year, projects only contain one key, 0,
 // and the value is the list of all projects
 const projects = computed(() => {
-  if (activeSortOption.value === 'Start Year') {
+  if (activeSortOption.value === sorts.startYear) {
     return getProjectsByYear(activeProjects.value)
   }
 
   let projects = activeProjects.value
-  if (activeSortOption.value === 'Name') {
+  if (activeSortOption.value === sorts.project_name) {
     projects = projects.sort((a, b) => a.name.localeCompare(b.name))
   }
 
@@ -410,7 +418,7 @@ const projects = computed(() => {
 // years are the years of the project if the sort option is start_year,
 // otherwise, years only contain one element, 0
 const years = computed(() => {
-  if (activeSortOption.value === 'Start Year') {
+  if (activeSortOption.value === sorts.startYear) {
     return getYears(activeProjects.value)
   }
   return [0]
