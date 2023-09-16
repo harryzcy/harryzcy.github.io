@@ -6,13 +6,20 @@
       :model-value="modelValue"
       @update:modelValue="(value) => emit('update:modelValue', value)"
       multiple
-      class="w-full rounded-md border text-sm cursor-pointer bg-white dark:bg-neutral-900 dark:border-neutral-200/5 focus:outline-none"
+      class="w-56 ml-20 rounded-md border text-sm cursor-pointer bg-white dark:bg-neutral-900 dark:border-neutral-200/5 focus:outline-none"
     >
       <ListboxButton
-        class="relative w-full cursor-default rounded-lg bg-white dark:bg-neutral-900 py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm"
+        class="relative w-full cursor-pointer rounded-lg bg-white bg-neutral-200/5 py-2 px-3 pr-8 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300"
       >
-        <span class="block truncate">
-          {{ modelValue.length == 0 ? 'None' : modelValue.join(', ') }}
+        <span class="block text-sm">
+          <span
+            v-if="modelValue.length === 0"
+            class="dark:text-neutral-400 italic"
+            >No filter</span
+          >
+          <span v-else class="flex flex-wrap gap-2">
+            {{ modelValue.join(', ') }}
+          </span>
         </span>
         <span
           class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2"

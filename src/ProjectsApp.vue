@@ -254,7 +254,7 @@
       <div class="border rounded-lg dark:border-gray-700 mt-2 p-2">
         <p>Advanced Query</p>
 
-        <div class="block">
+        <div class="block mt-2">
           <FilterList
             menu-text="Status"
             :options="allStatuses"
