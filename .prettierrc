@@ -3,7 +3,8 @@
   "trailingComma": "none",
   "singleQuote": true,
   "printWidth": 80,
-  "importOrderSeparation": false,
+  "importOrder": ["^[./]"],
+  "importOrderSeparation": true,
   "importOrderSortSpecifiers": true,
   "plugins": [
     "prettier-plugin-tailwindcss",

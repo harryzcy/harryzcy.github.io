@@ -1,11 +1,11 @@
 <template>
-  <Menu as="div" class="relative inline-block text-left select-none">
+  <Menu as="div" class="relative inline-block select-none text-left">
     <MenuButton
-      class="inline-flex items-center rounded-md border px-3 py-1 cursor-pointer dark:border-neutral-200/5 dark:bg-neutral-200/10 hover:bg-neutral-200/40 hover:dark:border-neutral-200/30 hover:dark:text-neutral-300 hover:dark:bg-neutral-200/20"
+      class="inline-flex cursor-pointer items-center rounded-md border px-3 py-1 hover:bg-neutral-200/40 dark:border-neutral-200/5 dark:bg-neutral-200/10 hover:dark:border-neutral-200/30 hover:dark:bg-neutral-200/20 hover:dark:text-neutral-300"
     >
       <span class="text-sm">{{ menuText }}</span>
-      <span class="ml-2 -mr-1 mt-0.5">
-        <ChevronDownIcon class="w-4 h-4" />
+      <span class="-mr-1 ml-2 mt-0.5">
+        <ChevronDownIcon class="h-4 w-4" />
       </span>
     </MenuButton>
     <transition
@@ -17,16 +17,16 @@
       leave-to-class="transform scale-95 opacity-0"
     >
       <MenuItems
-        class="absolute left-0 mt-2 min-w-full rounded-md border text-sm cursor-pointer bg-white dark:bg-neutral-900 dark:border-neutral-200/5 focus:outline-none"
+        class="absolute left-0 mt-2 min-w-full cursor-pointer rounded-md border bg-white text-sm focus:outline-none dark:border-neutral-200/5 dark:bg-neutral-900"
       >
         <div
           v-for="option in [allOptionText, ...options]"
           :key="option"
-          class="dark:bg-neutral-200/10 hover:bg-neutral-200/40 hover:dark:text-neutral-300 hover:dark:bg-neutral-200/20 first:rounded-t-md last:rounded-b-md"
+          class="first:rounded-t-md last:rounded-b-md hover:bg-neutral-200/40 dark:bg-neutral-200/10 hover:dark:bg-neutral-200/20 hover:dark:text-neutral-300"
         >
           <MenuItem>
             <span
-              class="flex items-center px-5 py-1 w-full"
+              class="flex w-full items-center px-5 py-1"
               @click="
                 (event) => {
                   event.preventDefault()
@@ -40,7 +40,7 @@
             >
               <span class="-ml-3 mr-1">
                 <CheckIcon
-                  class="w-3 h-3"
+                  class="h-3 w-3"
                   :class="{
                     invisible:
                       (option === allOptionText && selected.length > 0) ||

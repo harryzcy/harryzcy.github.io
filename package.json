@@ -9,7 +9,7 @@
     "analyze": "parcel build --reporter @parcel/reporter-bundle-analyzer",
     "check": "vue-tsc --noEmit",
     "lint": "eslint --ext .js,.ts,.vue src",
-    "prettier": "prettier --write src",
+    "prettier": "prettier src --write",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "browserslist": "> 0.5%, last 2 versions, not dead",
