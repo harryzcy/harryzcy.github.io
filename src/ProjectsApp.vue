@@ -276,6 +276,7 @@
             menu-text="Status"
             :options="allStatuses"
             v-model="selectedStatuses"
+            multiple
           />
         </div>
 
@@ -284,11 +285,19 @@
             menu-text="Languages"
             :options="allLanguages"
             v-model="selectedLanguages"
+            multiple
           />
         </div>
 
         <div
           class="mt-2 md:mt-4 block text-sm text-center italic underline cursor-pointer"
+          @click="
+            () => {
+              selectedStatuses.splice(0, selectedStatuses.length)
+              selectedLanguages.splice(0, selectedLanguages.length)
+              activeSortOption = sortOptions[0]
+            }
+          "
         >
           <p
             class="text-gray-500 dark:text-neutral-400 hover:text-gray-800 hover:dark:text-neutral-300"
