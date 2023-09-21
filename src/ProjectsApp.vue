@@ -288,9 +288,13 @@
         </div>
 
         <div
-          class="mt-2 md:mt-4 block text-gray-800 text-sm text-center italic hover:underline cursor-pointer"
+          class="mt-2 md:mt-4 block text-sm text-center italic underline cursor-pointer"
         >
-          <p>Clear</p>
+          <p
+            class="text-gray-500 dark:text-neutral-400 hover:text-gray-800 hover:dark:text-neutral-300"
+          >
+            Clear
+          </p>
         </div>
       </div>
     </div>
