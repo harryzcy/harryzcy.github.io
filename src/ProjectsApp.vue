@@ -286,6 +286,12 @@
             v-model="selectedLanguages"
           />
         </div>
+
+        <div
+          class="mt-2 md:mt-4 block text-gray-800 text-sm text-center italic hover:underline cursor-pointer"
+        >
+          <p>Clear</p>
+        </div>
       </div>
     </div>
   </div>
