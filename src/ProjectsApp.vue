@@ -1,14 +1,14 @@
 <template>
   <header
-    class="font-mono sticky top-0 w-full z-50 bg-teal-700/80 dark:bg-neutral-900/90 backdrop-blur-sm text-white dark:text-teal-500 border-b border-transparent dark:border-neutral-700"
+    class="sticky top-0 z-50 w-full border-b border-transparent bg-teal-700/80 font-mono text-white backdrop-blur-sm dark:border-neutral-700 dark:bg-neutral-900/90 dark:text-teal-500"
   >
     <nav
-      class="max-w-[800px] m-auto flex justify-between items-center text-right"
+      class="m-auto flex max-w-[800px] items-center justify-between text-right"
     >
       <a href="/" class="px-4 py-2 md:py-4" aria-label="Go to about page">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          class="w-5 h-5"
+          class="h-5 w-5"
           viewBox="0 0 20 20"
           fill="currentColor"
         >
@@ -19,12 +19,12 @@
           />
         </svg>
       </a>
-      <div class="px-4 py-2 md:py-4 flex space-x-2">
+      <div class="flex space-x-2 px-4 py-2 md:py-4">
         <a href="/" aria-label="Read the about page">
-          <span class="p-2 rounded-full hover:font-extrabold">about</span>
+          <span class="rounded-full p-2 hover:font-extrabold">about</span>
         </a>
         <a href="/projects" aria-label="Learn more about the projects">
-          <span class="p-2 rounded-full font-extrabold">projects</span>
+          <span class="rounded-full p-2 font-extrabold">projects</span>
         </a>
       </div>
     </nav>
@@ -33,9 +33,9 @@
   <div class="flex justify-center gap-2 text-slate-900 dark:text-neutral-400">
     <div>
       <section
-        class="flex flex-col md:flex-row max-w-[800px] px-4 m-auto mt-3 md:pt-5"
+        class="m-auto mt-3 flex max-w-[800px] flex-col px-4 md:flex-row md:pt-5"
       >
-        <h1 class="grow text-2xl font-bold mb-3 dark:text-neutral-300">
+        <h1 class="mb-3 grow text-2xl font-bold dark:text-neutral-300">
           Projects
         </h1>
 
@@ -44,14 +44,14 @@
             <Menu
               v-if="!showSearchPanel"
               as="div"
-              class="relative inline-block text-left select-none"
+              class="relative inline-block select-none text-left"
             >
               <MenuButton
-                class="inline-flex items-center rounded-md border px-3 py-1 cursor-pointer dark:border-neutral-200/5 dark:bg-neutral-200/10 hover:bg-neutral-200/40 hover:dark:border-neutral-200/30 hover:dark:text-neutral-300 hover:dark:bg-neutral-200/20"
+                class="inline-flex cursor-pointer items-center rounded-md border px-3 py-1 hover:bg-neutral-200/40 dark:border-neutral-200/5 dark:bg-neutral-200/10 hover:dark:border-neutral-200/30 hover:dark:bg-neutral-200/20 hover:dark:text-neutral-300"
               >
                 <span class="text-sm">Sort</span>
-                <span class="ml-2 -mr-1 mt-0.5">
-                  <ChevronDownIcon class="w-4 h-4" />
+                <span class="-mr-1 ml-2 mt-0.5">
+                  <ChevronDownIcon class="h-4 w-4" />
                 </span>
               </MenuButton>
               <transition
@@ -63,16 +63,16 @@
                 leave-to-class="transform scale-95 opacity-0"
               >
                 <MenuItems
-                  class="absolute left-0 mt-2 w-28 rounded-md border text-sm cursor-pointer bg-white dark:bg-neutral-900 dark:border-neutral-200/5 focus:outline-none"
+                  class="absolute left-0 mt-2 w-28 cursor-pointer rounded-md border bg-white text-sm focus:outline-none dark:border-neutral-200/5 dark:bg-neutral-900"
                 >
                   <div
                     v-for="option in sortOptions"
                     :key="option"
-                    class="dark:bg-neutral-200/10 hover:bg-neutral-200/40 hover:dark:text-neutral-300 hover:dark:bg-neutral-200/20 first:rounded-t-md last:rounded-b-md"
+                    class="first:rounded-t-md last:rounded-b-md hover:bg-neutral-200/40 dark:bg-neutral-200/10 hover:dark:bg-neutral-200/20 hover:dark:text-neutral-300"
                   >
                     <MenuItem>
                       <span
-                        class="flex items-center px-5 py-1 w-full"
+                        class="flex w-full items-center px-5 py-1"
                         @click="
                           () => {
                             activeSortOption = option
@@ -81,7 +81,7 @@
                       >
                         <span class="-ml-3 mr-1">
                           <CheckIcon
-                            class="w-3 h-3"
+                            class="h-3 w-3"
                             :class="{
                               invisible: option !== activeSortOption
                             }"
@@ -141,10 +141,10 @@
             />
 
             <div
-              class="relative inline-block text-left select-none hidden md:block"
+              class="relative inline-block hidden select-none text-left md:block"
             >
               <span
-                class="inline-flex items-center h-full rounded-md border px-2 py-1 cursor-pointer dark:border-neutral-200/5 dark:bg-neutral-200/10 hover:bg-neutral-200/40 hover:dark:border-neutral-200/30 hover:dark:text-neutral-300 hover:dark:bg-neutral-200/20"
+                class="inline-flex h-full cursor-pointer items-center rounded-md border px-2 py-1 hover:bg-neutral-200/40 dark:border-neutral-200/5 dark:bg-neutral-200/10 hover:dark:border-neutral-200/30 hover:dark:bg-neutral-200/20 hover:dark:text-neutral-300"
                 @click="showSearchPanel = !showSearchPanel"
               >
                 <span class="relative h-4 w-4">
@@ -158,7 +158,7 @@
                   >
                     <CubeTransparentIcon
                       v-if="showSearchPanel"
-                      class="absolute top-0 w-4 h-4"
+                      class="absolute top-0 h-4 w-4"
                     />
                   </transition>
                   <transition
@@ -171,7 +171,7 @@
                   >
                     <CubeIcon
                       v-if="!showSearchPanel"
-                      class="absolute top-0 w-4 h-4"
+                      class="absolute top-0 h-4 w-4"
                     />
                   </transition>
                 </span>
@@ -184,19 +184,19 @@
       <section
         v-for="year in years"
         :key="year"
-        class="max-w-[800px] px-4 m-auto mt-4 md:mt-7"
+        class="m-auto mt-4 max-w-[800px] px-4 md:mt-7"
       >
-        <h2 v-if="year !== 0" class="text-2xl mb-2 md:mb-4">{{ year }}</h2>
+        <h2 v-if="year !== 0" class="mb-2 text-2xl md:mb-4">{{ year }}</h2>
         <div
           v-for="project in projects[year]"
           :key="project.name"
-          class="-mx-0.5 px-1.5 md:-ml-4 md:pl-4 mb-4 md:md-6 py-1 md:py-3 border rounded-lg dark:border-gray-700"
+          class="md:md-6 -mx-0.5 mb-4 rounded-lg border px-1.5 py-1 dark:border-gray-700 md:-ml-4 md:py-3 md:pl-4"
         >
           <div class="mb-1 flex flex-wrap items-center align-baseline">
             <span class="mb-0.5 mr-2">
               <a
                 v-if="project.url"
-                class="underline decoration-4 underline-offset-0 decoration-teal-600/40 hover:decoration-teal-500/40 text-teal-900 hover:text-teal-600 dark:decoration-teal-300/40 hover:dark:decoration-teal-200/40 dark:text-teal-400 hover:dark:text-teal-300"
+                class="text-teal-900 underline decoration-teal-600/40 decoration-4 underline-offset-0 hover:text-teal-600 hover:decoration-teal-500/40 dark:text-teal-400 dark:decoration-teal-300/40 hover:dark:text-teal-300 hover:dark:decoration-teal-200/40"
                 style="
                   text-decoration-skip-ink: none;
                   text-decoration-skip: none;
@@ -205,24 +205,24 @@
               >
                 <span class="text:md lg:text-lg">{{ project.name }}</span>
               </a>
-              <span v-else class="text:md lg:text-lg dark:text-gray-300">
+              <span v-else class="text:md dark:text-gray-300 lg:text-lg">
                 {{ project.name }}
               </span>
               <span
                 v-if="project.full_name"
-                class="text:md lg:text-lg dark:text-gray-300"
+                class="text:md dark:text-gray-300 lg:text-lg"
               >
                 ({{ project.full_name }})
               </span>
             </span>
 
-            <span class="mb-0.5 space-x-2 select-none">
+            <span class="mb-0.5 select-none space-x-2">
               <span
-                class="cursor-pointer text-sm rounded px-1 md:px-2"
+                class="cursor-pointer rounded px-1 text-sm md:px-2"
                 :class="[
                   project.status === 'Ongoing'
-                    ? 'text-sky-700 bg-sky-100 dark:text-sky-400 dark:bg-sky-900/40'
-                    : 'text-green-700 bg-teal-100 dark:text-teal-500 dark:bg-teal-900/40'
+                    ? 'bg-sky-100 text-sky-700 dark:bg-sky-900/40 dark:text-sky-400'
+                    : 'bg-teal-100 text-green-700 dark:bg-teal-900/40 dark:text-teal-500'
                 ]"
                 @click="
                   () => {
@@ -232,7 +232,7 @@
                 >{{ project.status }}
               </span>
               <span
-                class="cursor-pointer text-sm rounded px-1 md:px-2 bg-slate-100 dark:bg-gray-800"
+                class="cursor-pointer rounded bg-slate-100 px-1 text-sm dark:bg-gray-800 md:px-2"
                 :class="[
                   `text-lang-${project.lang_class}-light dark:text-lang-${project.lang_class}-dark`
                 ]"
@@ -245,7 +245,7 @@
               >
               <span
                 v-if="project.release_num"
-                class="text-sm rounded px-1 md:px-2 bg-slate-100 dark:bg-gray-800"
+                class="rounded bg-slate-100 px-1 text-sm dark:bg-gray-800 md:px-2"
                 >{{ project.release_num }} releases</span
               >
             </span>
@@ -260,10 +260,10 @@
       v-if="showSearchPanel"
       :class="[activeSortOption === sorts.startYear ? 'pt-36' : 'pt-24']"
     >
-      <div class="border rounded-lg dark:border-gray-700 mt-2 p-2">
+      <div class="mt-2 rounded-lg border p-2 dark:border-gray-700">
         <p>Advanced Query</p>
 
-        <div class="block mt-2">
+        <div class="mt-2 block">
           <FilterList
             menu-text="Sort"
             :options="sortOptions"
@@ -271,7 +271,7 @@
           />
         </div>
 
-        <div class="block mt-2">
+        <div class="mt-2 block">
           <FilterList
             menu-text="Status"
             :options="allStatuses"
@@ -279,7 +279,7 @@
           />
         </div>
 
-        <div class="block mt-2">
+        <div class="mt-2 block">
           <FilterList
             menu-text="Languages"
             :options="allLanguages"
@@ -291,10 +291,10 @@
   </div>
 
   <footer
-    class="w-full relative bg-teal-900/20 dark:bg-neutral-900 font-mono text-slate-900 dark:text-teal-500 mt-10 border-t border-transparent dark:border-neutral-700"
+    class="relative mt-10 w-full border-t border-transparent bg-teal-900/20 font-mono text-slate-900 dark:border-neutral-700 dark:bg-neutral-900 dark:text-teal-500"
   >
     <div
-      class="max-w-[800px] m-auto py-2 md:py-4 flex justify-start items-center text-right opacity-50"
+      class="m-auto flex max-w-[800px] items-center justify-start py-2 text-right opacity-50 md:py-4"
     >
       <div class="flex px-4">
         <a href="https://github.com/harryzcy" class="h-6 w-6">
@@ -315,13 +315,14 @@
 </template>
 
 <script setup lang="ts">
-import FilterList from './components/FilterList.vue'
-import FilterMenu from './components/FilterMenu.vue'
-import allProjects from './projects.yaml'
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
 import { CubeIcon, CubeTransparentIcon } from '@heroicons/vue/24/outline'
 import { CheckIcon, ChevronDownIcon } from '@heroicons/vue/24/solid'
 import { computed, ref } from 'vue'
+
+import FilterList from './components/FilterList.vue'
+import FilterMenu from './components/FilterMenu.vue'
+import allProjects from './projects.yaml'
 
 const showSearchPanel = ref(false)
 
