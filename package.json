@@ -31,16 +31,16 @@
     "@trivago/prettier-plugin-sort-imports": "4.2.0",
     "@vue/eslint-config-prettier": "8.0.0",
     "@vue/eslint-config-typescript": "12.0.0",
-    "autoprefixer": "10.4.15",
+    "autoprefixer": "10.4.16",
     "eslint": "8.49.0",
     "eslint-plugin-prettier": "5.0.0",
     "eslint-plugin-vue": "9.17.0",
     "parcel": "2.9.3",
-    "postcss": "8.4.29",
+    "postcss": "8.4.30",
     "prettier": "3.0.3",
     "prettier-plugin-tailwindcss": "0.5.4",
     "typescript": "5.2.2",
-    "vue-tsc": "1.8.11"
+    "vue-tsc": "1.8.13"
   },
   "dependencies": {
     "@headlessui/vue": "1.7.16",
