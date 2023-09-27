@@ -2,7 +2,7 @@
   url: https://github.com/harryzcy/act-images
   start_year: 2023
   created_at: "2023-09-17"
-  status: Completed
+  status: Deployed
   lang: Dockerfile
   lang_class: docker
   description: >-
@@ -14,7 +14,7 @@
   url: https://github.com/harryzcy/artifact-store
   start_year: 2023
   created_at: "2023-07-23"
-  status: Completed
+  status: Deployed
   lang: Rust
   lang_class: rs
   release_num: 4
@@ -39,7 +39,7 @@
   url: https://github.com/harryzcy/mailbox-browser
   start_year: 2023
   created_at: "2022-11-19"
-  status: Completed
+  status: Deployed
   lang: TypeScript
   lang_class: ts
   release_num: 13
@@ -61,7 +61,7 @@
   full_name: Bot for GitHub
   start_year: 2022
   created_at: "2022-06-24"
-  status: Completed
+  status: Deployed
   lang: TypeScript
   lang_class: ts
   description: >-
@@ -75,7 +75,7 @@
   url: https://github.com/harryzcy/nodop
   start_year: 2022
   created_at: "2022-06-13"
-  status: Ongoing
+  status: Deployed
   lang: TypeScript
   lang_class: ts
   release_num: 10
@@ -113,7 +113,7 @@
   url: https://github.com/harryzcy/mailbox
   start_year: 2022
   created_at: "2021-01-01"
-  status: Completed
+  status: Deployed
   lang: Go
   lang_class: go
   release_num: 13
