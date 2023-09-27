@@ -43,7 +43,7 @@ export default {
   plugins: [],
   safelist: [
     {
-      pattern: /text-lang-(js|ts|go|rs|java|py|c)-light/
+      pattern: /text-lang-(js|ts|go|rs|java|py|c|docker)-light/
     },
     'dark:text-lang-js-dark',
     'dark:text-lang-ts-dark',
@@ -51,6 +51,7 @@ export default {
     'dark:text-lang-rs-dark',
     'dark:text-lang-java-dark',
     'dark:text-lang-py-dark',
-    'dark:text-lang-c-dark'
+    'dark:text-lang-c-dark',
+    'dark:text-lang-docker-dark'
   ]
 } as Config
