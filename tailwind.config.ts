@@ -32,6 +32,10 @@ export default {
         'lang-c': {
           light: '#555555',
           dark: '#555555'
+        },
+        'lang-docker': {
+          light: '#384d54',
+          dark: '#384d54'
         }
       }
     }

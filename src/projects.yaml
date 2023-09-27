@@ -4,7 +4,7 @@
   created_at: "2023-09-17"
   status: Completed
   lang: Dockerfile
-  lang_class: dock
+  lang_class: docker
   description: >-
     act-images is the automated build repository for Docker images for Gitea Actions and [act](https://github.com/nektos/act).
     It ships all the language runtime and tools that I use in my CI/CD pipelines for private repositories.
