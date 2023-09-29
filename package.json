@@ -36,7 +36,7 @@
     "eslint-plugin-prettier": "5.0.0",
     "eslint-plugin-vue": "9.17.0",
     "parcel": "2.9.3",
-    "postcss": "8.4.30",
+    "postcss": "8.4.31",
     "prettier": "3.0.3",
     "prettier-plugin-tailwindcss": "0.5.4",
     "typescript": "5.2.2",
