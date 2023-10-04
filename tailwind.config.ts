@@ -35,7 +35,7 @@ export default {
         },
         'lang-docker': {
           light: '#384d54',
-          dark: '#384d54'
+          dark: '#85bcce'
         }
       }
     }
