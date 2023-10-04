@@ -76,6 +76,7 @@
                         @click="
                           () => {
                             activeSortOption = option
+                            scrollToTop()
                           }
                         "
                       >
@@ -107,11 +108,13 @@
                   } else {
                     selectedStatuses.push(status)
                   }
+                  scrollToTop()
                 }
               "
               @select-all="
                 () => {
                   selectedStatuses.splice(0, selectedStatuses.length)
+                  scrollToTop()
                 }
               "
             />
@@ -131,11 +134,13 @@
                   } else {
                     selectedLanguages.push(language)
                   }
+                  scrollToTop()
                 }
               "
               @select-all="
                 () => {
                   selectedLanguages.splice(0, selectedLanguages.length)
+                  scrollToTop()
                 }
               "
             />
@@ -227,6 +232,7 @@
                 @click="
                   () => {
                     selectedStatuses = [project.status]
+                    scrollToTop()
                   }
                 "
                 >{{ project.status }}
@@ -239,6 +245,7 @@
                 @click="
                   () => {
                     selectedLanguages = [project.lang]
+                    scrollToTop()
                   }
                 "
                 >{{ project.lang }}</span
@@ -443,4 +450,11 @@ const years = computed(() => {
   }
   return [0]
 })
+
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  })
+}
 </script>
