@@ -182,7 +182,13 @@
         <span class="col-start-3 flex flex-wrap gap-x-2 gap-y-1 pb-1">
           <img class="h-12" src="./icons/docker.svg" alt="Docker" />
           <img class="h-12" src="./icons/kubernetes.svg" alt="Kubernetes" />
-          <img class="-my-1 h-14" src="./icons/git.svg" alt="Git" />
+          <picture class="h-12">
+            <source
+              srcset="./icons/git-light.svg"
+              media="(prefers-color-scheme: dark)"
+            />
+            <img class="my-3 h-6" src="./icons/git.svg" alt="Git" />
+          </picture>
           <img class="h-12" src="./icons/postgresql.svg" alt="PostgreSQL" />
           <img class="h-12" src="./icons/reactjs.svg" alt="React.js" />
           <picture class="h-12">
