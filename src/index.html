@@ -152,7 +152,13 @@
           <img class="h-12" src="./icons/java.svg" alt="Java" />
           <img class="h-12" src="./icons/html5.svg" alt="HTML5" />
           <img class="h-12" src="./icons/css3.svg" alt="CSS3" />
-          <img class="h-12" src="./icons/bash.svg" alt="Bash" />
+          <picture class="h-12">
+            <source
+              srcset="./icons/bash-light.svg"
+              media="(prefers-color-scheme: dark)"
+            />
+            <img class="h-12" src="./icons/bash.svg" alt="Bash" />
+          </picture>
         </span>
         <span class="col-start-2">Some:</span>
         <span class="col-start-3 flex flex-wrap gap-x-2 gap-y-1 pb-1">
