@@ -185,7 +185,13 @@
           <img class="-my-1 h-14" src="./icons/git.svg" alt="Git" />
           <img class="h-12" src="./icons/postgresql.svg" alt="PostgreSQL" />
           <img class="h-12" src="./icons/reactjs.svg" alt="React.js" />
-          <img class="h-12" src="./icons/nodejs.svg" alt="Node.js" />
+          <picture class="h-12">
+            <source
+              srcset="./icons/nodejs-light.svg"
+              media="(prefers-color-scheme: dark)"
+            />
+            <img class="h-12" src="./icons/nodejs.svg" alt="Node.js" />
+          </picture>
           <img
             class="h-12 p-0.5"
             src="./icons/github-actions.svg"
