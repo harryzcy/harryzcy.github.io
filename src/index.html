@@ -152,11 +152,25 @@
           <img class="h-12" src="./icons/java.svg" alt="Java" />
           <img class="h-12" src="./icons/html5.svg" alt="HTML5" />
           <img class="h-12" src="./icons/css3.svg" alt="CSS3" />
-          <img class="h-12" src="./icons/bash.svg" alt="Bash" />
+          <picture class="h-12">
+            <source
+              srcset="./icons/bash-light.svg"
+              media="(prefers-color-scheme: dark)"
+            />
+            <img class="h-12" src="./icons/bash.svg" alt="Bash" />
+          </picture>
         </span>
         <span class="col-start-2">Some:</span>
         <span class="col-start-3 flex flex-wrap gap-x-2 gap-y-1 pb-1">
-          <img class="-m-2 h-16" src="./icons/rust.svg" alt="Rust" />
+          <img
+            class="h-12"
+            style="
+              filter: drop-shadow(1px 0 0px #fff) drop-shadow(0 1px 0 #fff)
+                drop-shadow(-1px 0 0 #fff) drop-shadow(0 -1px 0 #fff);
+            "
+            src="./icons/rust.svg"
+            alt="Rust"
+          />
           <img class="h-12" src="./icons/matlab.svg" alt="Matlab" />
           <img class="h-12" src="./icons/lisp.svg" alt="Lisp" />
         </span>
@@ -168,10 +182,22 @@
         <span class="col-start-3 flex flex-wrap gap-x-2 gap-y-1 pb-1">
           <img class="h-12" src="./icons/docker.svg" alt="Docker" />
           <img class="h-12" src="./icons/kubernetes.svg" alt="Kubernetes" />
-          <img class="-my-1 h-14" src="./icons/git.svg" alt="Git" />
+          <picture class="h-12">
+            <source
+              srcset="./icons/git-light.svg"
+              media="(prefers-color-scheme: dark)"
+            />
+            <img class="my-3 h-6" src="./icons/git.svg" alt="Git" />
+          </picture>
           <img class="h-12" src="./icons/postgresql.svg" alt="PostgreSQL" />
           <img class="h-12" src="./icons/reactjs.svg" alt="React.js" />
-          <img class="h-12" src="./icons/nodejs.svg" alt="Node.js" />
+          <picture class="h-12">
+            <source
+              srcset="./icons/nodejs-light.svg"
+              media="(prefers-color-scheme: dark)"
+            />
+            <img class="h-12" src="./icons/nodejs.svg" alt="Node.js" />
+          </picture>
           <img
             class="h-12 p-0.5"
             src="./icons/github-actions.svg"
@@ -180,11 +206,17 @@
         </span>
         <span class="col-start-2">Basic:</span>
         <span class="col-start-3 flex flex-wrap gap-x-2 gap-y-1 pb-1">
-          <img
-            class="-my-1 h-14"
-            src="./icons/aws.svg"
-            alt="Amazon Web Services"
-          />
+          <picture class="h-12">
+            <source
+              srcset="./icons/aws-dark.svg"
+              media="(prefers-color-scheme: dark)"
+            />
+            <img
+              class="-my-1 h-14"
+              src="./icons/aws.svg"
+              alt="Amazon Web Services"
+            />
+          </picture>
           <img class="h-11" src="./icons/dynamodb.svg" alt="DynamoDB" />
           <img class="h-11" src="./icons/s3.svg" alt="Simple Storage Service" />
           <img class="h-12 py-2" src="./icons/grpc.svg" alt="gRPC" />
@@ -194,18 +226,24 @@
           <img class="h-12" src="./icons/graphql.svg" alt="GraphQL" />
           <img class="h-12" src="./icons/linux.svg" alt="Linux" />
           <img class="h-12" src="./icons/nginx.svg" alt="Nginx" />
-          <img class="h-12" src="./icons/vuejs.svg" alt="Vue.js" />
+          <img class="my-1 h-10" src="./icons/vuejs.svg" alt="Vue.js" />
           <img class="h-12" src="./icons/parcel.svg" alt="Parcel" />
           <img class="h-12" src="./icons/vite.svg" alt="Vite" />
-          <img
-            class="-my-4 h-20"
-            src="./icons/tailwindcss.svg"
-            alt="TailwindCSS"
-          />
+          <picture class="h-12">
+            <source
+              srcset="./icons/tailwindcss-light.svg"
+              media="(prefers-color-scheme: dark)"
+            />
+            <img
+              class="my-4 h-4"
+              src="./icons/tailwindcss.svg"
+              alt="TailwindCSS"
+            />
+          </picture>
         </span>
         <span class="col-start-2">Some:</span>
         <span class="col-start-3 flex flex-wrap gap-x-2 gap-y-1 pb-1">
-          <img class="-my-1 h-14 pl-1" src="./icons/cmake.svg" alt="CMake" />
+          <img class="my-3 h-6" src="./icons/cmake.svg" alt="CMake" />
           <img class="h-12" src="./icons/helm.svg" alt="Helm" />
         </span>
       </div>
