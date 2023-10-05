@@ -200,11 +200,17 @@
         </span>
         <span class="col-start-2">Basic:</span>
         <span class="col-start-3 flex flex-wrap gap-x-2 gap-y-1 pb-1">
-          <img
-            class="-my-1 h-14"
-            src="./icons/aws.svg"
-            alt="Amazon Web Services"
-          />
+          <picture class="h-12">
+            <source
+              srcset="./icons/aws-dark.svg"
+              media="(prefers-color-scheme: dark)"
+            />
+            <img
+              class="-my-1 h-14"
+              src="./icons/aws.svg"
+              alt="Amazon Web Services"
+            />
+          </picture>
           <img class="h-11" src="./icons/dynamodb.svg" alt="DynamoDB" />
           <img class="h-11" src="./icons/s3.svg" alt="Simple Storage Service" />
           <img class="h-12 py-2" src="./icons/grpc.svg" alt="gRPC" />
