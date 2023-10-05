@@ -223,11 +223,17 @@
           <img class="h-12" src="./icons/vuejs.svg" alt="Vue.js" />
           <img class="h-12" src="./icons/parcel.svg" alt="Parcel" />
           <img class="h-12" src="./icons/vite.svg" alt="Vite" />
-          <img
-            class="-my-4 h-20"
-            src="./icons/tailwindcss.svg"
-            alt="TailwindCSS"
-          />
+          <picture class="h-12">
+            <source
+              srcset="./icons/tailwindcss-light.svg"
+              media="(prefers-color-scheme: dark)"
+            />
+            <img
+              class="my-4 h-4"
+              src="./icons/tailwindcss.svg"
+              alt="TailwindCSS"
+            />
+          </picture>
         </span>
         <span class="col-start-2">Some:</span>
         <span class="col-start-3 flex flex-wrap gap-x-2 gap-y-1 pb-1">
