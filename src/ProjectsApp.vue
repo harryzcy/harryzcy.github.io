@@ -30,12 +30,12 @@
     </nav>
   </header>
 
-  <div class="flex justify-center gap-2 text-slate-900 dark:text-neutral-400">
+  <div class="flex justify-center gap-2 text-slate-900 dark:text-neutral-200">
     <div>
       <section
         class="m-auto mt-3 flex max-w-[800px] flex-col px-4 md:flex-row md:pt-5"
       >
-        <h1 class="mb-3 grow text-2xl font-bold dark:text-neutral-300">
+        <h1 class="mb-3 grow text-2xl font-bold dark:text-neutral-50">
           Projects
         </h1>
 
@@ -47,7 +47,7 @@
               class="relative inline-block select-none text-left"
             >
               <MenuButton
-                class="inline-flex cursor-pointer items-center rounded-md border px-3 py-1 hover:bg-neutral-200/40 dark:border-neutral-200/5 dark:bg-neutral-200/10 hover:dark:border-neutral-200/30 hover:dark:bg-neutral-200/20 hover:dark:text-neutral-300"
+                class="inline-flex cursor-pointer items-center rounded-md border px-3 py-1 hover:bg-neutral-200/40 dark:border-neutral-200/5 dark:bg-neutral-200/10 hover:dark:border-neutral-200/30 hover:dark:bg-neutral-200/20 hover:dark:text-neutral-100"
               >
                 <span class="text-sm">Sort</span>
                 <span class="-mr-1 ml-2 mt-0.5">
@@ -68,7 +68,7 @@
                   <div
                     v-for="option in sortOptions"
                     :key="option"
-                    class="first:rounded-t-md last:rounded-b-md hover:bg-neutral-200/40 dark:bg-neutral-200/10 hover:dark:bg-neutral-200/20 hover:dark:text-neutral-300"
+                    class="first:rounded-t-md last:rounded-b-md hover:bg-neutral-200/40 dark:bg-neutral-200/10 hover:dark:bg-neutral-200/20 hover:dark:text-neutral-100"
                   >
                     <MenuItem>
                       <span
@@ -149,7 +149,7 @@
               class="relative inline-block hidden select-none text-left md:block"
             >
               <span
-                class="inline-flex h-full cursor-pointer items-center rounded-md border px-2 py-1 hover:bg-neutral-200/40 dark:border-neutral-200/5 dark:bg-neutral-200/10 hover:dark:border-neutral-200/30 hover:dark:bg-neutral-200/20 hover:dark:text-neutral-300"
+                class="inline-flex h-full cursor-pointer items-center rounded-md border px-2 py-1 hover:bg-neutral-200/40 dark:border-neutral-200/5 dark:bg-neutral-200/10 hover:dark:border-neutral-200/30 hover:dark:bg-neutral-200/20 hover:dark:text-neutral-100"
                 @click="showSearchPanel = !showSearchPanel"
               >
                 <span class="relative h-4 w-4">
@@ -307,7 +307,7 @@
           "
         >
           <p
-            class="text-gray-500 dark:text-neutral-400 hover:text-gray-800 hover:dark:text-neutral-300"
+            class="text-gray-500 dark:text-neutral-400 hover:text-gray-800 hover:dark:text-neutral-100"
           >
             Clear
           </p>
@@ -320,10 +320,13 @@
     class="relative mt-10 w-full border-t border-transparent bg-teal-900/20 font-mono text-slate-900 dark:border-neutral-700 dark:bg-neutral-900 dark:text-teal-500"
   >
     <div
-      class="m-auto flex max-w-[800px] items-center justify-start py-2 text-right opacity-50 md:py-4"
+      class="m-auto flex max-w-[800px] items-center justify-start py-2 text-right md:py-4"
     >
       <div class="flex px-4">
-        <a href="https://github.com/harryzcy" class="h-6 w-6">
+        <a
+          href="https://github.com/harryzcy"
+          class="h-6 w-6 opacity-70 hover:opacity-100"
+        >
           <picture class="h-6 w-6">
             <source
               srcset="./icons/github-mark-white.svg"
