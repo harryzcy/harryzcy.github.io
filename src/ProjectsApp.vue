@@ -191,7 +191,12 @@
         :key="year"
         class="m-auto mt-4 max-w-[800px] px-4 md:mt-7"
       >
-        <h2 v-if="year !== 0" class="mb-2 text-2xl md:mb-4">{{ year }}</h2>
+        <h2
+          v-if="year !== 0"
+          class="mb-2 text-2xl md:mb-4 dark:text-neutral-50"
+        >
+          {{ year }}
+        </h2>
         <div
           v-for="project in projects[year]"
           :key="project.name"
