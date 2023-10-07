@@ -24,8 +24,10 @@
   },
   "homepage": "https://github.com/harryzcy/harryzcy.github.io#readme",
   "devDependencies": {
+    "@parcel/packager-raw-url": "2.9.3",
     "@parcel/reporter-bundle-analyzer": "2.9.3",
     "@parcel/transformer-vue": "2.9.3",
+    "@parcel/transformer-webmanifest": "2.9.3",
     "@parcel/transformer-yaml": "2.9.3",
     "@rushstack/eslint-patch": "1.5.1",
     "@trivago/prettier-plugin-sort-imports": "4.2.0",
