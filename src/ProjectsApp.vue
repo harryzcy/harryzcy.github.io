@@ -320,10 +320,13 @@
     class="relative mt-10 w-full border-t border-transparent bg-teal-900/20 font-mono text-slate-900 dark:border-neutral-700 dark:bg-neutral-900 dark:text-teal-500"
   >
     <div
-      class="m-auto flex max-w-[800px] items-center justify-start py-2 text-right opacity-50 md:py-4"
+      class="m-auto flex max-w-[800px] items-center justify-start py-2 text-right md:py-4"
     >
       <div class="flex px-4">
-        <a href="https://github.com/harryzcy" class="h-6 w-6">
+        <a
+          href="https://github.com/harryzcy"
+          class="h-6 w-6 opacity-70 hover:opacity-100"
+        >
           <picture class="h-6 w-6">
             <source
               srcset="./icons/github-mark-white.svg"
