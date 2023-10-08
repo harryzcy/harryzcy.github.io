@@ -24,7 +24,10 @@ jobs:
         id: build
         run: |
           npm install
-          npm run build >> $GITHUB_OUTPUT
+
+          echo 'var<<EOF' >> $GITHUB_OUTPUT
+          echo "$(npm run build)" >> $GITHUB_OUTPUT
+          echo 'EOF' >> $GITHUB_OUTPUT
 
       - name: Print Output
         run: |
