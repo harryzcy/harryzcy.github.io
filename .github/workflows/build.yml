@@ -21,17 +21,11 @@ jobs:
           node-version: 20
 
       - name: Install and Build 🔧
+        id: build
         run: |
           npm install
-          npm run build
+          npm run build >> $GITHUB_OUTPUT
 
-  report-size:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout 🛎️
-        uses: actions/checkout@v4
-
-      - name: Report Size
-        uses: preactjs/compressed-size-action@v2
-        with:
-          pattern: "./dist/**/*.{js,css,html,json}"
+      - name: Print Output
+        run: |
+          cat $GITHUB_OUTPUT
