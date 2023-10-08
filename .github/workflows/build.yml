@@ -56,7 +56,9 @@ jobs:
           comment-id: ${{ steps.fc.outputs.comment-id }}
           issue-number: ${{ github.event.pull_request.number }}
           body: |
-            Build sizes
+            <details>
+              <summary>Build sizes</summary>
 
-            ${{ steps.build.outputs.table }}
+              ${{ steps.build.outputs.table }}
+            </details>
           edit-mode: replace
