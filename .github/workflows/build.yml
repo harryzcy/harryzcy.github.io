@@ -31,4 +31,4 @@ jobs:
 
       - name: Print Output
         run: |
-          echo ${{ steps.build.outputs.build_output }}
+          echo -e "${{ steps.build.outputs.build_output }}"
