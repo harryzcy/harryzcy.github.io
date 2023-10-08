@@ -34,7 +34,7 @@ jobs:
             read -ra parts <<<"$line"
             filename="${parts[0]}"
             size="${parts[1]} ${parts[2]}"
-            echo "$filename | $size" >> $GITHUB_OUTPUT
+            echo "`$filename` | $size" >> $GITHUB_OUTPUT
           done
           echo "EOF" >> $GITHUB_OUTPUT
 
