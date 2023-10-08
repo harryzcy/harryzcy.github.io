@@ -31,9 +31,9 @@ jobs:
             read -ra parts <<<"$line"
             filename="${parts[1]}"
             size="${parts[2]}"
-            echo $"$filename: $size" >> $GITHUB_OUTPUT
+            echo $"$filename: $size"
           done
 
-      - name: Print Build Output
-        run: |
-          echo -e "${{ steps.build.outputs.build_output }}"
+      # - name: Print Build Output
+      #   run: |
+      #     echo -e "${{ steps.build.outputs.build_output }}"
