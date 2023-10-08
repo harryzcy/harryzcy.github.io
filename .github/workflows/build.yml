@@ -24,11 +24,12 @@ jobs:
         id: build
         run: |
           npm install
+          echo {
+            echo 'build_output<<EOF'
+            echo "$(npm run build)"
+            echo 'EOF'
+          } >> $GITHUB_OUTPUT
 
-          echo 'build_output<<EOF' >> $GITHUB_OUTPUT
-          echo "$(npm run build)" >> $GITHUB_OUTPUT
-          echo 'EOF' >> $GITHUB_OUTPUT
-
-      - name: Print Output
+      - name: Print Build Output
         run: |
           echo -e "${{ steps.build.outputs.build_output }}"
