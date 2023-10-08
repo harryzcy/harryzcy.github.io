@@ -25,18 +25,18 @@ jobs:
         run: |
           npm install
 
-          echo 'table<<EOF' >> $GITHUB_OUTPUT
-          echo 'File | Size' >> $GITHUB_OUTPUT
-          echo '--- | ---' >> $GITHUB_OUTPUT
+          echo "table<<EOF" >> $GITHUB_OUTPUT
+          echo "File | Size" >> $GITHUB_OUTPUT
+          echo "--- | ---" >> $GITHUB_OUTPUT
           npm run build | grep dist |
-          while read line ;
+          while read -r line ;
           do
             read -ra parts <<<"$line"
             filename="${parts[0]}"
             size="${parts[1]} ${parts[2]}"
             echo "$filename | $size" >> $GITHUB_OUTPUT
           done
-          echo 'EOF' >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
 
       - name: Print Build Output
         run: |
