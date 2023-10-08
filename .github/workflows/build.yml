@@ -36,6 +36,6 @@ jobs:
           done
           echo 'EOF' >> $GITHUB_OUTPUT
 
-      # - name: Print Build Output
-      #   run: |
-      #     echo -e "${{ steps.build.outputs.build_output }}"
+      - name: Print Build Output
+        run: |
+          echo -e "${{ steps.build.outputs.build_output }}"
