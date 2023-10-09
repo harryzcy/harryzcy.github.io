@@ -21,21 +21,20 @@
       >
         <MenuItem v-for="option in options" :key="option" v-slot="{ active }">
           <div
-            class="first:rounded-t-md last:rounded-b-md dark:bg-neutral-200/10"
+            class="first:rounded-t-md last:rounded-b-md"
             :class="{
-              'bg-neutral-200/40 dark:bg-neutral-200/20 dark:text-neutral-100':
-                active
+              'bg-neutral-200/40 dark:bg-neutral-200/20 dark:text-neutral-300':
+                active,
+              'dark:bg-neutral-200/10': !active
             }"
+            @click="
+              () => {
+                emit('update:modelValue', option)
+                scrollToTop()
+              }
+            "
           >
-            <span
-              class="flex w-full items-center px-5 py-1"
-              @click="
-                () => {
-                  emit('update:modelValue', option)
-                  scrollToTop()
-                }
-              "
-            >
+            <span class="flex w-full items-center px-5 py-1">
               <span class="-ml-3 mr-1">
                 <CheckIcon
                   class="h-3 w-3"
