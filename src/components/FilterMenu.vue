@@ -19,25 +19,29 @@
       <MenuItems
         class="absolute left-0 mt-2 min-w-full cursor-pointer rounded-md border bg-white text-sm focus:outline-none dark:border-neutral-200/5 dark:bg-neutral-900"
       >
-        <div
+        <MenuItem
           v-for="option in [allOptionText, ...options]"
           :key="option"
-          class="first:rounded-t-md last:rounded-b-md hover:bg-neutral-200/40 dark:bg-neutral-200/10 hover:dark:bg-neutral-200/20 hover:dark:text-neutral-300"
+          v-slot="{ active }"
         >
-          <MenuItem>
-            <span
-              class="flex w-full items-center px-5 py-1"
-              @click="
-                (event) => {
-                  event.preventDefault()
-                  if (option === allOptionText) {
-                    emit('selectAll')
-                    return
-                  }
-                  emit('toggle', option)
+          <div
+            class="first:rounded-t-md last:rounded-b-md dark:bg-neutral-200/10"
+            :class="{
+              'bg-neutral-200/40 dark:bg-neutral-200/20 dark:text-neutral-300':
+                active
+            }"
+            @click="
+              (event) => {
+                event.preventDefault()
+                if (option === allOptionText) {
+                  emit('selectAll')
+                  return
                 }
-              "
-            >
+                emit('toggle', option)
+              }
+            "
+          >
+            <span class="flex w-full items-center px-5 py-1">
               <span class="-ml-3 mr-1">
                 <CheckIcon
                   class="h-3 w-3"
@@ -50,8 +54,8 @@
               </span>
               <span>{{ option }}</span>
             </span>
-          </MenuItem>
-        </div>
+          </div>
+        </MenuItem>
       </MenuItems>
     </transition>
   </Menu>

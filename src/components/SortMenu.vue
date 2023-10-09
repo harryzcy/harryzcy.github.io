@@ -27,7 +27,7 @@
           <div
             class="first:rounded-t-md last:rounded-b-md dark:bg-neutral-200/10"
             :class="{
-              'bg-neutral-200/40 dark:bg-neutral-200/20 dark:text-neutral-100':
+              'bg-neutral-200/40 dark:bg-neutral-200/20 dark:text-neutral-300':
                 active
             }"
             @click="
