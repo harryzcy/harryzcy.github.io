@@ -41,60 +41,12 @@
 
         <div class="mb-3">
           <div class="flex gap-4">
-            <Menu
+            <SortMenu
               v-if="!showSearchPanel"
-              as="div"
-              class="relative inline-block select-none text-left"
-            >
-              <MenuButton
-                class="inline-flex cursor-pointer items-center rounded-md border px-3 py-1 hover:bg-neutral-200/40 dark:border-neutral-200/5 dark:bg-neutral-200/10 hover:dark:border-neutral-200/30 hover:dark:bg-neutral-200/20 hover:dark:text-neutral-100"
-              >
-                <span class="text-sm">Sort</span>
-                <span class="-mr-1 ml-2 mt-0.5">
-                  <ChevronDownIcon class="h-4 w-4" />
-                </span>
-              </MenuButton>
-              <transition
-                enter-active-class="transition duration-50 ease-out"
-                enter-from-class="transform scale-95 opacity-0"
-                enter-to-class="transform scale-100 opacity-100"
-                leave-active-class="transition duration-25 ease-in"
-                leave-from-class="transform scale-100 opacity-100"
-                leave-to-class="transform scale-95 opacity-0"
-              >
-                <MenuItems
-                  class="absolute left-0 mt-2 w-28 cursor-pointer rounded-md border bg-white text-sm focus:outline-none dark:border-neutral-200/5 dark:bg-neutral-900"
-                >
-                  <div
-                    v-for="option in sortOptions"
-                    :key="option"
-                    class="first:rounded-t-md last:rounded-b-md hover:bg-neutral-200/40 dark:bg-neutral-200/10 hover:dark:bg-neutral-200/20 hover:dark:text-neutral-100"
-                  >
-                    <MenuItem>
-                      <span
-                        class="flex w-full items-center px-5 py-1"
-                        @click="
-                          () => {
-                            activeSortOption = option
-                            scrollToTop()
-                          }
-                        "
-                      >
-                        <span class="-ml-3 mr-1">
-                          <CheckIcon
-                            class="h-3 w-3"
-                            :class="{
-                              invisible: option !== activeSortOption
-                            }"
-                          />
-                        </span>
-                        <span>{{ option }}</span>
-                      </span>
-                    </MenuItem>
-                  </div>
-                </MenuItems>
-              </transition>
-            </Menu>
+              :options="sortOptions"
+              v-model="activeSortOption"
+              :scroll-to-top="scrollToTop"
+            />
 
             <FilterMenu
               v-if="!showSearchPanel"
@@ -349,13 +301,12 @@
 </template>
 
 <script setup lang="ts">
-import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
 import { CubeIcon, CubeTransparentIcon } from '@heroicons/vue/24/outline'
-import { CheckIcon, ChevronDownIcon } from '@heroicons/vue/24/solid'
 import { computed, ref } from 'vue'
 
 import FilterList from './components/FilterList.vue'
 import FilterMenu from './components/FilterMenu.vue'
+import SortMenu from './components/SortMenu.vue'
 import allProjects from './projects.yaml'
 
 const showSearchPanel = ref(false)
