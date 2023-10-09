@@ -25,10 +25,11 @@
           v-slot="{ active }"
         >
           <div
-            class="first:rounded-t-md last:rounded-b-md dark:bg-neutral-200/10"
+            class="first:rounded-t-md last:rounded-b-md"
             :class="{
               'bg-neutral-200/40 dark:bg-neutral-200/20 dark:text-neutral-300':
-                active
+                active,
+              'dark:bg-neutral-200/10': !active
             }"
             @click="
               (event) => {
