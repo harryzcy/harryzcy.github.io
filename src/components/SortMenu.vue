@@ -19,11 +19,7 @@
       <MenuItems
         class="absolute left-0 mt-2 w-28 cursor-pointer rounded-md border bg-white text-sm focus:outline-none dark:border-neutral-200/5 dark:bg-neutral-900"
       >
-        <MenuItem
-          v-for="option in options"
-          :key="option"
-          v-slot="{ active, close }"
-        >
+        <MenuItem v-for="option in options" :key="option" v-slot="{ active }">
           <div
             class="first:rounded-t-md last:rounded-b-md"
             :class="{
@@ -35,7 +31,6 @@
               () => {
                 emit('update:modelValue', option)
                 scrollToTop()
-                close()
               }
             "
           >
