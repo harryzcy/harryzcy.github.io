@@ -5,7 +5,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "start": "parcel './src/*.html'",
-    "build": "parcel build",
+    "build": "parcel build && cp cloudflare/* dist",
     "analyze": "parcel build --reporter @parcel/reporter-bundle-analyzer",
     "check": "vue-tsc --noEmit",
     "lint": "eslint --ext .js,.ts,.vue src",
