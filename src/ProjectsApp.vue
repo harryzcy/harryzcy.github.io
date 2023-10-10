@@ -158,7 +158,7 @@
             <span class="mb-0.5 mr-2">
               <a
                 v-if="project.url"
-                class="text-teal-900 underline decoration-teal-600/40 decoration-4 underline-offset-0 hover:text-teal-600 hover:decoration-teal-500/40 dark:text-teal-400 dark:decoration-teal-300/40 hover:dark:text-teal-300 hover:dark:decoration-teal-200/40"
+                class="font-medium text-teal-700 underline decoration-teal-600/30 decoration-2 underline-offset-2 hover:decoration-teal-700/40 dark:text-teal-400 dark:decoration-teal-300/30 hover:dark:decoration-teal-200/40"
                 style="
                   text-decoration-skip-ink: none;
                   text-decoration-skip: none;
