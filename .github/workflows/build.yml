@@ -30,7 +30,7 @@ jobs:
             echo "File | Size"
             echo "--- | ---"
           } > "$GITHUB_OUTPUT"
-          npm run build | grep dist |
+          npm run build | grep "^dist" |
           while read -r line ;
           do
             read -ra parts <<<"$line"
