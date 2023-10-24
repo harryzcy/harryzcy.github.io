@@ -141,7 +141,7 @@
   status: Completed
   lang: TypeScript
   lang_class: ts
-  release_num: 4
+  release_num: 5
   description: >-
     It is a GitHub Action workflow program and allows GitHub Actions to push iOS notifications via
     [Bark](https://github.com/Finb/bark-server),
