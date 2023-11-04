@@ -7,7 +7,7 @@
   lang_class: docker
   description: >-
     act-images is the automated build repository for Docker images for Gitea Actions and [act](https://github.com/nektos/act).
-    It ships all the language runtime and tools that I use in my CI/CD pipelines for private repositories.
+    It ships the language runtime and tools that I use in my CI/CD pipelines for private repositories.
     It produces nightly builds that are deployed to my testing machines.
 
 - name: Artifact Store
