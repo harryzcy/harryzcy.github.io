@@ -43,7 +43,7 @@
   status: Deployed
   lang: TypeScript
   lang_class: ts
-  release_num: 14
+  release_num: 15
   description: >-
     Mailbox Browser is a web application serving as a frontend for [Mailbox](https://github.com/harryzcy/mailbox).
 
