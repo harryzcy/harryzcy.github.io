@@ -31,7 +31,7 @@
   status: Ongoing
   lang: Go
   lang_class: go
-  release_num: 1
+  release_num: 2
   description: >-
     Snuuze is a lightweight dependency update tool that scans the entire repository and
     submit pull requests for outdated dependencies.
