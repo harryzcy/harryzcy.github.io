@@ -5,7 +5,7 @@
     <nav
       class="m-auto flex max-w-[800px] items-center justify-between text-right"
     >
-      <a href="/" class="px-4 py-2 md:py-4" aria-label="Go to about page">
+      <a href="/" class="px-4 py-4" aria-label="Go to about page">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="h-5 w-5"
@@ -19,7 +19,7 @@
           />
         </svg>
       </a>
-      <div class="flex space-x-2 px-4 py-2 md:py-4">
+      <div class="flex space-x-2 px-4 py-4">
         <a href="/" aria-label="Read the about page">
           <span class="rounded-full p-2 hover:font-extrabold">about</span>
         </a>
@@ -33,9 +33,9 @@
   <div class="flex justify-center gap-2 text-slate-900 dark:text-neutral-200">
     <div>
       <section
-        class="m-auto mt-3 flex max-w-[800px] flex-col px-4 md:flex-row md:pt-5"
+        class="m-auto mt-4 flex max-w-[800px] flex-col px-4 md:flex-row md:pt-5"
       >
-        <h1 class="mb-3 grow text-2xl font-bold dark:text-neutral-50">
+        <h1 class="mb-3 grow text-2xl dark:text-neutral-50 font-light">
           Projects
         </h1>
 
@@ -97,9 +97,7 @@
               "
             />
 
-            <div
-              class="relative inline-block hidden select-none text-left md:block"
-            >
+            <div class="relative hidden select-none text-left md:block">
               <span
                 class="inline-flex h-full cursor-pointer items-center rounded-md border px-2 py-1 hover:bg-neutral-200/40 dark:border-neutral-200/5 dark:bg-neutral-200/10 hover:dark:border-neutral-200/30 hover:dark:bg-neutral-200/20 hover:dark:text-neutral-100"
                 @click="showSearchPanel = !showSearchPanel"
