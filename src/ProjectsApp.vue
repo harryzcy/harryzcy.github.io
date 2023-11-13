@@ -35,7 +35,7 @@
       <section
         class="m-auto mt-3 flex max-w-[800px] flex-col px-4 md:flex-row md:pt-5"
       >
-        <h1 class="mb-3 grow text-2xl font-bold dark:text-neutral-50">
+        <h1 class="mb-3 grow text-2xl dark:text-neutral-50 font-light">
           Projects
         </h1>
 
