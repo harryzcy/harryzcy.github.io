@@ -33,7 +33,7 @@
   <div class="flex justify-center gap-2 text-slate-900 dark:text-neutral-200">
     <div>
       <section
-        class="m-auto mt-3 flex max-w-[800px] flex-col px-4 md:flex-row md:pt-5"
+        class="m-auto mt-4 flex max-w-[800px] flex-col px-4 md:flex-row md:pt-5"
       >
         <h1 class="mb-3 grow text-2xl dark:text-neutral-50 font-light">
           Projects
