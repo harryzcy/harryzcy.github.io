@@ -97,9 +97,7 @@
               "
             />
 
-            <div
-              class="relative inline-block hidden select-none text-left md:block"
-            >
+            <div class="relative hidden select-none text-left md:block">
               <span
                 class="inline-flex h-full cursor-pointer items-center rounded-md border px-2 py-1 hover:bg-neutral-200/40 dark:border-neutral-200/5 dark:bg-neutral-200/10 hover:dark:border-neutral-200/30 hover:dark:bg-neutral-200/20 hover:dark:text-neutral-100"
                 @click="showSearchPanel = !showSearchPanel"
