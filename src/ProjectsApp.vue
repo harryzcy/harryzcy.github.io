@@ -5,7 +5,7 @@
     <nav
       class="m-auto flex max-w-[800px] items-center justify-between text-right"
     >
-      <a href="/" class="px-4 py-2 md:py-4" aria-label="Go to about page">
+      <a href="/" class="px-4 py-3 md:py-4" aria-label="Go to about page">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="h-5 w-5"
@@ -19,7 +19,7 @@
           />
         </svg>
       </a>
-      <div class="flex space-x-2 px-4 py-2 md:py-4">
+      <div class="flex space-x-2 px-4 py-3 md:py-4">
         <a href="/" aria-label="Read the about page">
           <span class="rounded-full p-2 hover:font-extrabold">about</span>
         </a>
