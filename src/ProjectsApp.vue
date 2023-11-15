@@ -1,6 +1,6 @@
 <template>
   <header
-    class="sticky top-0 z-50 w-full border-b border-transparent bg-teal-700/80 font-mono text-white backdrop-blur-sm dark:border-neutral-700 dark:bg-neutral-900/90 dark:text-teal-500"
+    class="flex-none sticky top-0 z-50 w-full border-b border-transparent bg-teal-700/80 font-mono text-white backdrop-blur-sm dark:border-neutral-700 dark:bg-neutral-900/90 dark:text-teal-500"
   >
     <nav
       class="m-auto flex max-w-[800px] items-center justify-between text-right"
@@ -30,7 +30,9 @@
     </nav>
   </header>
 
-  <div class="flex justify-center gap-2 text-slate-900 dark:text-neutral-200">
+  <div
+    class="flex-none flex justify-center gap-2 text-slate-900 dark:text-neutral-200"
+  >
     <div>
       <section
         class="m-auto mt-4 flex max-w-[800px] flex-col px-4 md:flex-row md:pt-5"
@@ -271,29 +273,31 @@
     </div>
   </div>
 
-  <footer
-    class="relative mt-10 w-full border-t border-transparent bg-teal-900/20 font-mono text-slate-900 dark:border-neutral-700 dark:bg-neutral-900 dark:text-teal-500"
-  >
+  <footer class="mt-10 flex w-full grow flex-col justify-end">
     <div
-      class="m-auto flex max-w-[800px] items-center justify-start py-2 text-right md:py-4"
+      class="relative w-full flex-none border-t border-transparent bg-teal-900/20 font-mono text-slate-900 dark:border-neutral-700 dark:bg-neutral-900 dark:text-teal-500"
     >
-      <div class="flex px-4">
-        <a
-          href="https://github.com/harryzcy"
-          class="h-6 w-6 opacity-70 hover:opacity-100"
-        >
-          <picture class="h-6 w-6">
-            <source
-              srcset="./icons/github-mark-white.svg"
-              media="(prefers-color-scheme: dark)"
-            />
-            <img src="./icons/github-mark.svg" alt="github" />
-          </picture>
-        </a>
+      <div
+        class="m-auto flex max-w-[800px] items-center justify-start py-2 text-right md:py-4"
+      >
+        <div class="flex px-4">
+          <a
+            href="https://github.com/harryzcy"
+            class="h-6 w-6 opacity-70 hover:opacity-100"
+          >
+            <picture class="h-6 w-6">
+              <source
+                srcset="./icons/github-mark-white.svg"
+                media="(prefers-color-scheme: dark)"
+              />
+              <img src="./icons/github-mark.svg" alt="github" />
+            </picture>
+          </a>
+        </div>
       </div>
-    </div>
-    <div class="absolute right-0 top-0 px-10 py-2 md:py-4">
-      <span class="flex-initial text-sm">C Zheng</span>
+      <div class="absolute right-0 top-0 px-10 py-2 md:py-4">
+        <span class="flex-initial text-sm">C Zheng</span>
+      </div>
     </div>
   </footer>
 </template>
