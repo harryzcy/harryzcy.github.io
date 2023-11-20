@@ -71,6 +71,7 @@ const updateReleaseNumber = (data, toUpdate) => {
   for (const update of toUpdate) {
     const [projectName, releaseNum] = update
     const [lineIndex, exist] = findReleaseNumberLineIndex(lines, projectName)
+    console.log(`${projectName}: ${releaseNum}`, lineIndex, exist)
     if (exist) {
       lines[lineIndex] = `  release_num: ${releaseNum}`
     } else {
