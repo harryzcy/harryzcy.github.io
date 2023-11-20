@@ -43,7 +43,7 @@
   status: Deployed
   lang: TypeScript
   lang_class: ts
-  release_num: 19
+  release_num: 24
   description: >-
     Mailbox Browser is a web application serving as a frontend for [Mailbox](https://github.com/harryzcy/mailbox).
 
@@ -117,7 +117,7 @@
   status: Deployed
   lang: Go
   lang_class: go
-  release_num: 13
+  release_num: 19
   description: >-
     Mailbox is a serverless application runs on AWS services and handles email sending and receiving requests using custom email addresses.
     I built a set of APIs on top of AWS services to invoke email-related operations.
