@@ -72,11 +72,13 @@ const updateReleaseNumber = (data, toUpdate) => {
     const [projectName, releaseNum] = update
     const [lineIndex, exist] = findReleaseNumberLineIndex(lines, projectName)
     console.log(`${projectName}: ${releaseNum}`, lineIndex, exist)
+    console.log(`before: ${lines[lineIndex]}`)
     if (exist) {
       lines[lineIndex] = `  release_num: ${releaseNum}`
     } else {
       lines.splice(lineIndex + 1, 0, `  release_num: ${releaseNum}`)
     }
+    console.log(`after: ${lines[lineIndex]}`)
   }
 
   const updatedData = lines.join('\n')
