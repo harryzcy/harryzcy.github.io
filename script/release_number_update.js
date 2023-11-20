@@ -71,14 +71,11 @@ const updateReleaseNumber = (data, toUpdate) => {
   for (const update of toUpdate) {
     const [projectName, releaseNum] = update
     const [lineIndex, exist] = findReleaseNumberLineIndex(lines, projectName)
-    console.log(`${projectName}: ${releaseNum}`, lineIndex, exist)
-    console.log(`before: ${lines[lineIndex]}`)
     if (exist) {
       lines[lineIndex] = `  release_num: ${releaseNum}`
     } else {
       lines.splice(lineIndex + 1, 0, `  release_num: ${releaseNum}`)
     }
-    console.log(`after: ${lines[lineIndex]}`)
   }
 
   const updatedData = lines.join('\n')
@@ -89,7 +86,6 @@ const run = async (github) => {
   const { data, projects } = getProjects()
   const toUpdate = await checkReleaseNumbers(github, projects)
   console.log(`Found ${toUpdate.length} projects to update`)
-  console.log(toUpdate)
   updateReleaseNumber(data, toUpdate)
 }
 
