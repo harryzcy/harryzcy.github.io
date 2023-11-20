@@ -86,10 +86,9 @@ const updateReleaseNumber = (data, toUpdate) => {
 const run = async (github) => {
   const { data, projects } = getProjects()
   const toUpdate = await checkReleaseNumbers(github, projects)
+  console.log(`Found ${toUpdate.length} projects to update: ${toUpdate}`)
   updateReleaseNumber(data, toUpdate)
 }
 
 // eslint-disable-next-line no-undef
 module.exports = async ({ github }) => run(github)
-
-run()
