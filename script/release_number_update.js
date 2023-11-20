@@ -57,7 +57,9 @@ const checkReleaseNumbers = async (github, projects) => {
 }
 
 const findReleaseNumberLineIndex = (lines, projectName) => {
-  const nameIndex = lines.findIndex((line) => line.trim().endsWith(projectName))
+  const nameIndex = lines.findIndex((line) =>
+    line.trim().endsWith(`name: ${projectName}`)
+  )
   const descriptionIndex = lines.findIndex((line, index) => {
     return index > nameIndex && line.includes('description')
   })
