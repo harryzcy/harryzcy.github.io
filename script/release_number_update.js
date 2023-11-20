@@ -57,7 +57,9 @@ const checkReleaseNumbers = async (github, projects) => {
 }
 
 const findReleaseNumberLineIndex = (lines, projectName) => {
-  const nameIndex = lines.findIndex((line) => line.includes(projectName))
+  const nameIndex = lines.findIndex((line) =>
+    line.trim().endsWith(`name: ${projectName}`)
+  )
   const descriptionIndex = lines.findIndex((line, index) => {
     return index > nameIndex && line.includes('description')
   })
@@ -85,7 +87,7 @@ const updateReleaseNumber = (data, toUpdate) => {
 const run = async (github) => {
   const { data, projects } = getProjects()
   const toUpdate = await checkReleaseNumbers(github, projects)
-  console.log(`Found ${toUpdate.length} projects to update: ${toUpdate}`)
+  console.log(`Found ${toUpdate.length} projects to update`)
   updateReleaseNumber(data, toUpdate)
 }
 
