@@ -86,7 +86,8 @@ const updateReleaseNumber = (data, toUpdate) => {
 const run = async (github) => {
   const { data, projects } = getProjects()
   const toUpdate = await checkReleaseNumbers(github, projects)
-  console.log(`Found ${toUpdate.length} projects to update: ${toUpdate}`)
+  console.log(`Found ${toUpdate.length} projects to update`)
+  console.log(toUpdate)
   updateReleaseNumber(data, toUpdate)
 }
 
