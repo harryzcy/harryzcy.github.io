@@ -31,7 +31,8 @@ jobs:
             const script = require('script/release_number_update.js')
             script({ github })
 
-      - uses: tibdex/github-app-token@v2
+      - name: Get GitHub App Token
+        uses: tibdex/github-app-token@v2
         id: generate-token
         with:
           app_id: ${{ secrets.APP_ID }}
