@@ -28,55 +28,11 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
-            const YAML = require('yaml')
-            const fs = require('fs')
+            const script = require('script/release_number_update.js')
+            script({ github })
 
-            const data = fs.readFileSync('src/projects.yaml', 'utf8')
-            const projects = YAML.parse(data)
-
-            const toUpdate = []
-            for (const project of projects) {
-              if (project.url === undefined || !project.url.startsWith('https://github.com/')) {
-                console.log(`${project.name}: ${project.url ? 'invalid url ' + project.url : 'missing url'} (skipped)`)
-                continue
-              }
-              const repoName = project.url.replace('https://github.com/', '')
-              const [owner, repo] = repoName.split('/')
-              const releases = await github.paginate('GET /repos/{owner}/{repo}/releases', {
-                owner,
-                repo
-              })
-              if (releases.length > 0  && releases.length !== project.release_num) {
-                console.log(`${project.name}: release number changed from ${project.release_num} to ${releases.length}`)
-                toUpdate.push([project.name, releases.length])
-              }
-            }
-
-            const lines = data.split('\n')
-
-            function findReleaseNumberLineIndex(projectName) {
-              const nameIndex = lines.findIndex((line) => line.includes(projectName))
-              const descriptionIndex = lines.findIndex((line, index) => {
-                return index > nameIndex && line.includes('description')
-              })
-              const index = descriptionIndex - 1
-              return [index, lines[index].startsWith('  release_num:')]
-            }
-
-            for (const update of toUpdate) {
-              const [projectName, releaseNum] = update
-              const [lineIndex, exist] = findReleaseNumberLineIndex(projectName)
-              if (exist) {
-                lines[lineIndex] = `  release_num: ${releaseNum}`
-              } else {
-                lines.splice(lineIndex + 1, 0, `  release_num: ${releaseNum}`)
-              }
-            }
-
-            const updatedData = lines.join('\n')
-            fs.writeFileSync('src/projects.yaml', updatedData)
-
-      - uses: tibdex/github-app-token@v2
+      - name: Get GitHub App Token
+        uses: tibdex/github-app-token@v2
         id: generate-token
         with:
           app_id: ${{ secrets.APP_ID }}
