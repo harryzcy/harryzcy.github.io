@@ -28,7 +28,7 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
-            const script = require('script/release_number_update.js')
+            const script = require('./script/release_number_update.js')
             script({ github })
 
       - name: Get GitHub App Token
