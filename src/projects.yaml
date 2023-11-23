@@ -31,7 +31,7 @@
   status: Ongoing
   lang: Go
   lang_class: go
-  release_num: 2
+  release_num: 4
   description: >-
     Snuuze is a lightweight dependency update tool that scans the entire repository and
     submit pull requests for outdated dependencies.
@@ -142,7 +142,7 @@
   status: Completed
   lang: TypeScript
   lang_class: ts
-  release_num: 6
+  release_num: 7
   description: >-
     It is a GitHub Action workflow program and allows GitHub Actions to push iOS notifications via
     [Bark](https://github.com/Finb/bark-server),
