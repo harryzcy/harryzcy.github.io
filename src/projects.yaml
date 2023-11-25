@@ -1,3 +1,13 @@
+- name: konfig
+  url: https://github.com/harryzcy/konfig
+  start_year: 2023
+  created_at: "2023-11-23"
+  status: Ongoing
+  lang: TypeScript
+  lang_class: ts
+  description: >-
+    Konfig is a centralized configuration service designed to store and distribute configurations for various deployments.
+
 - name: act-images
   url: https://github.com/harryzcy/act-images
   start_year: 2023
