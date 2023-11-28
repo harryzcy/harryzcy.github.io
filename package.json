@@ -3,7 +3,6 @@
   "description": "This is where my website stays",
   "author": "Chongyi Zheng",
   "license": "UNLICENSED",
-  "type": "module",
   "scripts": {
     "start": "parcel './src/*.html'",
     "build": "parcel build && cp cloudflare/* dist",

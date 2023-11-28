@@ -1,7 +1,8 @@
-import { readFileSync } from 'fs'
+// eslint-disable-next-line no-undef
+const fs = require('fs')
 
 const run = () => {
-  const data = readFileSync('src/projects.yaml', 'utf8')
+  const data = fs.readFileSync('src/projects.yaml', 'utf8')
   const lines = data.split('\n')
   const perProjectLines = []
   for (const line of lines) {
@@ -54,4 +55,4 @@ const run = () => {
 }
 
 // eslint-disable-next-line no-undef
-export default run
+module.exports = run
