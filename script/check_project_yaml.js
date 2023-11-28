@@ -8,7 +8,7 @@ const run = () => {
     if (line.startsWith('- name:')) {
       perProjectLines.push([])
     }
-    let fieldValue = line.replace('- ', '').trim()
+    const fieldValue = line.replace('- ', '').trim()
     if (fieldValue.startsWith('#')) continue
     perProjectLines[perProjectLines.length - 1].push(fieldValue)
   }
