@@ -36,7 +36,7 @@ jobs:
         with:
           script: |
             const script = require('./script/check_project_yaml.js')
-            script({ github })
+            script()
 
   project-date:
     name: Project Date Check
