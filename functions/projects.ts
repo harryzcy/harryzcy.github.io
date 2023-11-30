@@ -7,6 +7,5 @@ export const onRequest: PagesFunction = async (context) => {
     url.pathname = '/projects.yaml'
   }
 
-  const asset = await context.env.ASSETS.fetch(url)
-  return new Response(asset.body, asset)
+  return await context.env.ASSETS.fetch(url)
 }
