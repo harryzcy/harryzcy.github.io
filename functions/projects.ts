@@ -4,6 +4,7 @@ export const onRequest: PagesFunction = async (context) => {
   const userAgent = context.request.headers.get('user-agent')
   const gptUsers = ['GPTBot', 'ChatGPT-User']
   if (userAgent && gptUsers.some((user) => userAgent.includes(user))) {
+    console.log('GPT system detected, responding with projects.yaml')
     url.pathname = '/projects.yaml'
   }
 
