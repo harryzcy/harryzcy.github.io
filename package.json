@@ -36,7 +36,7 @@
     "autoprefixer": "10.4.16",
     "eslint": "8.54.0",
     "eslint-plugin-prettier": "5.0.1",
-    "eslint-plugin-vue": "9.18.1",
+    "eslint-plugin-vue": "9.19.1",
     "parcel": "2.10.3",
     "postcss": "8.4.31",
     "postcss-import": "15.1.0",
