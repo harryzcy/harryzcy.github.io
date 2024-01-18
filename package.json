@@ -53,5 +53,8 @@
     "@heroicons/vue": "2.1.1",
     "tailwindcss": "3.4.1",
     "vue": "3.4.15"
+  },
+  "alias": {
+    "process": false
   }
 }
