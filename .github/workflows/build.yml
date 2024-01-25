@@ -45,7 +45,7 @@ jobs:
           echo -e "${{ steps.build.outputs.table }}"
 
       - name: Find Comment
-        uses: peter-evans/find-comment@v2
+        uses: peter-evans/find-comment@v3
         if: github.event_name == 'pull_request'
         id: fc
         with:
