@@ -141,7 +141,7 @@
       <section
         v-for="year in years"
         :key="year"
-        class="m-auto mt-4 max-w-[800px] px-4 md:mt-7"
+        class="m-auto mt-4 max-w-[800px] px-4 md:mt-6"
       >
         <h2
           v-if="year !== 0"
@@ -152,7 +152,7 @@
         <div
           v-for="project in projects[year]"
           :key="project.name"
-          class="md:md-6 -mx-0.5 mb-4 rounded-lg border px-1.5 py-1 dark:border-gray-700 md:-ml-4 md:py-3 md:pl-4"
+          class="md:md-6 -mx-0.5 mb-4 rounded-lg border px-1.5 py-1 dark:border-gray-700 md:-ml-4 md:py-3 md:pl-4 md:pr-2"
         >
           <div class="mb-1 flex flex-wrap items-center align-baseline">
             <span class="mb-0.5 mr-2">
@@ -224,7 +224,9 @@
       v-if="showSearchPanel"
       :class="[activeSortOption === sorts.startYear ? 'pt-36' : 'pt-24']"
     >
-      <div class="mt-2 rounded-lg border p-2 dark:border-gray-700">
+      <div
+        class="mt-2 rounded-lg border p-2 md:px-4 md:py-3 dark:border-gray-700"
+      >
         <p>Advanced Query</p>
 
         <div class="mt-2 block">
