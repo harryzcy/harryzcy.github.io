@@ -45,7 +45,7 @@ jobs:
           echo -e "${{ steps.build.outputs.table }}"
 
       - name: Find Comment
-        uses: peter-evans/find-comment@v2
+        uses: peter-evans/find-comment@v3
         if: github.event_name == 'pull_request'
         id: fc
         with:
@@ -54,7 +54,7 @@ jobs:
           body-includes: <summary>Build sizes</summary>
 
       - name: Create or update comment
-        uses: peter-evans/create-or-update-comment@v3
+        uses: peter-evans/create-or-update-comment@v4
         if: github.event_name == 'pull_request'
         with:
           comment-id: ${{ steps.fc.outputs.comment-id }}

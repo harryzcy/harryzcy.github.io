@@ -27,7 +27,7 @@
   status: Deployed
   lang: Rust
   lang_class: rs
-  release_num: 7
+  release_num: 9
   description: >-
     Artifact Store is a service that stores build artifacts from CI/CD pipelines.
     It is intended as a arbitrary file storage service that stores the output for every commit,
@@ -53,7 +53,7 @@
   status: Deployed
   lang: TypeScript
   lang_class: ts
-  release_num: 26
+  release_num: 28
   description: >-
     Mailbox Browser is a web application serving as a frontend for [Mailbox](https://github.com/harryzcy/mailbox).
 
@@ -127,7 +127,7 @@
   status: Deployed
   lang: Go
   lang_class: go
-  release_num: 19
+  release_num: 20
   description: >-
     Mailbox is a serverless application runs on AWS services and handles email sending and receiving requests using custom email addresses.
     I built a set of APIs on top of AWS services to invoke email-related operations.
