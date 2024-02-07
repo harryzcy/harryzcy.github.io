@@ -141,7 +141,7 @@
       <section
         v-for="year in years"
         :key="year"
-        class="m-auto mt-4 max-w-[800px] px-4 md:mt-7"
+        class="m-auto mt-4 max-w-[800px] px-4 md:mt-6"
       >
         <h2
           v-if="year !== 0"
