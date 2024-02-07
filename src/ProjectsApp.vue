@@ -224,7 +224,9 @@
       v-if="showSearchPanel"
       :class="[activeSortOption === sorts.startYear ? 'pt-36' : 'pt-24']"
     >
-      <div class="mt-2 rounded-lg border p-2 dark:border-gray-700">
+      <div
+        class="mt-2 rounded-lg border p-2 md:px-4 md:py-3 dark:border-gray-700"
+      >
         <p>Advanced Query</p>
 
         <div class="mt-2 block">
