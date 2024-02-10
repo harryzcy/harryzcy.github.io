@@ -298,7 +298,7 @@
         </div>
       </div>
       <div class="absolute right-0 top-0 px-10 py-2 md:py-4">
-        <span class="flex-initial text-sm">C Zheng</span>
+        <span class="flex-initial text-sm">Chongyi Zheng</span>
       </div>
     </div>
   </footer>
