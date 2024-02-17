@@ -7,7 +7,7 @@ on:
 
 permissions:
   contents: read
-    
+
 jobs:
   release-number:
     name: Project Release Number
