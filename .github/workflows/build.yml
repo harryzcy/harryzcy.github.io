@@ -69,3 +69,4 @@ jobs:
               ${{ steps.build.outputs.table }}
             </details>
           edit-mode: replace
+          token: ${{ secrets.GITHUB_TOKEN }}
