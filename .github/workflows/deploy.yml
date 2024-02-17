@@ -5,6 +5,10 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+
+        
 jobs:
   build-and-deploy:
     concurrency: ci-${{ github.ref }}
