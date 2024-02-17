@@ -6,6 +6,10 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+
+        
 jobs:
   super-linter:
     name: Super Linter
