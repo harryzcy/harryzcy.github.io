@@ -27,7 +27,7 @@
   status: Deployed
   lang: Rust
   lang_class: rs
-  release_num: 9
+  release_num: 10
   description: >-
     Artifact Store is a service that stores build artifacts from CI/CD pipelines.
     It is intended as a arbitrary file storage service that stores the output for every commit,
@@ -115,6 +115,7 @@
   status: Completed
   lang: Go
   lang_class: go
+  release_num: 1
   description: >-
     GmG is a CLI tool that helps to set up mirrors between GitHub and Gitea.
     I use Gitea to host my private repositories, but from time to time,
