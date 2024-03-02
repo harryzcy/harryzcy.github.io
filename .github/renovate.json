@@ -1,10 +1,22 @@
 {
-  "extends": ["config:base", ":disableDependencyDashboard"],
-  "labels": ["dependencies"],
-  "packageRules": [
-    {
-      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
-      "automerge": true
-    }
+  "extends": [
+    "config:recommended",
+    ":disableDependencyDashboard",
+    ":pinDependencies",
+    ":disableDependencyDashboard",
+    ":automergeMinor"
+  ],
+  "labels": [
+    "dependencies"
+  ],
+  "lockFileMaintenance": {
+    "enabled": true,
+    "labels": [
+      "dependencies",
+      "skip-changelog"
+    ]
+  },
+  "postUpdateOptions": [
+    "npmDedupe"
   ]
 }
