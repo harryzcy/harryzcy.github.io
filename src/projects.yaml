@@ -27,7 +27,7 @@
   status: Deployed
   lang: Rust
   lang_class: rs
-  release_num: 11
+  release_num: 12
   description: >-
     Artifact Store is a service that stores build artifacts from CI/CD pipelines.
     It is intended as a arbitrary file storage service that stores the output for every commit,
@@ -89,7 +89,7 @@
   status: Deployed
   lang: TypeScript
   lang_class: ts
-  release_num: 10
+  release_num: 12
   description: >-
     Nodop is a workflow runner for databases in Notion app.
     It takes workflow configuration files similar to GitHub Actions and performs them on database pages.
