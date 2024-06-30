@@ -47,7 +47,7 @@
     "prettier-plugin-tailwindcss": "0.6.5",
     "process": "0.11.10",
     "typescript": "5.5.2",
-    "vue-tsc": "2.0.22"
+    "vue-tsc": "2.0.24"
   },
   "dependencies": {
     "@headlessui/vue": "1.7.22",
