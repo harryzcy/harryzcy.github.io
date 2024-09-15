@@ -1,7 +1,7 @@
 - name: Konfig
   url: https://github.com/harryzcy/konfig
   start_year: 2023
-  created_at: "2023-11-24"
+  created_at: '2023-11-24'
   status: Ongoing
   lang: TypeScript
   lang_class: ts
@@ -11,7 +11,7 @@
 - name: act-images
   url: https://github.com/harryzcy/act-images
   start_year: 2023
-  created_at: "2023-09-17"
+  created_at: '2023-09-17'
   status: Deployed
   lang: Dockerfile
   lang_class: docker
@@ -23,7 +23,7 @@
 - name: Artifact Store
   url: https://github.com/harryzcy/artifact-store
   start_year: 2023
-  created_at: "2023-07-23"
+  created_at: '2023-07-23'
   status: Deployed
   lang: Rust
   lang_class: rs
@@ -37,7 +37,7 @@
 - name: snuuze
   url: https://github.com/harryzcy/snuuze
   start_year: 2023
-  created_at: "2022-11-06"
+  created_at: '2022-11-06'
   status: Ongoing
   lang: Go
   lang_class: go
@@ -49,7 +49,7 @@
 - name: Mailbox Browser
   url: https://github.com/harryzcy/mailbox-browser
   start_year: 2023
-  created_at: "2022-11-19"
+  created_at: '2022-11-19'
   status: Deployed
   lang: TypeScript
   lang_class: ts
@@ -60,7 +60,7 @@
 - name: notion-cli
   url: https://github.com/harryzcy/notion-cli
   start_year: 2022
-  created_at: "2022-05-31"
+  created_at: '2022-05-31'
   status: Ongoing
   lang: Go
   lang_class: go
@@ -71,7 +71,7 @@
 - name: GBot
   full_name: Bot for GitHub
   start_year: 2022
-  created_at: "2022-06-24"
+  created_at: '2022-06-24'
   status: Deployed
   lang: TypeScript
   lang_class: ts
@@ -85,7 +85,7 @@
   full_name: Notion Database Operator
   url: https://github.com/harryzcy/nodop
   start_year: 2022
-  created_at: "2022-06-13"
+  created_at: '2022-06-13'
   status: Deployed
   lang: TypeScript
   lang_class: ts
@@ -100,7 +100,7 @@
   full_name: Notion Todo Importer
   # url: https://github.com/harryzcy/noti
   start_year: 2022
-  created_at: "2022-04-06"
+  created_at: '2022-04-06'
   status: Ongoing
   lang: TypeScript
   lang_class: ts
@@ -111,7 +111,7 @@
 - name: GmG
   url: https://github.com/harryzcy/gmg
   start_year: 2022
-  created_at: "2022-04-05"
+  created_at: '2022-04-05'
   status: Completed
   lang: Go
   lang_class: go
@@ -124,7 +124,7 @@
 - name: Mailbox
   url: https://github.com/harryzcy/mailbox
   start_year: 2022
-  created_at: "2021-01-01"
+  created_at: '2021-01-01'
   status: Deployed
   lang: Go
   lang_class: go
@@ -137,7 +137,7 @@
 
 - name: miniJava compiler
   start_year: 2022
-  created_at: "2022-02-10"
+  created_at: '2022-02-10'
   status: Completed
   lang: Java
   lang_class: java
@@ -149,7 +149,7 @@
   full_name: GitHub Workflow for Bark
   url: https://github.com/harryzcy/action-bark
   start_year: 2022
-  created_at: "2022-03-16"
+  created_at: '2022-03-16'
   status: Completed
   lang: TypeScript
   lang_class: ts
@@ -164,7 +164,7 @@
 - name: canvas-file-syncer
   url: https://github.com/harryzcy/canvas-file-syncer
   start_year: 2022
-  created_at: "2022-02-16"
+  created_at: '2022-02-16'
   status: Completed
   lang: Python
   lang_class: py
@@ -177,7 +177,7 @@
 - name: sakai-file-syncer
   url: https://github.com/harryzcy/sakai-file-syncer
   start_year: 2022
-  created_at: "2022-02-18"
+  created_at: '2022-02-18'
   status: Completed
   lang: Python
   lang_class: py
@@ -188,7 +188,7 @@
 - name: Scheduler
   url: https://github.com/harryzcy/scheduler
   start_year: 2021
-  created_at: "2021-08-21"
+  created_at: '2021-08-21'
   status: Completed
   lang: Go
   lang_class: go
@@ -202,7 +202,7 @@
 - name: The Calculator
   url: https://github.com/eric-unc/hacknc2021
   start_year: 2021
-  created_at: "2021-11-06"
+  created_at: '2021-11-06'
   status: Completed
   lang: Rust
   lang_class: rs
@@ -217,7 +217,7 @@
   full_name: Lisp-like language
   url: https://github.com/eric-unc/limp
   start_year: 2021
-  created_at: "2021-03-20"
+  created_at: '2021-03-20'
   status: Completed
   lang: Rust
   lang_class: rs
@@ -231,7 +231,7 @@
 - name: ascheck
   url: https://github.com/harryzcy/ascheck
   start_year: 2021
-  created_at: "2021-03-27"
+  created_at: '2021-03-27'
   status: Completed
   lang: Go
   lang_class: go
