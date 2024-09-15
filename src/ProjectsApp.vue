@@ -1,6 +1,6 @@
 <template>
   <header
-    class="flex-none sticky top-0 z-50 w-full border-b border-transparent bg-teal-700/80 font-mono text-white backdrop-blur-sm dark:border-neutral-700 dark:bg-neutral-900/90 dark:text-teal-500"
+    class="sticky top-0 z-50 w-full flex-none border-b border-transparent bg-teal-700/80 font-mono text-white backdrop-blur-sm dark:border-neutral-700 dark:bg-neutral-900/90 dark:text-teal-500"
   >
     <nav
       class="m-auto flex max-w-[800px] items-center justify-between text-right"
@@ -31,13 +31,13 @@
   </header>
 
   <div
-    class="flex-none flex justify-center gap-2 text-slate-900 dark:text-neutral-200"
+    class="flex flex-none justify-center gap-2 text-slate-900 dark:text-neutral-200"
   >
     <div>
       <section
         class="m-auto mt-4 flex max-w-[800px] flex-col px-4 md:flex-row md:pt-5"
       >
-        <h1 class="mb-3 grow text-2xl dark:text-neutral-50 font-light">
+        <h1 class="mb-3 grow text-2xl font-light dark:text-neutral-50">
           Projects
         </h1>
 
@@ -152,7 +152,7 @@
         <div
           v-for="project in projects[year]"
           :key="project.name"
-          class="md:md-6 -mx-0.5 mb-4 rounded-lg border px-1.5 py-1 dark:border-gray-700 md:-ml-4 md:py-3 md:pl-4 md:pr-2"
+          class="md:md-6 -mx-0.5 mb-4 rounded-lg border px-1.5 py-1 md:-ml-4 md:py-3 md:pl-4 md:pr-2 dark:border-gray-700"
         >
           <div class="mb-1 flex flex-wrap items-center align-baseline">
             <span class="mb-0.5 mr-2">
@@ -167,12 +167,12 @@
               >
                 <span class="text:md lg:text-lg">{{ project.name }}</span>
               </a>
-              <span v-else class="text:md dark:text-gray-300 lg:text-lg">
+              <span v-else class="text:md lg:text-lg dark:text-gray-300">
                 {{ project.name }}
               </span>
               <span
                 v-if="project.full_name"
-                class="text:md dark:text-gray-300 lg:text-lg"
+                class="text:md lg:text-lg dark:text-gray-300"
               >
                 ({{ project.full_name }})
               </span>
@@ -195,7 +195,7 @@
                 >{{ project.status }}
               </span>
               <span
-                class="cursor-pointer rounded bg-slate-100 px-1 text-sm dark:bg-gray-800 md:px-2"
+                class="cursor-pointer rounded bg-slate-100 px-1 text-sm md:px-2 dark:bg-gray-800"
                 :class="[
                   `text-lang-${project.lang_class}-light dark:text-lang-${project.lang_class}-dark`
                 ]"
@@ -209,7 +209,7 @@
               >
               <span
                 v-if="project.release_num"
-                class="rounded bg-slate-100 px-1 text-sm dark:bg-gray-800 md:px-2"
+                class="rounded bg-slate-100 px-1 text-sm md:px-2 dark:bg-gray-800"
               >
                 {{ project.release_num }}
                 {{ project.release_num > 1 ? 'releases' : 'release' }}
@@ -258,7 +258,7 @@
         </div>
 
         <div
-          class="mt-2 md:mt-4 block text-sm text-center italic underline cursor-pointer"
+          class="mt-2 block cursor-pointer text-center text-sm italic underline md:mt-4"
           @click="
             () => {
               selectedStatuses.splice(0, selectedStatuses.length)
@@ -268,7 +268,7 @@
           "
         >
           <p
-            class="text-gray-500 dark:text-neutral-400 hover:text-gray-800 hover:dark:text-neutral-100"
+            class="text-gray-500 hover:text-gray-800 dark:text-neutral-400 hover:dark:text-neutral-100"
           >
             Clear
           </p>
