@@ -1,4 +1,4 @@
-type Project = {
+interface Project {
   name: string
   full_name?: string
   start_year: number

@@ -1,5 +1,6 @@
 {
   "name": "harryzcy.github.io",
+  "type": "module",
   "description": "This is where my website stays",
   "author": "Chongyi Zheng",
   "license": "UNLICENSED",
@@ -10,7 +11,7 @@
     "build:copy": "cp src/projects.yaml dist && cp cloudflare/* dist",
     "analyze": "parcel build --reporter @parcel/reporter-bundle-analyzer",
     "check": "vue-tsc --noEmit",
-    "lint": "eslint --ext .js,.ts,.vue src",
+    "lint": "eslint src",
     "prettier": "prettier src --write",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -50,9 +51,11 @@
     "vue-tsc": "2.0.29"
   },
   "dependencies": {
+    "@eslint/js": "^9.10.0",
     "@headlessui/vue": "1.7.22",
     "@heroicons/vue": "2.1.5",
     "tailwindcss": "3.4.10",
+    "typescript-eslint": "^8.6.0",
     "vue": "3.4.38"
   }
 }
