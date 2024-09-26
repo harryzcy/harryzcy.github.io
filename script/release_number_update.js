@@ -89,5 +89,4 @@ const run = async (github) => {
   updateReleaseNumber(data, toUpdate)
 }
 
-// eslint-disable-next-line no-undef
-module.exports = async ({ github }) => run(github)
+export default async ({ github }) => run(github)

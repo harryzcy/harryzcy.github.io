@@ -53,5 +53,4 @@ const run = () => {
   }
 }
 
-// eslint-disable-next-line no-undef
-module.exports = run
+export default run
