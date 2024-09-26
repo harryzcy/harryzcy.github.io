@@ -1,5 +1,4 @@
-// eslint-disable-next-line no-undef
-const fs = require('fs')
+import fs from 'fs'
 
 const run = () => {
   const data = fs.readFileSync('src/projects.yaml', 'utf8')

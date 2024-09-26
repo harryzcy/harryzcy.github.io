@@ -1,7 +1,5 @@
-// eslint-disable-next-line no-undef
-const YAML = require('yaml')
-// eslint-disable-next-line no-undef
-const fs = require('fs')
+import fs from 'fs'
+import YAML from 'yaml'
 
 const getProjects = () => {
   const data = fs.readFileSync('src/projects.yaml', 'utf8')
