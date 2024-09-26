@@ -2,6 +2,7 @@
 
 import eslint from '@eslint/js'
 import tseslint from 'typescript-eslint'
+import pluginVue from 'eslint-plugin-vue'
 
 export default tseslint.config(
   {
@@ -10,6 +11,8 @@ export default tseslint.config(
   eslint.configs.recommended,
   ...tseslint.configs.strictTypeChecked,
   ...tseslint.configs.stylisticTypeChecked,
+  // @ts-ignore
+  ...pluginVue.configs['flat/recommended'],
   {
     languageOptions: {
       parserOptions: {
