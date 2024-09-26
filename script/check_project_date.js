@@ -1,7 +1,5 @@
-// eslint-disable-next-line no-undef
-const YAML = require('yaml')
-// eslint-disable-next-line no-undef
-const fs = require('fs')
+import fs from 'fs'
+import YAML from 'yaml'
 
 const run = async (github) => {
   const projects = YAML.parse(fs.readFileSync('src/projects.yaml', 'utf8'))
@@ -40,5 +38,4 @@ const run = async (github) => {
   }
 }
 
-// eslint-disable-next-line no-undef
-module.exports = async ({ github }) => run(github)
+export default async ({ github }) => run(github)
