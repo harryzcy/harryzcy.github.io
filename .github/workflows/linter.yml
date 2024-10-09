@@ -17,6 +17,10 @@ jobs:
   prettier:
     name: Prettier
     uses: harryzcy/github-actions/.github/workflows/prettier.yml@main
+  
+  eslint:
+    name: ESLint
+    uses: harryzcy/github-actions/.github/workflows/npm-lint.yml@main
 
   spelling:
     name: Spelling

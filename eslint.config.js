@@ -2,7 +2,8 @@
 
 import eslint from '@eslint/js'
 import tseslint from 'typescript-eslint'
-import pluginVue from 'eslint-plugin-vue'
+import pluginVue from "eslint-plugin-vue";
+import vueTsEslintConfig from "@vue/eslint-config-typescript";
 import prettierConfig from '@vue/eslint-config-prettier'
 
 export default tseslint.config(
@@ -14,6 +15,7 @@ export default tseslint.config(
   ...tseslint.configs.stylisticTypeChecked,
   // @ts-ignore
   ...pluginVue.configs['flat/recommended'],
+  ...vueTsEslintConfig(),
   prettierConfig,
   {
     languageOptions: {
