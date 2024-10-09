@@ -4,9 +4,9 @@
     <Listbox
       as="div"
       :model-value="modelValue"
-      @update:modelValue="(value) => emit('update:modelValue', value)"
       :multiple="multiple"
       class="ml-20 w-56 cursor-pointer rounded-md border bg-white text-sm focus:outline-none dark:border-neutral-200/5 dark:bg-neutral-900"
+      @update:model-value="(value) => emit('update:modelValue', value)"
     >
       <ListboxButton
         class="relative w-full cursor-pointer rounded-lg bg-white px-3 py-2 pr-8 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 dark:bg-neutral-200/5"
@@ -38,8 +38,8 @@
             class="absolute left-0 z-20 mt-2 min-w-full cursor-pointer rounded-md border bg-white text-sm focus:outline-none dark:border-neutral-200/5 dark:bg-neutral-900"
           >
             <ListboxOption
-              v-slot="{ active, selected }"
               v-for="option in options"
+              v-slot="{ active, selected }"
               :key="option"
               :value="option"
               as="template"

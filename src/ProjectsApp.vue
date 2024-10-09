@@ -45,8 +45,8 @@
           <div class="flex gap-4">
             <SortMenu
               v-if="!showSearchPanel"
-              :options="sortOptions"
               v-model="activeSortOption"
+              :options="sortOptions"
               :scroll-to-top="scrollToTop"
             />
 
@@ -233,26 +233,26 @@
 
         <div class="mt-2 block">
           <FilterList
+            v-model="activeSortOption"
             menu-text="Sort"
             :options="sortOptions"
-            v-model="activeSortOption"
           />
         </div>
 
         <div class="mt-2 block">
           <FilterList
+            v-model="selectedStatuses"
             menu-text="Status"
             :options="allStatuses"
-            v-model="selectedStatuses"
             multiple
           />
         </div>
 
         <div class="mt-2 block">
           <FilterList
+            v-model="selectedLanguages"
             menu-text="Languages"
             :options="allLanguages"
-            v-model="selectedLanguages"
             multiple
           />
         </div>
@@ -350,12 +350,12 @@ const getProjectsByYear = (projects: Project[]) => {
 
 const renderDescription = (description: string) => {
   return description
-    .replace(/\[(.*?)\]\((.*?)\)/g, (_, text, url) => {
+    .replace(/\[(.*?)\]\((.*?)\)/g, (_, text: string, url: string) => {
       return `<a class="font-medium text-teal-700 underline decoration-teal-600/30 decoration-2 underline-offset-2 hover:decoration-teal-700/40 dark:text-teal-400 dark:decoration-teal-300/30 hover:dark:decoration-teal-200/40"
               style="text-decoration-skip-ink: none; text-decoration-skip: none;"
               href="${url}">${text}</a>`
     })
-    .replace(/\*\*(.*?)\*\*/g, (_, text) => {
+    .replace(/\*\*(.*?)\*\*/g, (_, text: string) => {
       return `<span class="font-bold">${text}</span>`
     })
 }
