@@ -287,7 +287,7 @@
         <div class="flex px-4">
           <a
             href="https://github.com/harryzcy"
-            class="h-6 w-6 opacity-70 hover:opacity-100"
+            class="h-6 w-6 cursor-pointer opacity-70 hover:opacity-100"
           >
             <picture class="h-6 w-6">
               <source
@@ -351,7 +351,7 @@ const getProjectsByYear = (projects: Project[]) => {
 const renderDescription = (description: string) => {
   return description
     .replace(/\[(.*?)\]\((.*?)\)/g, (_, text: string, url: string) => {
-      return `<a class="font-medium text-teal-700 underline decoration-teal-600/30 decoration-2 underline-offset-2 hover:decoration-teal-700/40 dark:text-teal-400 dark:decoration-teal-300/30 hover:dark:decoration-teal-200/40"
+      return `<a class="font-medium text-teal-700 underline cursor-pointer decoration-teal-600/30 decoration-2 underline-offset-2 hover:decoration-teal-700/40 dark:text-teal-400 dark:decoration-teal-300/30 hover:dark:decoration-teal-200/40"
               style="text-decoration-skip-ink: none; text-decoration-skip: none;"
               href="${url}">${text}</a>`
     })
