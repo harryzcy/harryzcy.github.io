@@ -5,7 +5,11 @@
     <nav
       class="m-auto flex max-w-[800px] items-center justify-between text-right"
     >
-      <a href="/" class="px-4 py-4" aria-label="Go to about page">
+      <a
+        href="/"
+        class="cursor-pointer px-4 py-4"
+        aria-label="Go to about page"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="h-5 w-5"
@@ -20,10 +24,14 @@
         </svg>
       </a>
       <div class="flex space-x-2 px-4 py-4">
-        <a href="/" aria-label="Read the about page">
+        <a href="/" aria-label="Read the about page" class="cursor-pointer">
           <span class="rounded-full p-2 hover:font-extrabold">about</span>
         </a>
-        <a href="/projects" aria-label="Learn more about the projects">
+        <a
+          href="/projects"
+          aria-label="Learn more about the projects"
+          class="cursor-pointer"
+        >
           <span class="rounded-full p-2 font-extrabold">projects</span>
         </a>
       </div>
@@ -158,7 +166,7 @@
             <span class="mb-0.5 mr-2">
               <a
                 v-if="project.url"
-                class="font-medium text-teal-700 underline decoration-teal-600/30 decoration-2 underline-offset-2 hover:decoration-teal-700/40 dark:text-teal-400 dark:decoration-teal-300/30 hover:dark:decoration-teal-200/40"
+                class="cursor-pointer font-medium text-teal-700 underline decoration-teal-600/30 decoration-2 underline-offset-2 hover:decoration-teal-700/40 dark:text-teal-400 dark:decoration-teal-300/30 hover:dark:decoration-teal-200/40"
                 style="
                   text-decoration-skip-ink: none;
                   text-decoration-skip: none;
@@ -351,7 +359,7 @@ const getProjectsByYear = (projects: Project[]) => {
 const renderDescription = (description: string) => {
   return description
     .replace(/\[(.*?)\]\((.*?)\)/g, (_, text: string, url: string) => {
-      return `<a class="font-medium text-teal-700 underline cursor-pointer decoration-teal-600/30 decoration-2 underline-offset-2 hover:decoration-teal-700/40 dark:text-teal-400 dark:decoration-teal-300/30 hover:dark:decoration-teal-200/40"
+      return `<a class="cursor-pointer font-medium text-teal-700 underline decoration-teal-600/30 decoration-2 underline-offset-2 hover:decoration-teal-700/40 dark:text-teal-400 dark:decoration-teal-300/30 hover:dark:decoration-teal-200/40"
               style="text-decoration-skip-ink: none; text-decoration-skip: none;"
               href="${url}">${text}</a>`
     })
