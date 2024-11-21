@@ -1,0 +1,5 @@
+Contact: mailto:security@zcy.dev
+Expires: 2024-11-21T11:00:00.000Z
+Encryption: https://zcy.dev/.well-known/pgp-key.txt
+Preferred-Languages: en
+Canonical: https://zcy.dev/.well-known/security.txt
