@@ -1,5 +1,15 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
 Contact: mailto:security@zcy.dev
 Expires: 2024-11-21T11:00:00.000Z
 Encryption: https://zcy.dev/.well-known/pgp-key.txt
 Preferred-Languages: en
 Canonical: https://zcy.dev/.well-known/security.txt
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYIAB0WIQQuxLWC+L6W4VgVB2FYMgOGsMqkuQUCZz8U0gAKCRBYMgOGsMqk
+uaJxAQCivxY4vDuW7AYI6rpH4x2WjZIyJcxKWDkL3ABwp4YZmQEAmYft9f5WHObf
+EVFYvYZQaW0xjHGX2v41Dh9MxRgj2ww=
+=tSKI
+-----END PGP SIGNATURE-----
