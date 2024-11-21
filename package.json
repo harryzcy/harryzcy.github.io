@@ -8,7 +8,7 @@
     "start": "parcel './src/*.html'",
     "build": "npm run build:parcel && npm run build:copy",
     "build:parcel": "parcel build",
-    "build:copy": "cp src/projects.yaml dist && cp cloudflare/* dist",
+    "build:copy": "cp -R src/.well-known dist && cp src/projects.yaml dist && cp cloudflare/* dist",
     "analyze": "parcel build --reporter @parcel/reporter-bundle-analyzer",
     "check": "vue-tsc --noEmit",
     "lint": "eslint src",
