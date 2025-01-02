@@ -34,7 +34,7 @@
     "@parcel/transformer-vue": "2.13.3",
     "@parcel/transformer-webmanifest": "2.13.3",
     "@parcel/transformer-yaml": "2.13.3",
-    "@trivago/prettier-plugin-sort-imports": "5.1.0",
+    "@trivago/prettier-plugin-sort-imports": "5.2.1",
     "@vue/eslint-config-prettier": "10.1.0",
     "@vue/eslint-config-typescript": "14.2.0",
     "autoprefixer": "10.4.20",
