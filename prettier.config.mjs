@@ -1,23 +1,27 @@
 const plugins = []
+// import tailwindcss from 'prettier-plugin-tailwindcss'
+// import sortImports from '@trivago/prettier-plugin-sort-imports'
 
 const config = {
   semi: false,
   singleQuote: true,
   trailingComma: 'none',
   tabWidth: 2,
-  printWidth: 80
+  printWidth: 80,
 }
 
 try {
-  plugins.push(await import('prettier-plugin-tailwindcss'))
-  plugins.importOrder = ['^[./]']
-  plugins.importOrderSeparation = true
-  plugins.importOrderSortSpecifiers = true
+  await import('prettier-plugin-tailwindcss')
+  plugins.push('prettier-plugin-tailwindcss')
 } catch (error) {
   console.warn('Error loading prettier-plugin-tailwindcss:', error)
 }
 try {
-  plugins.push(await import('@trivago/prettier-plugin-sort-imports'))
+  await import('@trivago/prettier-plugin-sort-imports')
+  plugins.push('@trivago/prettier-plugin-sort-imports')
+  config.importOrder = ['^[./]']
+  config.importOrderSeparation = true
+  config.importOrderSortSpecifiers = true
 } catch (error) {
   console.warn('Error loading @trivago/prettier-plugin-sort-imports:', error)
 }
