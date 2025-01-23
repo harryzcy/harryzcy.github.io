@@ -1,6 +1,6 @@
 <template>
   <header
-    class="sticky top-0 z-50 w-full flex-none border-b border-transparent bg-teal-700/80 font-mono text-white backdrop-blur-sm dark:border-neutral-700 dark:bg-neutral-900/90 dark:text-teal-500"
+    class="sticky top-0 z-50 w-full flex-none border-b border-transparent bg-teal-700/80 font-mono text-white backdrop-blur-xs dark:border-neutral-700 dark:bg-neutral-900/90 dark:text-teal-500"
   >
     <nav
       class="m-auto flex max-w-[800px] items-center justify-between text-right"
@@ -101,7 +101,7 @@
 
             <div class="relative hidden select-none text-left md:block">
               <span
-                class="inline-flex h-full cursor-pointer items-center rounded-md border px-2 py-1 hover:bg-neutral-200/40 dark:border-neutral-200/5 dark:bg-neutral-200/10 hover:dark:border-neutral-200/30 hover:dark:bg-neutral-200/20 hover:dark:text-neutral-100"
+                class="inline-flex h-full cursor-pointer items-center rounded-md border px-2 py-1 hover:bg-neutral-200/40 dark:border-neutral-200/5 dark:bg-neutral-200/10 dark:hover:border-neutral-200/30 dark:hover:bg-neutral-200/20 dark:hover:text-neutral-100"
                 @click="showSearchPanel = !showSearchPanel"
               >
                 <span class="relative h-4 w-4">
@@ -158,7 +158,7 @@
             <span class="mb-0.5 mr-2">
               <a
                 v-if="project.url"
-                class="font-medium text-teal-700 underline decoration-teal-600/30 decoration-2 underline-offset-2 hover:decoration-teal-700/40 dark:text-teal-400 dark:decoration-teal-300/30 hover:dark:decoration-teal-200/40"
+                class="font-medium text-teal-700 underline decoration-teal-600/30 decoration-2 underline-offset-2 hover:decoration-teal-700/40 dark:text-teal-400 dark:decoration-teal-300/30 dark:hover:decoration-teal-200/40"
                 style="
                   text-decoration-skip-ink: none;
                   text-decoration-skip: none;
@@ -180,7 +180,7 @@
 
             <span class="mb-0.5 select-none space-x-2">
               <span
-                class="cursor-pointer rounded px-1 text-sm md:px-2"
+                class="cursor-pointer rounded-sm px-1 text-sm md:px-2"
                 :class="[
                   project.status === 'Ongoing'
                     ? 'bg-sky-100 text-sky-700 dark:bg-sky-900/40 dark:text-sky-400'
@@ -195,7 +195,7 @@
                 >{{ project.status }}
               </span>
               <span
-                class="cursor-pointer rounded bg-slate-100 px-1 text-sm md:px-2 dark:bg-gray-800"
+                class="cursor-pointer rounded-sm bg-slate-100 px-1 text-sm md:px-2 dark:bg-gray-800"
                 :class="[
                   `text-lang-${project.lang_class}-light dark:text-lang-${project.lang_class}-dark`
                 ]"
@@ -209,7 +209,7 @@
               >
               <span
                 v-if="project.release_num"
-                class="rounded bg-slate-100 px-1 text-sm md:px-2 dark:bg-gray-800"
+                class="rounded-sm bg-slate-100 px-1 text-sm md:px-2 dark:bg-gray-800"
               >
                 {{ project.release_num }}
                 {{ project.release_num > 1 ? 'releases' : 'release' }}
@@ -268,7 +268,7 @@
           "
         >
           <p
-            class="text-gray-500 hover:text-gray-800 dark:text-neutral-400 hover:dark:text-neutral-100"
+            class="text-gray-500 hover:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-100"
           >
             Clear
           </p>
@@ -351,7 +351,7 @@ const getProjectsByYear = (projects: Project[]) => {
 const renderDescription = (description: string) => {
   return description
     .replace(/\[(.*?)\]\((.*?)\)/g, (_, text: string, url: string) => {
-      return `<a class="font-medium text-teal-700 underline decoration-teal-600/30 decoration-2 underline-offset-2 hover:decoration-teal-700/40 dark:text-teal-400 dark:decoration-teal-300/30 hover:dark:decoration-teal-200/40"
+      return `<a class="font-medium text-teal-700 underline decoration-teal-600/30 decoration-2 underline-offset-2 hover:decoration-teal-700/40 dark:text-teal-400 dark:decoration-teal-300/30 dark:hover:decoration-teal-200/40"
               style="text-decoration-skip-ink: none; text-decoration-skip: none;"
               href="${url}">${text}</a>`
     })
