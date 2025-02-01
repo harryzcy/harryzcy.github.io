@@ -152,7 +152,7 @@
         <div
           v-for="project in projects[year]"
           :key="project.name"
-          class="md:md-6 -mx-0.5 mb-4 rounded-lg border px-1.5 py-1 md:-ml-4 md:py-3 md:pl-4 md:pr-2 dark:border-gray-700"
+          class="md:md-6 -mx-0.5 mb-4 rounded-lg border border-gray-200 px-1.5 py-1 md:-ml-4 md:py-3 md:pl-4 md:pr-2 dark:border-gray-700"
         >
           <div class="mb-1 flex flex-wrap items-center align-baseline">
             <span class="mb-0.5 mr-2">

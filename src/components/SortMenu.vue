@@ -1,7 +1,7 @@
 <template>
   <Menu as="div" class="relative inline-block select-none text-left">
     <MenuButton
-      class="inline-flex cursor-pointer items-center rounded-md border px-3 py-1 hover:bg-neutral-200/40 dark:border-neutral-200/5 dark:bg-neutral-200/10 dark:hover:border-neutral-200/30 dark:hover:bg-neutral-200/20 dark:hover:text-neutral-100"
+      class="inline-flex cursor-pointer items-center rounded-md border border-gray-200 px-3 py-1 hover:bg-neutral-200/40 dark:border-neutral-200/5 dark:bg-neutral-200/10 dark:hover:border-neutral-200/30 dark:hover:bg-neutral-200/20 dark:hover:text-neutral-100"
     >
       <span class="text-sm">Sort</span>
       <span class="-mr-1 ml-2 mt-0.5">
