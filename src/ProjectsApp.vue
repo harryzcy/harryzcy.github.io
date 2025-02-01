@@ -101,7 +101,7 @@
 
             <div class="relative hidden select-none text-left md:block">
               <span
-                class="inline-flex h-full cursor-pointer items-center rounded-md border px-2 py-1 hover:bg-neutral-200/40 dark:border-neutral-200/5 dark:bg-neutral-200/10 dark:hover:border-neutral-200/30 dark:hover:bg-neutral-200/20 dark:hover:text-neutral-100"
+                class="inline-flex h-full cursor-pointer items-center rounded-md border border-gray-200 px-2 py-1 hover:bg-neutral-200/40 dark:border-neutral-200/5 dark:bg-neutral-200/10 dark:hover:border-neutral-200/30 dark:hover:bg-neutral-200/20 dark:hover:text-neutral-100"
                 @click="showSearchPanel = !showSearchPanel"
               >
                 <span class="relative h-4 w-4">
