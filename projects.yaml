@@ -128,7 +128,7 @@
   status: Deployed
   lang: Go
   lang_class: go
-  release_num: 21
+  release_num: 22
   description: >-
     Mailbox is a serverless application runs on AWS services and handles email sending and receiving requests using custom email addresses.
     I built a set of APIs on top of AWS services to invoke email-related operations.
