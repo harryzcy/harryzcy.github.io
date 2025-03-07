@@ -38,7 +38,7 @@
     "@vue/eslint-config-prettier": "10.2.0",
     "@vue/eslint-config-typescript": "14.5.0",
     "autoprefixer": "10.4.20",
-    "eslint": "9.21.0",
+    "eslint": "9.22.0",
     "eslint-plugin-prettier": "5.2.3",
     "eslint-plugin-vue": "9.33.0",
     "parcel": "2.13.3",
@@ -52,7 +52,7 @@
     "vue-tsc": "2.2.8"
   },
   "dependencies": {
-    "@eslint/js": "9.21.0",
+    "@eslint/js": "9.22.0",
     "@headlessui/vue": "1.7.23",
     "@heroicons/vue": "2.2.0",
     "@tailwindcss/postcss": "4.0.12",
