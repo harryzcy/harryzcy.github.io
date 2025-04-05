@@ -48,7 +48,7 @@
     "prettier-plugin-tailwindcss": "0.6.11",
     "process": "0.11.10",
     "svgo": "3.3.2",
-    "typescript": "5.8.2",
+    "typescript": "5.8.3",
     "vue-tsc": "2.2.8"
   },
   "dependencies": {
