@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/harryzcy/harryzcy.github.io#readme",
   "devDependencies": {
-    "@cloudflare/workers-types": "4.20250807.0",
+    "@cloudflare/workers-types": "4.20250809.0",
     "@parcel/packager-raw-url": "2.15.4",
     "@parcel/reporter-bundle-analyzer": "2.15.4",
     "@parcel/transformer-vue": "2.15.4",
