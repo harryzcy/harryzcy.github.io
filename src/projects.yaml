@@ -89,7 +89,7 @@
   status: Deployed
   lang: TypeScript
   lang_class: ts
-  release_num: 13
+  release_num: 15
   description: >-
     Nodop is a workflow runner for databases in Notion app.
     It takes workflow configuration files similar to GitHub Actions and performs them on database pages.
