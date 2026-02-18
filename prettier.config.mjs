@@ -7,9 +7,9 @@ const config = {
   plugins: []
 }
 
-const isSupterLinter = process.env.VERSION_FILE === '/action/linterVersions.txt'
+const isSuperLinter = process.env.VERSION_FILE === '/action/linterVersions.txt'
 
-if (!isSupterLinter) {
+if (!isSuperLinter) {
   await import('prettier-plugin-tailwindcss')
   await import('@trivago/prettier-plugin-sort-imports')
 
