@@ -11,7 +11,7 @@ try {
   await import('prettier-plugin-tailwindcss')
   config.plugins.push('prettier-plugin-tailwindcss')
 } catch (error) {
-  console.warn('Error loading prettier-plugin-tailwindcss:', error)
+  console.info('Error loading prettier-plugin-tailwindcss:', error)
 }
 try {
   await import('@trivago/prettier-plugin-sort-imports')
@@ -20,7 +20,7 @@ try {
   config.importOrderSeparation = true
   config.importOrderSortSpecifiers = true
 } catch (error) {
-  console.warn('Error loading @trivago/prettier-plugin-sort-imports:', error)
+  console.info('Error loading @trivago/prettier-plugin-sort-imports:', error)
 }
 
 export default config
