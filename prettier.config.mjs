@@ -7,20 +7,19 @@ const config = {
   plugins: []
 }
 
-try {
+const isSuperLinter = process.env.VERSION_FILE === '/action/linterVersions.txt'
+
+if (!isSuperLinter) {
   await import('prettier-plugin-tailwindcss')
-  config.plugins.push('prettier-plugin-tailwindcss')
-} catch (error) {
-  console.warn('Error loading prettier-plugin-tailwindcss:', error)
-}
-try {
   await import('@trivago/prettier-plugin-sort-imports')
-  config.plugins.push('@trivago/prettier-plugin-sort-imports')
+
+  config.plugins = [
+    'prettier-plugin-tailwindcss',
+    '@trivago/prettier-plugin-sort-imports'
+  ]
   config.importOrder = ['^[./]']
   config.importOrderSeparation = true
   config.importOrderSortSpecifiers = true
-} catch (error) {
-  console.warn('Error loading @trivago/prettier-plugin-sort-imports:', error)
 }
 
 export default config
