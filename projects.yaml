@@ -5,6 +5,7 @@
   status: Ongoing
   lang: TypeScript
   lang_class: ts
+  release_num: 1
   description: >-
     Konfig is a centralized configuration service designed to store and distribute configurations for various deployments.
 
