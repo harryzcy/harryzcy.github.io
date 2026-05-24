@@ -5,7 +5,7 @@
   "compilerOptions": {
     "experimentalDecorators": true,
     "isolatedModules": true,
-    "target": "esnext",
+    "target": "ESNext",
     "moduleResolution": "bundler"
   }
 }
