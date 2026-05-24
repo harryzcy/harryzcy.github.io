@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/no-v-html -->
 <template>
   <header
     class="sticky top-0 z-50 w-full flex-none border-b border-transparent bg-teal-700/80 font-mono text-white backdrop-blur-xs dark:border-neutral-700 dark:bg-neutral-900/90 dark:text-teal-500"
@@ -217,7 +218,6 @@
             </span>
           </div>
 
-          // eslint-disable-next-line vue/no-v-html
           <p v-html="renderDescription(project.description)"></p>
         </div>
       </section>
