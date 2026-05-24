@@ -217,6 +217,7 @@
             </span>
           </div>
 
+          // eslint-disable-next-line vue/no-v-html
           <p v-html="renderDescription(project.description)"></p>
         </div>
       </section>
