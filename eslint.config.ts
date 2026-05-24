@@ -1,15 +1,15 @@
 import eslint from '@eslint/js'
-import tseslint from 'typescript-eslint'
-import pluginVue from "eslint-plugin-vue";
+import prettierConfig from '@vue/eslint-config-prettier'
 import {
   defineConfigWithVueTs,
-  vueTsConfigs,
+  vueTsConfigs
 } from '@vue/eslint-config-typescript'
-import prettierConfig from '@vue/eslint-config-prettier'
+import pluginVue from 'eslint-plugin-vue'
+import tseslint from 'typescript-eslint'
 
 export default defineConfigWithVueTs(
   {
-    ignores: ['*.config.js', '*.config.ts', '*.d.ts', 'dist/', 'node_modules/'],
+    ignores: ['*.config.js', '*.config.ts', '*.d.ts', 'dist/', 'node_modules/']
   },
   eslint.configs.recommended,
   tseslint.configs.strictTypeChecked,
@@ -20,17 +20,16 @@ export default defineConfigWithVueTs(
   {
     languageOptions: {
       parserOptions: {
-        project: true,
         tsconfigRootDir: import.meta.dirname,
-        ecmaVersion: 'latest',
-      },
+        ecmaVersion: 'latest'
+      }
     },
     rules: {
-      semi: [2, 'never'],
-    },
+      semi: [2, 'never']
+    }
   },
   {
     files: ['**/*.js'],
-    ...tseslint.configs.disableTypeChecked,
-  },
+    ...tseslint.configs.disableTypeChecked
+  }
 )
