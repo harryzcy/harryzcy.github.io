@@ -290,10 +290,10 @@
           >
             <picture class="h-6 w-6">
               <source
-                srcset="./icons/github-mark-white.svg"
+                :srcset="githubIconDarkUrl"
                 media="(prefers-color-scheme: dark)"
               />
-              <img src="./icons/github-mark.svg" alt="github" />
+              <img :src="githubIconUrl" alt="github" />
             </picture>
           </a>
         </div>
@@ -313,6 +313,12 @@ import FilterList from './components/FilterList.vue'
 import FilterMenu from './components/FilterMenu.vue'
 import SortMenu from './components/SortMenu.vue'
 import allProjects from './projects.yaml'
+
+const githubIconUrl = new URL('./icons/github-mark.svg', import.meta.url).href
+const githubIconDarkUrl = new URL(
+  './icons/github-mark-white.svg',
+  import.meta.url
+).href
 
 const showSearchPanel = ref(false)
 
