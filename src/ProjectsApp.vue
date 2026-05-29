@@ -292,10 +292,10 @@
           >
             <picture class="h-6 w-6">
               <source
-                srcset="./icons/github-mark-white.svg"
+                srcset="@/icons/github-mark-white.svg"
                 media="(prefers-color-scheme: dark)"
               />
-              <img src="./icons/github-mark.svg" alt="github" />
+              <img src="@/icons/github-mark.svg" alt="github" />
             </picture>
           </a>
         </div>
