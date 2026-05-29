@@ -3,9 +3,7 @@
   <header
     class="sticky top-0 z-50 w-full flex-none border-b border-transparent bg-teal-700/80 font-mono text-white backdrop-blur-xs dark:border-neutral-700 dark:bg-neutral-900/90 dark:text-teal-500"
   >
-    <nav
-      class="m-auto flex max-w-[800px] items-center justify-between text-right"
-    >
+    <nav class="m-auto flex max-w-200 items-center justify-between text-right">
       <a href="/" class="px-4 py-4" aria-label="Go to about page">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -36,7 +34,7 @@
   >
     <div>
       <section
-        class="m-auto mt-4 flex max-w-[800px] flex-col px-4 md:flex-row md:pt-5"
+        class="m-auto mt-4 flex max-w-200 flex-col px-4 md:flex-row md:pt-5"
       >
         <h1 class="mb-3 grow text-2xl font-light dark:text-neutral-50">
           Projects
@@ -142,7 +140,7 @@
       <section
         v-for="year in years"
         :key="year"
-        class="m-auto mt-4 max-w-[800px] px-4 md:mt-6"
+        class="m-auto mt-4 max-w-200 px-4 md:mt-6"
       >
         <h2
           v-if="year !== 0"
@@ -283,7 +281,7 @@
       class="relative w-full flex-none border-t border-transparent bg-teal-900/20 font-mono text-slate-900 dark:border-neutral-700 dark:bg-neutral-900 dark:text-teal-500"
     >
       <div
-        class="m-auto flex max-w-[800px] items-center justify-start py-2 text-right md:py-4"
+        class="m-auto flex max-w-200 items-center justify-start py-2 text-right md:py-4"
       >
         <div class="flex px-4">
           <a
