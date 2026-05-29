@@ -314,8 +314,8 @@ import FilterMenu from './components/FilterMenu.vue'
 import SortMenu from './components/SortMenu.vue'
 import allProjects from './projects.yaml'
 
-const githubIconUrl = './icon/github-mark.svg'
-const githubIconDarkUrl = './icon/github-mark-white.svg'
+const githubIconUrl = 'url:./icon/github-mark.svg'
+const githubIconDarkUrl = 'url:./icon/github-mark-white.svg'
 
 const showSearchPanel = ref(false)
 
