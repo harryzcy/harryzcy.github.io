@@ -314,9 +314,11 @@ import FilterMenu from './components/FilterMenu.vue'
 import SortMenu from './components/SortMenu.vue'
 import allProjects from './projects.yaml'
 
-const githubIconUrl = new URL('icon/github-mark.svg', import.meta.url).href
-const githubIconDarkUrl = new URL('icon/github-mark-white.svg', import.meta.url)
-  .href
+const githubIconUrl = new URL('./icons/github-mark.svg', import.meta.url).href
+const githubIconDarkUrl = new URL(
+  './icons/github-mark-white.svg',
+  import.meta.url
+).href
 
 const showSearchPanel = ref(false)
 
