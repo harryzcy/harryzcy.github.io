@@ -216,7 +216,31 @@
             </span>
           </div>
 
-          <p v-html="renderDescription(project.description)"></p>
+          <p>
+            <span
+              v-for="(part, index) in parseDescription(project.description)"
+              :key="index"
+            >
+              <template v-if="part.type === 'text'">
+                {{ part.text }}
+              </template>
+              <template v-else-if="part.type === 'link'">
+                <a
+                  class="font-medium text-teal-700 underline decoration-teal-600/30 decoration-2 underline-offset-2 hover:decoration-teal-700/40 dark:text-teal-400 dark:decoration-teal-300/30 dark:hover:decoration-teal-200/40"
+                  style="
+                    text-decoration-skip-ink: none;
+                    text-decoration-skip: none;
+                  "
+                  :href="part.url"
+                >
+                  {{ part.text }}
+                </a>
+              </template>
+              <template v-else-if="part.type === 'bold'">
+                <span class="font-bold">{{ part.text }}</span>
+              </template>
+            </span>
+          </p>
         </div>
       </section>
     </div>
@@ -353,16 +377,82 @@ const getProjectsByYear = (projects: Project[]) => {
   return projectsByYear
 }
 
-const renderDescription = (description: string) => {
-  return description
-    .replace(/\[(.*?)\]\((.*?)\)/g, (_, text: string, url: string) => {
-      return `<a class="font-medium text-teal-700 underline decoration-teal-600/30 decoration-2 underline-offset-2 hover:decoration-teal-700/40 dark:text-teal-400 dark:decoration-teal-300/30 dark:hover:decoration-teal-200/40"
-              style="text-decoration-skip-ink: none; text-decoration-skip: none;"
-              href="${url}">${text}</a>`
+type DescriptionPart =
+  | {
+      type: 'text'
+      text: string
+    }
+  | {
+      type: 'link'
+      text: string
+      url: string
+    }
+  | {
+      type: 'bold'
+      text: string
+    }
+
+type DescriptionRegexMatch =
+  | {
+      index: number
+      length: number
+      type: 'link'
+      text: string
+      url: string
+    }
+  | {
+      index: number
+      length: number
+      type: 'bold'
+      text: string
+    }
+
+const parseDescription = (description: string): DescriptionPart[] => {
+  // Match both markdown links and bold text using a single regex
+  const combinedRegex = /\[(.*?)\]\((.*?)\)|\*\*(.*?)\*\*/g
+  const matches: DescriptionRegexMatch[] = []
+  let array: RegExpExecArray | null
+  while ((array = combinedRegex.exec(description)) !== null) {
+    const matchType = array[1] ? 'link' : 'bold'
+    const text = array[1] || array[3]
+    matches.push({
+      index: array.index,
+      length: array[0].length,
+      type: matchType,
+      text: text,
+      url: array[2]
     })
-    .replace(/\*\*(.*?)\*\*/g, (_, text: string) => {
-      return `<span class="font-bold">${text}</span>`
+  }
+  if (matches.length === 0) {
+    return [{ type: 'text', text: description }]
+  }
+  const result: DescriptionPart[] = []
+  let lastIndex = 0
+  matches.forEach((match) => {
+    result.push({
+      type: 'text',
+      text: description.slice(lastIndex, match.index)
     })
+    if (match.type === 'link') {
+      result.push({
+        type: 'link',
+        text: match.text,
+        url: match.url
+      })
+    } else {
+      // match.type === 'bold'
+      result.push({
+        type: 'bold',
+        text: match.text
+      })
+    }
+    lastIndex = match.index + match.length
+  })
+  result.push({
+    type: 'text',
+    text: description.slice(lastIndex)
+  })
+  return result
 }
 
 const allStatuses = getStatus(allProjects)
