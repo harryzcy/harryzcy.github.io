@@ -410,25 +410,25 @@ type DescriptionRegexMatch =
 const parseDescription = (description: string): DescriptionPart[] => {
   // Match both markdown links and bold text using a single regex
   const combinedRegex = /\[(.*?)\]\((.*?)\)|\*\*(.*?)\*\*/g
-  const indexes: DescriptionRegexMatch[] = []
-  let match: RegExpExecArray | null
-  while ((match = combinedRegex.exec(description)) !== null) {
-    const matchType = match[1] ? 'link' : 'bold'
-    const text = match[1] || match[3]
-    indexes.push({
-      index: match.index,
-      length: match[0].length,
+  const matches: DescriptionRegexMatch[] = []
+  let array: RegExpExecArray | null
+  while ((array = combinedRegex.exec(description)) !== null) {
+    const matchType = array[1] ? 'link' : 'bold'
+    const text = array[1] || array[3]
+    matches.push({
+      index: array.index,
+      length: array[0].length,
       type: matchType,
       text: text,
-      url: match[2]
+      url: array[2]
     })
   }
-  if (indexes.length === 0) {
+  if (matches.length === 0) {
     return [{ type: 'text', text: description }]
   }
   const result: DescriptionPart[] = []
   let lastIndex = 0
-  indexes.forEach((match) => {
+  matches.forEach((match) => {
     result.push({
       type: 'text',
       text: description.slice(lastIndex, match.index)
