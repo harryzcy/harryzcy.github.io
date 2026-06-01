@@ -218,7 +218,7 @@
 
           <p>
             <span
-              v-for="(part, index) in renderDescription(project.description)"
+              v-for="(part, index) in parseDescription(project.description)"
               :key="index"
             >
               <template v-if="part.type === 'text'">
@@ -407,7 +407,7 @@ type DescriptionRegexMatch =
       text: string
     }
 
-const renderDescription = (description: string): DescriptionPart[] => {
+const parseDescription = (description: string): DescriptionPart[] => {
   // Match both markdown links and bold text using a single regex
   const combinedRegex = /\[(.*?)\]\((.*?)\)|\*\*(.*?)\*\*/g
   const indexes: DescriptionRegexMatch[] = []
