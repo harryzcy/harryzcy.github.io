@@ -212,7 +212,7 @@
     It is a simple calculator made in Rust in collaboration with [Eric Schneider](https://eric-unc.tech/).
     I made the "backend" (parser/evaluator) and the web interface using WASM.
     Eric made the GUI that runs as a native app.
-    The simple CLI version is also supported. The web version can be viewed [here](https://eric-unc.tech/hacknc2021).'
+    The simple CLI version is also supported. The web version can be viewed [here](https://eric-unc.tech/hacknc2021).
 
 - name: Limp
   full_name: Lisp-like language
