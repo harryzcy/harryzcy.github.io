@@ -331,7 +331,7 @@
 
 <script setup lang="ts">
 import { CubeIcon, CubeTransparentIcon } from '@heroicons/vue/24/outline'
-import { computed, h, ref } from 'vue'
+import { computed, ref } from 'vue'
 
 import FilterList from './components/FilterList.vue'
 import FilterMenu from './components/FilterMenu.vue'
