@@ -216,7 +216,31 @@
             </span>
           </div>
 
-          <p v-html="renderDescription(project.description)"></p>
+          <p>
+            <span
+              v-for="(part, index) in renderDescription(project.description)"
+              :key="index"
+            >
+              <template v-if="part.type === 'text'">
+                {{ part.text }}
+              </template>
+              <template v-else-if="part.type === 'link'">
+                <a
+                  class="font-medium text-teal-700 underline decoration-teal-600/30 decoration-2 underline-offset-2 hover:decoration-teal-700/40 dark:text-teal-400 dark:decoration-teal-300/30 dark:hover:decoration-teal-200/40"
+                  style="
+                    text-decoration-skip-ink: none;
+                    text-decoration-skip: none;
+                  "
+                  :href="part.url"
+                >
+                  {{ part.text }}
+                </a>
+              </template>
+              <template v-else-if="part.type === 'bold'">
+                <span class="font-bold">{{ part.text }}</span>
+              </template>
+            </span>
+          </p>
         </div>
       </section>
     </div>
@@ -307,7 +331,7 @@
 
 <script setup lang="ts">
 import { CubeIcon, CubeTransparentIcon } from '@heroicons/vue/24/outline'
-import { computed, ref } from 'vue'
+import { computed, h, ref } from 'vue'
 
 import FilterList from './components/FilterList.vue'
 import FilterMenu from './components/FilterMenu.vue'
@@ -353,21 +377,27 @@ const getProjectsByYear = (projects: Project[]) => {
   return projectsByYear
 }
 
-const renderDescription = (description: string) => {
+type DescriptionPart =
+  | {
+      type: 'text'
+      text: string
+    }
+  | {
+      type: 'link'
+      text: string
+      url: string
+    }
+  | {
+      type: 'bold'
+      text: string
+    }
+
+const renderDescription = (description: string): DescriptionPart[] => {
   // Match both markdown links and bold text using a single regex
   const combinedRegex = /\[(.*?)\]\((.*?)\)|\*\*(.*?)\*\*/g
   const indexes = []
   let match
   while ((match = combinedRegex.exec(description)) !== null) {
-    console.log('Matched:', match[0])
-    console.log(
-      'Link text:',
-      match[1],
-      'URL:',
-      match[2],
-      'Bold text:',
-      match[3]
-    )
     const matchType = match[1] ? 'link' : 'bold'
     const text = match[1] || match[3]
     indexes.push({
@@ -379,25 +409,34 @@ const renderDescription = (description: string) => {
     })
   }
   if (indexes.length === 0) {
-    return description
+    return [{ type: 'text', text: description }]
   }
-  const result = []
+  const result: DescriptionPart[] = []
   let lastIndex = 0
   indexes.forEach(({ index, length, type, text, url }) => {
-    result.push(description.slice(lastIndex, index))
+    result.push({
+      type: 'text',
+      text: description.slice(lastIndex, index)
+    })
     if (type === 'link') {
-      result.push(
-        `<a class="font-medium text-teal-700 underline decoration-teal-600/30 decoration-2 underline-offset-2 hover:decoration-teal-700/40 dark:text-teal-400 dark:decoration-teal-300/30 dark:hover:decoration-teal-200/40"
-              style="text-decoration-skip-ink: none; text-decoration-skip: none;"
-              href="${url}">${text}</a>`
-      )
+      result.push({
+        type: 'link',
+        text: text,
+        url: url
+      })
     } else if (type === 'bold') {
-      result.push(`<span class="font-bold">${text}</span>`)
+      result.push({
+        type: 'bold',
+        text: text
+      })
     }
     lastIndex = index + length
   })
-  result.push(description.slice(lastIndex))
-  return result.join('')
+  result.push({
+    type: 'text',
+    text: description.slice(lastIndex)
+  })
+  return result
 }
 
 const allStatuses = getStatus(allProjects)
