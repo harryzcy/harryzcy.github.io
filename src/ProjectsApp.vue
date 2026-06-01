@@ -354,15 +354,50 @@ const getProjectsByYear = (projects: Project[]) => {
 }
 
 const renderDescription = (description: string) => {
-  return description
-    .replace(/\[(.*?)\]\((.*?)\)/g, (_, text: string, url: string) => {
-      return `<a class="font-medium text-teal-700 underline decoration-teal-600/30 decoration-2 underline-offset-2 hover:decoration-teal-700/40 dark:text-teal-400 dark:decoration-teal-300/30 dark:hover:decoration-teal-200/40"
+  // Match both markdown links and bold text using a single regex
+  const combinedRegex = /\[(.*?)\]\((.*?)\)|\*\*(.*?)\*\*/g
+  const indexes = []
+  let match
+  while ((match = combinedRegex.exec(description)) !== null) {
+    console.log('Matched:', match[0])
+    console.log(
+      'Link text:',
+      match[1],
+      'URL:',
+      match[2],
+      'Bold text:',
+      match[3]
+    )
+    const matchType = match[1] ? 'link' : 'bold'
+    const text = match[1] || match[3]
+    indexes.push({
+      index: match.index,
+      length: match[0].length,
+      type: matchType,
+      text: text,
+      url: match[2]
+    })
+  }
+  if (indexes.length === 0) {
+    return description
+  }
+  const result = []
+  let lastIndex = 0
+  indexes.forEach(({ index, length, type, text, url }) => {
+    result.push(description.slice(lastIndex, index))
+    if (type === 'link') {
+      result.push(
+        `<a class="font-medium text-teal-700 underline decoration-teal-600/30 decoration-2 underline-offset-2 hover:decoration-teal-700/40 dark:text-teal-400 dark:decoration-teal-300/30 dark:hover:decoration-teal-200/40"
               style="text-decoration-skip-ink: none; text-decoration-skip: none;"
               href="${url}">${text}</a>`
-    })
-    .replace(/\*\*(.*?)\*\*/g, (_, text: string) => {
-      return `<span class="font-bold">${text}</span>`
-    })
+      )
+    } else if (type === 'bold') {
+      result.push(`<span class="font-bold">${text}</span>`)
+    }
+    lastIndex = index + length
+  })
+  result.push(description.slice(lastIndex))
+  return result.join('')
 }
 
 const allStatuses = getStatus(allProjects)
