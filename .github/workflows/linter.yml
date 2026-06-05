@@ -12,19 +12,19 @@ permissions:
 jobs:
   super-linter:
     name: Super Linter
-    uses: harryzcy/github-actions/.github/workflows/linter.yml@d93d9917fa745a4996d968874c2bd88bbd8239fe # main
+    uses: harryzcy/github-actions/.github/workflows/linter.yml@88f6d74880d1878315508426dde7a8aaf6cb3d88 # main
 
   prettier:
     name: Prettier
-    uses: harryzcy/github-actions/.github/workflows/prettier.yml@d93d9917fa745a4996d968874c2bd88bbd8239fe # main
+    uses: harryzcy/github-actions/.github/workflows/prettier.yml@88f6d74880d1878315508426dde7a8aaf6cb3d88 # main
   
   eslint:
     name: ESLint
-    uses: harryzcy/github-actions/.github/workflows/npm-lint.yml@d93d9917fa745a4996d968874c2bd88bbd8239fe # main
+    uses: harryzcy/github-actions/.github/workflows/npm-lint.yml@88f6d74880d1878315508426dde7a8aaf6cb3d88 # main
 
   spelling:
     name: Spelling
-    uses: harryzcy/github-actions/.github/workflows/spelling.yml@d93d9917fa745a4996d968874c2bd88bbd8239fe # main
+    uses: harryzcy/github-actions/.github/workflows/spelling.yml@88f6d74880d1878315508426dde7a8aaf6cb3d88 # main
 
   project-yaml:
     name: Project YAML Check
