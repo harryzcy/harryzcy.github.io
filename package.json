@@ -41,7 +41,7 @@
     "eslint-plugin-prettier": "5.5.6",
     "eslint-plugin-vue": "10.9.2",
     "parcel": "2.16.4",
-    "postcss": "8.5.17",
+    "postcss": "8.5.18",
     "postcss-import": "16.1.1",
     "prettier": "3.9.5",
     "prettier-plugin-tailwindcss": "0.8.0",
