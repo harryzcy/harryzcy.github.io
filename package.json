@@ -44,7 +44,7 @@
     "postcss": "8.5.19",
     "postcss-import": "16.1.1",
     "prettier": "3.9.5",
-    "prettier-plugin-tailwindcss": "0.8.0",
+    "prettier-plugin-tailwindcss": "0.8.1",
     "process": "0.11.10",
     "typescript": "6.0.3",
     "vue-tsc": "3.3.7"
