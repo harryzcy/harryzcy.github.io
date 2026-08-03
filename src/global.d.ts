@@ -15,3 +15,7 @@ declare module '*.yaml' {
   const value: Project[]
   export default value
 }
+
+// Vue build-time feature flags, set in projects.ts
+declare var __VUE_OPTIONS_API__: boolean
+declare var __VUE_PROD_DEVTOOLS__: boolean

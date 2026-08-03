@@ -408,7 +408,7 @@ type DescriptionRegexMatch =
 
 const parseDescription = (description: string): DescriptionPart[] => {
   // Match both markdown links and bold text using a single regex
-  const combinedRegex = /\[(.*?)\]\((.*?)\)|\*\*(.*?)\*\*/g
+  const combinedRegex = /\[(.*?)\]\((.*?)\)|\*\*(.*?)\*\*/gu
   const matches: DescriptionRegexMatch[] = []
   let array: RegExpExecArray | null
   while ((array = combinedRegex.exec(description)) !== null) {

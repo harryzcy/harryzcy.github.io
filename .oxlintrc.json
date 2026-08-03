@@ -8,7 +8,13 @@
     "correctness": "error",
     "suspicious": "warn",
     "perf": "error",
-    "pedantic": "warn"
+    "pedantic": "error"
+  },
+  "rules": {
+    "no-underscore-dangle": [
+      "error",
+      { "allow": ["__VUE_OPTIONS_API__", "__VUE_PROD_DEVTOOLS__"] }
+    ]
   },
   "env": {
     "browser": true,
