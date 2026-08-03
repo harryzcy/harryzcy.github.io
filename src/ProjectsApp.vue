@@ -346,7 +346,7 @@ const githubIconDarkUrl = new URL(
 const showSearchPanel = ref(false)
 
 const sortByCreatedAt = (projects: Project[]) => {
-  return projects.sort((a, b) => {
+  return projects.toSorted((a, b) => {
     return a.created_at > b.created_at ? -1 : 1
   })
 }
@@ -354,15 +354,17 @@ const sortByCreatedAt = (projects: Project[]) => {
 const getYears = (projects: Project[]) => {
   return Array.from(
     new Set(projects.map((project) => project.start_year))
-  ).sort((a, b) => b - a)
+  ).toSorted((a, b) => b - a)
 }
 
 const getStatus = (projects: Project[]) => {
-  return Array.from(new Set(projects.map((project) => project.status))).sort()
+  return Array.from(
+    new Set(projects.map((project) => project.status))
+  ).toSorted()
 }
 
 const getLanguages = (projects: Project[]) => {
-  return Array.from(new Set(projects.map((project) => project.lang))).sort()
+  return Array.from(new Set(projects.map((project) => project.lang))).toSorted()
 }
 
 const getProjectsByYear = (projects: Project[]) => {
@@ -495,7 +497,7 @@ const projects = computed(() => {
 
   let projects = activeProjects.value
   if (activeSortOption.value === sorts.project_name) {
-    projects = projects.sort((a, b) => a.name.localeCompare(b.name))
+    projects = projects.toSorted((a, b) => a.name.localeCompare(b.name))
   }
 
   return { 0: projects }
