@@ -16,7 +16,7 @@
     "prettier": "prettier src --write",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "browserslist": "> 0.5%, last 2 versions, not dead, not chrome < 110",
   "source": [
     "src/index.html",
     "src/projects.html"
