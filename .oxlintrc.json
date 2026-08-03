@@ -1,0 +1,24 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript", "unicorn", "oxc", "vue", "import", "promise"],
+  "options": {
+    "typeAware": true
+  },
+  "categories": {
+    "correctness": "error",
+    "suspicious": "error",
+    "perf": "error",
+    "pedantic": "error"
+  },
+  "rules": {
+    "no-underscore-dangle": [
+      "error",
+      { "allow": ["__VUE_OPTIONS_API__", "__VUE_PROD_DEVTOOLS__"] }
+    ]
+  },
+  "env": {
+    "browser": true,
+    "es2026": true
+  },
+  "ignorePatterns": ["dist/", "node_modules/", "**/*.d.ts"]
+}
