@@ -18,8 +18,8 @@ jobs:
     name: Prettier
     uses: harryzcy/github-actions/.github/workflows/prettier.yml@13a4c40f9699ea2915746978b58bb42160f771b6 # main
   
-  eslint:
-    name: ESLint
+  oxlint:
+    name: Oxlint
     uses: harryzcy/github-actions/.github/workflows/npm-lint.yml@13a4c40f9699ea2915746978b58bb42160f771b6 # main
 
   spelling:

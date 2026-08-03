@@ -1,6 +1,9 @@
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
   "plugins": ["typescript", "unicorn", "oxc", "vue", "import", "promise"],
+  "options": {
+    "typeAware": true
+  },
   "categories": {
     "correctness": "error",
     "suspicious": "warn",
@@ -9,7 +12,7 @@
   },
   "env": {
     "browser": true,
-    "es2024": true
+    "es2026": true
   },
   "ignorePatterns": ["dist/", "node_modules/", "**/*.d.ts"]
 }
