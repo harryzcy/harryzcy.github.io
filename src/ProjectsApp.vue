@@ -495,12 +495,14 @@ const projects = computed(() => {
     return getProjectsByYear(activeProjects.value)
   }
 
-  let projects = activeProjects.value
+  let sortedProjects = activeProjects.value
   if (activeSortOption.value === sorts.project_name) {
-    projects = projects.toSorted((a, b) => a.name.localeCompare(b.name))
+    sortedProjects = sortedProjects.toSorted((a, b) =>
+      a.name.localeCompare(b.name)
+    )
   }
 
-  return { 0: projects }
+  return { 0: sortedProjects }
 })
 
 // years are the years of the project if the sort option is start_year,
