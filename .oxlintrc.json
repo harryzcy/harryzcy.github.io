@@ -7,7 +7,7 @@
   "categories": {
     "correctness": "error",
     "suspicious": "warn",
-    "perf": "warn",
+    "perf": "error",
     "pedantic": "warn"
   },
   "env": {
