@@ -54,7 +54,7 @@
   status: Deployed
   lang: TypeScript
   lang_class: ts
-  release_num: 39
+  release_num: 40
   description: >-
     Mailbox Browser is a web application serving as a frontend for [Mailbox](https://github.com/harryzcy/mailbox).
 
@@ -154,7 +154,7 @@
   status: Completed
   lang: TypeScript
   lang_class: ts
-  release_num: 16
+  release_num: 17
   description: >-
     It is a GitHub Action workflow program and allows GitHub Actions to push iOS notifications via
     [Bark](https://github.com/Finb/bark-server),
