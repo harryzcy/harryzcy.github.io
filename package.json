@@ -35,7 +35,7 @@
     "@parcel/transformer-webmanifest": "2.16.4",
     "@parcel/transformer-yaml": "2.16.4",
     "@trivago/prettier-plugin-sort-imports": "6.0.2",
-    "autoprefixer": "10.6.0",
+    "autoprefixer": "10.6.1",
     "oxlint": "1.83.0",
     "oxlint-tsgolint": "7.0.2001",
     "parcel": "2.16.4",
