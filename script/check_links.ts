@@ -8,7 +8,14 @@ const SOURCE_DIRS = ['src', 'cloudflare']
 
 // Extensions that can carry a link. Notably absent: the icons, and
 // cloudflare/_headers, whose host patterns are not links.
-const SOURCE_EXTENSIONS = ['.html', '.vue', '.ts', '.yaml', '.xml', '.txt']
+const SOURCE_EXTENSIONS = new Set([
+  '.html',
+  '.vue',
+  '.ts',
+  '.yaml',
+  '.xml',
+  '.txt'
+])
 
 // Site paths that are served by a page rather than a file on disk.
 const ROUTES = new Map([
@@ -17,8 +24,8 @@ const ROUTES = new Map([
 ])
 
 interface Link {
-  url: string
-  file: string
+  readonly url: string
+  readonly file: string
 }
 
 type Status = { ok: true; status: number } | { ok: false; status: string }
@@ -30,27 +37,27 @@ const sourceFiles = (): string[] =>
       .map((entry) => path.join(dir, entry))
       .filter(
         (file) =>
-          SOURCE_EXTENSIONS.includes(path.extname(file)) &&
+          SOURCE_EXTENSIONS.has(path.extname(file)) &&
           fs.statSync(file).isFile()
       )
-  ).sort()
+  ).toSorted()
 
 const collect = (): Link[] => {
   const links: Link[] = []
   for (const file of sourceFiles()) {
     let content = fs.readFileSync(file, 'utf8')
     // xmlns values are namespace identifiers, not links to fetch.
-    content = content.replace(/xmlns(:[a-zA-Z0-9-]+)?="[^"]*"/g, '')
+    content = content.replaceAll(/xmlns(:[a-zA-Z0-9-]+)?="[^"]*"/gu, '')
     // Commented-out YAML entries are not on the site.
     if (file.endsWith('.yaml')) {
-      content = content.replace(/^\s*#.*$/gm, '')
+      content = content.replaceAll(/^\s*#.*$/gmu, '')
     }
 
-    for (const [match] of content.matchAll(/https?:\/\/[^\s"'<>()\][]+/g)) {
-      links.push({ url: match.replace(/[.,;:]+$/, ''), file })
+    for (const [match] of content.matchAll(/https?:\/\/[^\s"'<>()\][]+/gu)) {
+      links.push({ url: match.replace(/[.,;:]+$/u, ''), file })
     }
     // Relative and site-root hrefs only appear in markup.
-    for (const [, href] of content.matchAll(/\shref="(\.?\/[^"]*)"/g)) {
+    for (const [, href] of content.matchAll(/\shref="(\.?\/[^"]*)"/gu)) {
       links.push({ url: href, file })
     }
   }
@@ -66,16 +73,16 @@ const resolveInternal = (url: string, file: string): string => {
   if (url.startsWith(SITE_ORIGIN)) {
     pathname = new URL(url).pathname
   } else if (url.startsWith('./')) {
-    pathname = '/' + path.join(path.dirname(file).replace(/^src\/?/, ''), url)
+    pathname = '/' + path.join(path.dirname(file).replace(/^src\/?/u, ''), url)
   } else {
     pathname = url
   }
-  pathname = pathname.replace(/\/{2,}/g, '/')
+  pathname = pathname.replaceAll(/\/{2,}/gu, '/')
 
   return ROUTES.get(pathname) ?? path.join('src', pathname)
 }
 
-const checkInternal = (links: Link[]): string[] => {
+const checkInternal = (links: readonly Link[]): string[] => {
   const failures: string[] = []
   for (const { url, file } of links) {
     const target = resolveInternal(url, file)
@@ -89,44 +96,56 @@ const checkInternal = (links: Link[]): string[] => {
   return failures
 }
 
-const fetchStatus = async (url: string): Promise<Status> => {
-  let last: Status = { ok: false, status: 'no response' }
-  // Some hosts reject HEAD outright, so fall back to GET before failing.
-  for (const method of ['HEAD', 'GET']) {
-    try {
-      const response = await fetch(url, {
-        method,
-        redirect: 'follow',
-        headers: {
-          'user-agent':
-            'Mozilla/5.0 (compatible; zcy.dev-link-check/1.0; +https://zcy.dev/)',
-          accept: '*/*'
-        },
-        signal: AbortSignal.timeout(20000)
-      })
-      if (response.ok) return { ok: true, status: response.status }
-      last = { ok: false, status: String(response.status) }
-    } catch (error) {
-      last = { ok: false, status: (error as Error).message }
+const attempt = async (url: string, method: string): Promise<Status> => {
+  try {
+    const response = await fetch(url, {
+      method,
+      redirect: 'follow',
+      headers: {
+        'user-agent':
+          'Mozilla/5.0 (compatible; zcy.dev-link-check/1.0; +https://zcy.dev/)',
+        accept: '*/*'
+      },
+      signal: AbortSignal.timeout(20000)
+    })
+    return response.ok
+      ? { ok: true, status: response.status }
+      : { ok: false, status: String(response.status) }
+  } catch (error) {
+    return {
+      ok: false,
+      status: error instanceof Error ? error.message : String(error)
     }
   }
-  return last
 }
 
-const checkExternal = async (links: Link[]): Promise<string[]> => {
+const fetchStatus = async (url: string): Promise<Status> => {
+  const head = await attempt(url, 'HEAD')
+  // Some hosts reject HEAD outright, so fall back to GET before failing.
+  return head.ok ? head : attempt(url, 'GET')
+}
+
+const checkExternal = async (links: readonly Link[]): Promise<string[]> => {
   const sources = new Map<string, string>()
   for (const { url, file } of links) {
     sources.set(url, file)
   }
 
+  const checkOne = async (url: string): Promise<Status> => {
+    const first = await fetchStatus(url)
+    // One retry, since a single timeout is usually the network, not the link.
+    return first.ok ? first : fetchStatus(url)
+  }
+
   const failures: string[] = []
-  const queue = [...sources.keys()].sort()
+  const queue = [...sources.keys()].toSorted()
   const worker = async (): Promise<void> => {
     let url: string | undefined
     while ((url = queue.shift()) !== undefined) {
-      // One retry, since a single timeout is usually the network, not the link.
-      let result = await fetchStatus(url)
-      if (!result.ok) result = await fetchStatus(url)
+      // Draining a shared queue is what bounds concurrency here, so these
+      // awaits have to run one after another within each worker.
+      // eslint-disable-next-line no-await-in-loop
+      const result = await checkOne(url)
 
       if (result.ok) {
         console.log(`${url} ${result.status} ✅`)
@@ -140,7 +159,9 @@ const checkExternal = async (links: Link[]): Promise<string[]> => {
   return failures
 }
 
-const run = async ({ external = false } = {}): Promise<void> => {
+const run = async ({
+  external = false
+}: { readonly external?: boolean } = {}): Promise<void> => {
   const links = collect()
   const internalLinks = links.filter(({ url }) => isInternal(url))
   const externalLinks = links.filter(({ url }) => !isInternal(url))
