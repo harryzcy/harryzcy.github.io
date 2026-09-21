@@ -1,7 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 
-const SITE_ORIGIN = 'https://zcy.dev'
+const SITE_HOST = 'zcy.dev'
 
 // Directories holding anything that ends up on the site.
 const SOURCE_DIRS = ['src', 'cloudflare']
@@ -64,14 +64,26 @@ const collect = (): Link[] => {
   return links
 }
 
+// Parsed, so the host is compared exactly
+const asSiteUrl = (url: string): URL | undefined => {
+  let parsed: URL
+  try {
+    parsed = new URL(url)
+  } catch {
+    return undefined
+  }
+  return parsed.host === SITE_HOST ? parsed : undefined
+}
+
 const isInternal = (url: string): boolean =>
-  url.startsWith('/') || url.startsWith('./') || url.startsWith(SITE_ORIGIN)
+  url.startsWith('/') || url.startsWith('./') || asSiteUrl(url) !== undefined
 
 // Map an internal link to the source file that has to exist for it to resolve.
 const resolveInternal = (url: string, file: string): string => {
+  const site = asSiteUrl(url)
   let pathname: string
-  if (url.startsWith(SITE_ORIGIN)) {
-    pathname = new URL(url).pathname
+  if (site !== undefined) {
+    pathname = site.pathname
   } else if (url.startsWith('./')) {
     pathname = '/' + path.join(path.dirname(file).replace(/^src\/?/u, ''), url)
   } else {
