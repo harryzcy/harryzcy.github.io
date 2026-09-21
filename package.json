@@ -40,7 +40,7 @@
     "@types/node": "24.13.5",
     "autoprefixer": "10.6.1",
     "oxlint": "1.83.0",
-    "oxlint-tsgolint": "7.0.2001",
+    "oxlint-tsgolint": "7.0.2002",
     "parcel": "2.16.4",
     "postcss": "8.5.28",
     "postcss-import": "17.0.0",
