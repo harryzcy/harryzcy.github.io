@@ -3,6 +3,9 @@ import path from 'node:path'
 
 const SITE_HOST = 'zcy.dev'
 
+const USER_AGENT =
+  'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36'
+
 // Directories holding anything that ends up on the site.
 const SOURCE_DIRS = ['src', 'cloudflare']
 
@@ -114,8 +117,7 @@ const attempt = async (url: string, method: string): Promise<Status> => {
       method,
       redirect: 'follow',
       headers: {
-        'user-agent':
-          'Mozilla/5.0 (compatible; zcy.dev-link-check/1.0; +https://zcy.dev/)',
+        'user-agent': USER_AGENT,
         accept: '*/*'
       },
       signal: AbortSignal.timeout(20000)
