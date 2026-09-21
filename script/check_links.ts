@@ -1,5 +1,5 @@
-import fs from 'fs'
-import path from 'path'
+import fs from 'node:fs'
+import path from 'node:path'
 
 const SITE_ORIGIN = 'https://zcy.dev'
 
@@ -16,10 +16,17 @@ const ROUTES = new Map([
   ['/projects', 'src/projects.html']
 ])
 
-const sourceFiles = () =>
+interface Link {
+  url: string
+  file: string
+}
+
+type Status = { ok: true; status: number } | { ok: false; status: string }
+
+const sourceFiles = (): string[] =>
   SOURCE_DIRS.flatMap((dir) =>
     fs
-      .readdirSync(dir, { recursive: true })
+      .readdirSync(dir, { recursive: true, encoding: 'utf8' })
       .map((entry) => path.join(dir, entry))
       .filter(
         (file) =>
@@ -28,8 +35,8 @@ const sourceFiles = () =>
       )
   ).sort()
 
-const collect = () => {
-  const links = []
+const collect = (): Link[] => {
+  const links: Link[] = []
   for (const file of sourceFiles()) {
     let content = fs.readFileSync(file, 'utf8')
     // xmlns values are namespace identifiers, not links to fetch.
@@ -50,12 +57,12 @@ const collect = () => {
   return links
 }
 
-const isInternal = (url) =>
+const isInternal = (url: string): boolean =>
   url.startsWith('/') || url.startsWith('./') || url.startsWith(SITE_ORIGIN)
 
 // Map an internal link to the source file that has to exist for it to resolve.
-const resolveInternal = (url, file) => {
-  let pathname
+const resolveInternal = (url: string, file: string): string => {
+  let pathname: string
   if (url.startsWith(SITE_ORIGIN)) {
     pathname = new URL(url).pathname
   } else if (url.startsWith('./')) {
@@ -68,8 +75,8 @@ const resolveInternal = (url, file) => {
   return ROUTES.get(pathname) ?? path.join('src', pathname)
 }
 
-const checkInternal = (links) => {
-  const failures = []
+const checkInternal = (links: Link[]): string[] => {
+  const failures: string[] = []
   for (const { url, file } of links) {
     const target = resolveInternal(url, file)
     if (fs.existsSync(target)) {
@@ -82,7 +89,8 @@ const checkInternal = (links) => {
   return failures
 }
 
-const fetchStatus = async (url) => {
+const fetchStatus = async (url: string): Promise<Status> => {
+  let last: Status = { ok: false, status: 'no response' }
   // Some hosts reject HEAD outright, so fall back to GET before failing.
   for (const method of ['HEAD', 'GET']) {
     try {
@@ -97,24 +105,24 @@ const fetchStatus = async (url) => {
         signal: AbortSignal.timeout(20000)
       })
       if (response.ok) return { ok: true, status: response.status }
-      if (method === 'GET') return { ok: false, status: response.status }
+      last = { ok: false, status: String(response.status) }
     } catch (error) {
-      if (method === 'GET') return { ok: false, status: error.message }
+      last = { ok: false, status: (error as Error).message }
     }
   }
+  return last
 }
 
-const checkExternal = async (links) => {
-  const urls = [...new Set(links.map(({ url }) => url))].sort()
-  const sources = new Map()
+const checkExternal = async (links: Link[]): Promise<string[]> => {
+  const sources = new Map<string, string>()
   for (const { url, file } of links) {
     sources.set(url, file)
   }
 
-  const failures = []
-  const queue = [...urls]
-  const worker = async () => {
-    let url
+  const failures: string[] = []
+  const queue = [...sources.keys()].sort()
+  const worker = async (): Promise<void> => {
+    let url: string | undefined
     while ((url = queue.shift()) !== undefined) {
       // One retry, since a single timeout is usually the network, not the link.
       let result = await fetchStatus(url)
@@ -132,9 +140,8 @@ const checkExternal = async (links) => {
   return failures
 }
 
-const run = async ({ external = false } = {}) => {
+const run = async ({ external = false } = {}): Promise<void> => {
   const links = collect()
-
   const internalLinks = links.filter(({ url }) => isInternal(url))
   const externalLinks = links.filter(({ url }) => !isInternal(url))
 
@@ -162,4 +169,4 @@ if (import.meta.main) {
   await run({ external: process.argv.includes('--external') })
 }
 
-export default async (options) => run(options)
+export default run

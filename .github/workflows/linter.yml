@@ -57,6 +57,12 @@ jobs:
         with:
           node-version: 24
 
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Typecheck scripts
+        run: npm run check:script
+
       - name: Check links
         run: npm run check:links
 
