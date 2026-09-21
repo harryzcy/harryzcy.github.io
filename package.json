@@ -11,6 +11,7 @@
     "build:copy": "cp -R src/.well-known dist && cp src/projects.yaml dist && cp cloudflare/* dist",
     "analyze": "parcel build --reporter @parcel/reporter-bundle-analyzer",
     "check": "vue-tsc --noEmit",
+    "check:links": "node script/check_links.js",
     "lint": "oxlint src",
     "lint:fix": "oxlint --fix src",
     "prettier": "prettier src --write",
