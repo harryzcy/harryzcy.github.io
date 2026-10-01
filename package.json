@@ -39,7 +39,7 @@
     "@trivago/prettier-plugin-sort-imports": "6.0.2",
     "@types/node": "24.19.0",
     "autoprefixer": "10.6.1",
-    "oxlint": "1.85.0",
+    "oxlint": "1.86.0",
     "oxlint-tsgolint": "7.0.2003",
     "parcel": "2.16.4",
     "postcss": "8.5.28",
