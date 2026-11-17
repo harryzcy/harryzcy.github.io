@@ -42,7 +42,7 @@
     "oxlint": "1.93.0",
     "oxlint-tsgolint": "7.0.2007",
     "parcel": "2.16.4",
-    "postcss": "8.5.32",
+    "postcss": "8.5.33",
     "postcss-import": "17.0.1",
     "prettier": "3.10.1",
     "prettier-plugin-tailwindcss": "0.8.1",
